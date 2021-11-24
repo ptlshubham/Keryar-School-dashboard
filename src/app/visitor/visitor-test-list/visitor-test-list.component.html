@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-8">
+                    <h4 class="card-title">Select Test From List</h4>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown form-group">
+                        <button class="dropdown-toggle btn btn-round btn-block" type="button" name="dropdownMenuButton"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ selectedSubject }}
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <div class="dropdown-header">Select Subject</div>
+                            <div *ngFor="let sub of subjects">
+                                <a class="dropdown-item" (click)="selectSubjectList(sub.id)">{{
+                                    sub.subject
+                                    }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ml-md-auto">
+
+                    <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card card-plain">
+        <div class="card-body">
+            <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let s of visitorTestList; let i = index" (click)="studentTest(s)">
+                <div class="card card-stats" >
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-5 col-md-4">
+                                <div class="icon-big text-center icon-warning">
+                                    <i class="fa fa-university"></i>
+                                </div>
+                            </div>
+                            <div class="col-7 col-md-8">
+                                <div class="numbers">
+                                    <p class="card-title">{{ s.testname }}</p>
+                                    <p class="card-category">Total Marks: {{ s.totalmarks }}</p>
+                                    <p class="card-category">Total Minute: {{ s.totalminute }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer" (click)="studentTest(s)">
+                        <hr />
+                        <div class="stats"><i class="fa fa-arrow-right"></i> Start Test</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
