@@ -5,6 +5,7 @@ import { Std } from 'app/manage/standard/standard.model';
 import { Chapater } from 'app/manage/subject/chapater.model';
 import { Subject } from 'app/manage/subject/subject.model';
 import Swal from 'sweetalert2';
+import { Syllabus } from './syllabus.model';
 
 @Component({
   selector: 'app-primary',
@@ -41,6 +42,7 @@ export class PrimaryComponent implements OnInit {
 
   chapId: any;
   selectedChap: any;
+  public syllabusModel: Syllabus[] = [];
 
   constructor(
     private manageService: ManageService,
@@ -339,7 +341,6 @@ export class PrimaryComponent implements OnInit {
       }
     })
   }
-
 
 
   //--------------------------------------Syllabus Fuctionallity End Here---------------------------------------

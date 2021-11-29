@@ -1,4 +1,5 @@
 <div class="main-content">
+    <!------------------------------------------Header Start Here--------------------------------------------->
     <div class="card">
         <div class="card-header">
             <div class="row">
@@ -34,7 +35,8 @@
             </div>
         </div>
     </div>
-    <!------------------------------------------Standard Start Here----------------------------------------->
+    <!------------------------------------------Header End Here----------------------------------------------->
+    <!------------------------------------------Standard Start Here------------------------------------------->
     <div class="card" *ngIf="openStd">
         <div class="card-header">
             <div class="row">
@@ -154,9 +156,9 @@
             </div>
         </div>
     </div>
-    <!------------------------------------------Standard End Here----------------------------------------->
+    <!------------------------------------------Standard End Here--------------------------------------------->
 
-    <!------------------------------------------Subject Start Here----------------------------------------->
+    <!------------------------------------------Subject Start Here-------------------------------------------->
     <div class="card" *ngIf="openSubject">
         <div class="card-header">
             <div class="row">
@@ -575,8 +577,6 @@
         </div>
     </div>
 
-
-
     <!------------------------------------------Chapaters End Here------------------------------------------->
 
     <!------------------------------------------Syllabus Start Here------------------------------------------>
@@ -599,13 +599,6 @@
         <div class="card-body">
             <form class="form-horizontal" name="SyllabusForm" #SyllabusForm="ngForm">
                 <div class="row">
-                    <!-- <label class="col-sm-1 col-form-label">Selected Standard</label>
-                    <div class="col-sm-3">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="std" name="std" disabled required
-                                value="{{selectedStd}}" />
-                        </div>
-                    </div> -->
                     <div class="col-md-3">
                         <label class="col-form-label">Select Standard</label>
                         <div class="dropdown form-group">
@@ -662,18 +655,90 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <label class="col-form-label">Enter Title</label>
+                        <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
+                            <input type="text" class="form-control" id="videoTitle" name="videoTitle"
+                                [(ngModel)]="syllabusModel.videoTitle" placeholder="Enter Video Title" required value=""
+                                pattern="^[a-zA-Z0-9 ]+$" (focus)="focus = true" #videoTitle="ngModel" />
+                        </div>
+                        <div *ngIf="videoTitle.errors && (videoTitle.dirty || videoTitle.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="videoTitle.errors.required">
+                                Video Title is required
+                            </div>
+                            <div [hidden]="!videoTitle.errors('pattern')">
+                                Enter Only Characters and Numbers.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Enter Video Descripition</label>
+                        <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
+                            <input type="text" class="form-control" id="descripition" name="descripition"
+                                [(ngModel)]="syllabusModel.descripition" placeholder="Enter Video Descripition" required
+                                value="" pattern="^[a-zA-Z0-9 ]+$" (focus)="focus = true" #descripition="ngModel" />
+                        </div>
+                        <div *ngIf="descripition.errors && (descripition.dirty || descripition.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="descripition.errors.required">
+                                Video Descripition is required
+                            </div>
+                            <div [hidden]="!descripition.errors('pattern')">
+                                Enter Only Characters and Numbers.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Enter Time Duration</label>
+                        <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
+                            <input type="text" class="form-control" id="videoLength" name="videoLength"
+                                [(ngModel)]="syllabusModel.videoLength" placeholder="Enter Time Duration" required
+                                value="" pattern="^[a-zA-Z0-9 ]+$" (focus)="focus = true" #videoLength="ngModel" />
+                        </div>
+                        <div *ngIf="videoLength.errors && (videoLength.dirty || videoLength.touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="videoLength.errors.required">
+                                Time Duration is required
+                            </div>
+                            <div [hidden]="!videoLength.errors('pattern')">
+                                Enter Only Characters and Numbers.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Enter Video Link</label>
+                        <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
+                            <input type="text" class="form-control" id="link" name="link"
+                                [(ngModel)]="syllabusModel.link" placeholder="Paste Video Link Here" required value=""
+                                pattern="^[a-zA-Z0-9 ]+$" (focus)="focus = true" #link="ngModel" />
+                        </div>
+                        <div *ngIf="link.errors && (link.dirty || link.touched)" class="alert alert-danger">
+                            <div *ngIf="link.errors.required">
+                                Video Link is required
+                            </div>
+                            <div [hidden]="!link.errors('pattern')">
+                                Enter Only Characters and Numbers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
         <div class="card-footer">
             <div class="row">
                 <div class="ml-md-auto">
                     <button type="submit" class="btn btn-info btn-round"
-                        [disabled]="!SyllabusForm.form.valid || !selectedSub" (click)="saveChapatersList(add)">
+                        [disabled]="!SyllabusForm.form.valid || !selectedStd || !selectedSub || !selectedChap"
+                        (click)="saveChapatersList(add)">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    <!------------------------------------------Syllabus End Here------------------------------------------>
+
+    <!------------------------------------------Syllabus End Here-------------------------------------------->
 </div>
