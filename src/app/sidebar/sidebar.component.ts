@@ -38,6 +38,13 @@ export const ROUTES: RouteInfo[] = [
     roles: "Admin",
   },
   {
+    path: "/primary",
+    title: "Manage",
+    type: "link",
+    roles: "Admin",
+    icontype: "fa fa-tasks",
+  },
+  {
     path: "/manage",
     title: "Manage",
     type: "sub",
@@ -47,6 +54,7 @@ export const ROUTES: RouteInfo[] = [
     children: [
       { path: "std", title: "Add Stanadard", ab: "AS" },
       { path: "subject", title: "Add Subject", ab: "AS" },
+      { path: "syllabus", title: "Add Syllabus", ab: "AS" },
     ],
   },
   {

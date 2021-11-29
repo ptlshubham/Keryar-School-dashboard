@@ -141,7 +141,7 @@
           <label class="col-md-2 col-form-label">Email Id</label>
           <div class="col-md-4">
             <div class="form-group">
-                <input type="text" class="form-control" id="email" [(ngModel)]="registerModel.email" name="email"
+              <input type="text" class="form-control" id="email" [(ngModel)]="registerModel.email" name="email"
                 placeholder="Enter Email Id" required value=""
                 pattern="^[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]+$" (focus)="focus = true"
                 #email="ngModel" />
@@ -158,13 +158,14 @@
           <label class="col-md-2 col-form-label">Password</label>
           <div class="col-md-4">
             <div class="form-group">
-                <input type="password" class="form-control" id="password" [(ngModel)]="registerModel.password"
-                name="password" placeholder="Enter Password" required value="" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$"
-                (focus)="focus = true" #password="ngModel" />
+              <input type="password" class="form-control" id="password" [(ngModel)]="registerModel.password"
+                name="password" placeholder="Enter Password" required value=""
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$" (focus)="focus = true"
+                #password="ngModel" />
             </div>
             <div *ngIf="password.dirty || password.touched" class="alert alert-danger">
               <div *ngIf="password.errors.required">
-                password  is required
+                password is required
               </div>
               <div *ngIf="password.errors.pattern">
                 Enter at least one Uppercase and Lowercase Characters,Numbers and Special Characters.
@@ -193,9 +194,10 @@
           <label class="col-md-2 col-form-label">Select Subjects</label>
           <div class="col-md-4">
             <div style="border: 1px #dddddd solid !important">
-              <angular2-multiselect [data]="add.subdata" [data]="add.subdata" [(ngModel)]="add.subject" [settings]="dropdownSettings"
-                (onSelect)="onsubItemSelect($event,add)" (onDeSelect)="OnItemDeSelect($event)" name="subs"
-                (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+              <angular2-multiselect [data]="add.subdata" [data]="add.subdata" [(ngModel)]="add.subject"
+                [settings]="dropdownSettings" (onSelect)="onsubItemSelect($event,add)"
+                (onDeSelect)="OnItemDeSelect($event)" name="subs" (onDeSelectAll)="onDeSelectAll($event)">
+              </angular2-multiselect>
             </div>
 
           </div>
@@ -255,7 +257,7 @@
     <div class="modal-dialog modal-xl modal-notice">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close"  (click)="cancelupdateteacher()" data-dismiss="modal" aria-hidden="true">
+          <button type="button" class="close" (click)="cancelupdateteacher()" data-dismiss="modal" aria-hidden="true">
             <i class="nc-icon nc-simple-remove"></i>
           </button>
           <h5 class="modal-title" id="myModalLabel">Update Teacher</h5>
@@ -268,8 +270,8 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <input type="text" class="form-control" id="firstname" name="firstname"
-                      [(ngModel)]="editTeacher.firstname" required value=""
-                      pattern="^[a-zA-Z]+$" (focus)="focus = true" #firstname="ngModel"/>
+                      [(ngModel)]="editTeacher.firstname" required value="" pattern="^[a-zA-Z]+$" (focus)="focus = true"
+                      #firstname="ngModel" />
                   </div>
                   <div *ngIf="firstname.errors && (firstname.dirty || firstname.touched)" class="alert alert-danger">
                     <div *ngIf="firstname.errors.required">
@@ -284,8 +286,8 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <input type="text" class="form-control" id="lastname" name="lastname"
-                      [(ngModel)]="editTeacher.lastname" required value=""
-                      pattern="^[a-zA-Z]+$" (focus)="focus = true" #lastname="ngModel"/>
+                      [(ngModel)]="editTeacher.lastname" required value="" pattern="^[a-zA-Z]+$" (focus)="focus = true"
+                      #lastname="ngModel" />
                   </div>
                   <div *ngIf="lastname.errors && (lastname.dirty || lastname.touched)" class="alert alert-danger">
                     <div *ngIf="lastname.errors.required">
@@ -340,11 +342,11 @@
                 <label class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-4">
                   <div class="form-group">
-                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="editTeacher.email" required value=""
-                    pattern="^[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]+$" (focus)="focus = true"
-                    #email="ngModel"  />
+                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="editTeacher.email"
+                      required value="" pattern="^[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]+$"
+                      (focus)="focus = true" #email="ngModel" />
                   </div>
-                        
+
                   <div *ngIf="email.errors && (email.dirty || email.touched)" class="alert alert-danger">
                     <div *ngIf="email.errors.required">
                       Email Address is required
@@ -358,8 +360,8 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <input type="text" class="form-control" id="contact" name="contact"
-                      [(ngModel)]="editTeacher.contact" required value="" pattern="^[0-9].{9,9}$"
-                      (focus)="focus = true" #contact="ngModel"/>
+                      [(ngModel)]="editTeacher.contact" required value="" pattern="^[0-9].{9,9}$" (focus)="focus = true"
+                      #contact="ngModel" />
                   </div>
                   <div *ngIf="contact.errors && (contact.dirty || contact.touched)" class="alert alert-danger">
                     <div *ngIf="contact.errors.required">
@@ -375,8 +377,8 @@
                 <div class="col-sm-4">
                   <div class="form-group">
                     <input type="text" class="form-control" id="whatsapp" name="whatsapp"
-                      [(ngModel)]="editTeacher.whatsapp"  required value="" pattern="^[0-9].{9,9}$"
-                      (focus)="focus = true" #whatsapp="ngModel"/>
+                      [(ngModel)]="editTeacher.whatsapp" required value="" pattern="^[0-9].{9,9}$"
+                      (focus)="focus = true" #whatsapp="ngModel" />
                   </div>
                   <div *ngIf="whatsapp.errors && (whatsapp.dirty || whatsapp.touched)" class="alert alert-danger">
                     <div *ngIf="whatsapp.errors.required">
@@ -424,9 +426,8 @@
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info btn-round" data-dismiss="modal" 
-          [disabled]="!UpdateTeacherForm.form.valid"
-            (click)="updateTeacher(editTeacher)">
+          <button type="button" class="btn btn-info btn-round" data-dismiss="modal"
+            [disabled]="!UpdateTeacherForm.form.valid" (click)="updateTeacher(editTeacher)">
             Update
           </button>
           <button type="button" class="btn btn-secondary btn-round" data-dismiss="modal">
@@ -508,7 +509,7 @@
           <div class="col-md-3">
             <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
               <input type="text" class="form-control" id="contact" [(ngModel)]="studentregisterModel.contact"
-                name="contact" placeholder="Enter Contact Number" required value=""pattern="^[0-9].{9,9}$"
+                name="contact" placeholder="Enter Contact Number" required value="" pattern="^[0-9].{9,9}$"
                 (focus)="focus = true" #contact="ngModel" />
             </div>
             <div *ngIf="contact.errors && (contact.dirty || contact.touched)" class="alert alert-danger">
@@ -683,8 +684,8 @@
           <div class="col-md-4">
             <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
               <input type="text" class="form-control" id="pincode" [(ngModel)]="studentregisterModel.pincode"
-                name="pincode" placeholder="Enter Pincode" required value="" pattern="^[0-9].{5,6}$" (focus)="focus = true"
-                #pincode="ngModel" />
+                name="pincode" placeholder="Enter Pincode" required value="" pattern="^[0-9].{5,6}$"
+                (focus)="focus = true" #pincode="ngModel" />
             </div>
             <div *ngIf="pincode.errors && (pincode.dirty || pincode.touched)" class="alert alert-danger">
               <div *ngIf="pincode.errors.required">
@@ -772,12 +773,13 @@
           <div class="col-md-4">
             <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
               <input type="password" class="form-control" id="password" [(ngModel)]="studentregisterModel.password"
-                name="password" placeholder="Enter Password" required value="" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$"
-                (focus)="focus = true" #password="ngModel" />
+                name="password" placeholder="Enter Password" required value=""
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$" (focus)="focus = true"
+                #password="ngModel" />
             </div>
             <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
               <div *ngIf="password.errors.required">
-                password  is required
+                password is required
               </div>
               <div [hidden]="!password.errors('pattern')">
                 Enter at least one Uppercase and Lowercase Characters,Numbers and Special Characters.
@@ -845,15 +847,39 @@
       </div>
     </div>
   </div>
-
+  <div class="row" *ngIf="!openstudent">
+    <div class="col-lg-2 col-md-6 col-sm-6" *ngFor="let std of stdlist; let i = index">
+      <div class="card card-stats" (click)="selectStdList(std.id)" [style.box-shadow]="std.color">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="numbers">
+                <p class="card-title" style="
+                        font-size: 22px !important;
+                        text-align: justify;
+                        font-weight: 600;
+                      ">
+                  {{std.stdname}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <hr />
+          <div class="stats">Total Students: {{ std.student.length }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="card" *ngIf="!openstudent">
     <div class="card-header">
       <div class="row">
         <div class="col-md-2">
           <h4 class="card-title">Student List</h4>
         </div>
-        <label class="col-md-2" style="margin-top: 18px !important">Please Select Standard</label>
-        <div class="col-md-3">
+        <!-- <label class="col-md-2" style="margin-top: 18px !important">Please Select Standard</label> -->
+        <!-- <div class="col-md-3">
           <div class="dropdown form-group">
             <button class="dropdown-toggle btn btn-primary btn-round btn-block" type="button" name="dropdownMenuButton"
               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -868,7 +894,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="ml-md-auto">
           <button type="button" class="btn btn-round btn-primary" *ngIf="selectedstd && Roles != 'Student'"
             (click)="openAttendance()"><i class="fa fa-calendar"></i>
@@ -883,48 +909,50 @@
       </div>
     </div>
     <div class="card-body">
-      <table class="table table-striped" cellspacing="0" width="100%">
-        <thead class="text-primary">
-          <tr>
-            <th class="text-center">#</th>
-            <th class="text-center">Name</th>
-            <th class="text-center"> Gr.Nmuber</th>
-            <th class="text-center">Email</th>
-            <th class="text-center">Test</th>
-            <th class="text-center">Attandance</th>
-            <th class="text-right">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of students | paginate: { itemsPerPage: 25, currentPage: p }">
-            <td class="text-center">{{item.index}}</td>
-            <td class="text-center">{{ item.firstname }} {{ item.middlename }} {{ item.lastname }}</td>
-            <td class="text-center">{{ item.grnumber }}</td>
-            <td class="text-center">{{ item.email }}</td>
-            <td class="text-center">
-              <button type="button" class="btn btn" (click)="getSubmittedTest(item)"><i class="fa far fa-eye"></i>
-                View Test</button>
-            </td>
-            <td class="text-center">
-              <button type="button" class="btn btn-primary" (click)="studentAttandance(item.id)"><i
-                  class="fa fa-calendar"></i>
-                Attandance</button>
+      <div class="table-responsive">
+        <table class="table table-striped" cellspacing="0" width="100%">
+          <thead class="text-primary">
+            <tr>
+              <th class="text-center">#</th>
+              <th class="text-center">Name</th>
+              <th class="text-center"> Gr.Nmuber</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Test</th>
+              <th class="text-center">Attandance</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of students | paginate: { itemsPerPage: 25, currentPage: p }">
+              <td class="text-center">{{item.index}}</td>
+              <td class="text-center">{{ item.firstname }} {{ item.middlename }} {{ item.lastname }}</td>
+              <td class="text-center">{{ item.grnumber }}</td>
+              <td class="text-center">{{ item.email }}</td>
+              <td class="text-center">
+                <button type="button" class="btn btn" (click)="getSubmittedTest(item)"><i class="fa far fa-eye"></i>
+                  View Test</button>
+              </td>
+              <td class="text-center">
+                <button type="button" class="btn btn-primary" (click)="studentAttandance(item.id)"><i
+                    class="fa fa-calendar"></i>
+                  Attandance</button>
 
-            </td>
-            <td class="text-right">
-              <a class="btn btn-warning btn-link btn-icon btn-sm edit">
-                <i class="fa far fa-eye" data-toggle="modal" data-target="#studentModal" (click)="editStudentData(item)"
-                  *ngIf="Roles =='Admin'"></i>
-                <i class="fa far fa-eye" data-toggle="modal" data-target="#studentModalTeacher"
-                  (click)="editStudentData(item)" *ngIf="Roles =='Teacher'"></i>
-              </a>
-              <a class="btn btn-danger btn-link btn-icon btn-sm remove"><i class="fa fa-times"
-                  (click)="removeStudent(item.id)"></i></a>
-            </td>
+              </td>
+              <td class="text-right">
+                <a class="btn btn-warning btn-link btn-icon btn-sm edit">
+                  <i class="fa far fa-eye" data-toggle="modal" data-target="#studentModal"
+                    (click)="editStudentData(item)" *ngIf="Roles =='Admin'"></i>
+                  <i class="fa far fa-eye" data-toggle="modal" data-target="#studentModalTeacher"
+                    (click)="editStudentData(item)" *ngIf="Roles =='Teacher'"></i>
+                </a>
+                <a class="btn btn-danger btn-link btn-icon btn-sm remove"><i class="fa fa-times"
+                    (click)="removeStudent(item.id)"></i></a>
+              </td>
 
-          </tr>
-        </tbody>
-      </table>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <div class="card-footer">
       <div class="row">
@@ -1224,7 +1252,8 @@
             <td class="text-center">{{i+1}}</td>
             <td class="text-center">
               <div class="img-container">
-                <img style="height: 50% !important; width: 15% !important" src="http://31.220.59.174:3000{{item.propic}}" />
+                <img style="height: 50% !important; width: 15% !important"
+                  src="http://31.220.59.174:3000{{item.propic}}" />
               </div>
             </td>
             <td class="text-center">{{item.firstname}} {{item.middlename}} {{item.lastname}}</td>

@@ -6,7 +6,7 @@
     </div>
   </a>
 
-  <a routerLink="/dashboard" class="simple-text logo-normal"> C Square </a>
+  <a routerLink="/dashboard" class="simple-text logo-normal">Keryar School </a>
   <!-- <a routerLink="/dashboard" class="simple-text logo-normal"> Keryar </a> -->
 </div>
 
@@ -45,15 +45,18 @@
           <li *ngIf="Roles != 'Visitor'">
             <a href="javascript:void(0)">
               <span class="sidebar-mini-icon">CP</span>
+
               <span class="sidebar-normal" routerLink="password">Change Password</span>
             </a>
           </li>
-          <!-- <li>
+          <li>
             <a href="javascript:void(0)">
               <span class="sidebar-mini-icon">EP</span>
-              <span class="sidebar-normal">Edit Profile</span>
+              <span class="sidebar-normal" routerLink="profile">Edit Profile</span>
+              <!-- <span class="sidebar-normal">Edit Profile</span> -->
             </a>
           </li>
+          <!-- 
           <li>
             <a href="javascript:void(0)">
               <span class="sidebar-mini-icon">S</span>

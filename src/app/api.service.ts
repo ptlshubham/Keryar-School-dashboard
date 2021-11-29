@@ -6,8 +6,8 @@ declare var $: any;
   providedIn: 'root'
 })
 export class ApiService {
-            // public static HOST_URL: string = "http://31.220.59.174:3500";
-           public static HOST_URL: string = "http://localhost:3500";
+  // public static HOST_URL: string = "http://31.220.59.174:3500";
+  public static HOST_URL: string = "http://localhost:3500";
 
   constructor(
     private http: HttpClient,
@@ -37,7 +37,7 @@ export class ApiService {
   public static getAllQueListURL: string = ApiService.HOST_URL + '/admin/getAllQueList';
   public static getQueOptionListURL: string = ApiService.HOST_URL + '/admin/getQueOptionList';
   public static getQueAnswerURL: string = ApiService.HOST_URL + '/admin/getQueAnswer';
-
+  public static getProfileDetailsURL: string = ApiService.HOST_URL + '/admin/GetProfileDetails';
   public static saveChapatersURL: string = ApiService.HOST_URL + '/admin/SaveChapatersList';
   public static getChapaterListURL: string = ApiService.HOST_URL + '/admin/GetChapaterList';
   public static updateChapaterListURL: string = ApiService.HOST_URL + '/admin/UpdateChapaterList/';

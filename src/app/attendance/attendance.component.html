@@ -2,14 +2,18 @@
     <div class="card" *ngIf="studentAtte">
         <div class="card-header">
             <div class="row">
-                <div class="col-md-10">
-                    <h4 class="card-title">View Attandance</h4>
-                </div>
-                <div class="ml-md-auto">
+                <div class="col-auto mr-auto">
                     <button type="cancel" class="btn btn-danger btn-round" (click)="backToRegister()">
                         <i class="fa fa-arrow-left"></i> Back
                     </button>
                 </div>
+                <div class="col-md-10">
+
+                    <h4 class="card-title">View Attandance</h4>
+                </div>
+                <!-- <div class="ml-md-auto">
+                   
+                </div> -->
             </div>
         </div>
     </div>
@@ -102,7 +106,8 @@
                                                     <td>
                                                         <div class="form-check">
                                                             <label class="form-check-label">
-                                                                <input class="form-check-input" [disabled]="!attandanceModel.title"
+                                                                <input class="form-check-input"
+                                                                    [disabled]="!attandanceModel.title"
                                                                     [(ngModel)]="item.checked" name="list_name"
                                                                     (change)="isSelected(item)" type="checkbox" />
                                                                 <span class="form-check-sign"></span>
@@ -147,13 +152,14 @@
     <div class="card" *ngIf="!studentAtte">
         <div class="card-header">
             <div class="row">
-                <div class="col-md-10">
-                    <h4 class="card-title">Add Attandance</h4>
-                </div>
-                <div class="ml-md-auto">
+                <div class="col-auto mr-auto">
                     <button type="cancel" class="btn btn-danger btn-round" (click)="backToStudent()">
                         <i class="fa fa-arrow-left"></i> Back
                     </button>
+                </div>
+                <div class="col-md-10">
+
+                    <h4 class="card-title">Add Attandance</h4>
                 </div>
             </div>
         </div>

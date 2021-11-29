@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SubjectComponent } from './subject/subject.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SyllabusComponent } from './syllabus/syllabus.component';
 
 
 
 @NgModule({
-  declarations: [StandardComponent, SubjectComponent],
+  declarations: [StandardComponent, SubjectComponent, SyllabusComponent],
   imports: [
     CommonModule,
     HttpClientModule,

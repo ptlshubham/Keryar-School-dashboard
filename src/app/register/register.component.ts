@@ -129,7 +129,6 @@ export class RegisterComponent implements OnInit {
       this.openTeachAdd = false;
       this.openStuAdd = false;
     }
-
   }
   ngAfterViewInit() {
     $('#datatable').DataTable({
@@ -178,7 +177,7 @@ export class RegisterComponent implements OnInit {
     this.openstudent = true;
     this.openTeachAdd = false;
     this.openStuAdd = true;
-    this.studentregisterModel={};
+    this.studentregisterModel = {};
     this.studentregisterModel.cactive = false;
     this.studentregisterModel.mactive = false;
     this.studentregisterModel.pactive = false;
@@ -223,8 +222,14 @@ export class RegisterComponent implements OnInit {
   }
   getStandardList() {
     this.manageService.getStdList().subscribe((data: any) => {
-
       this.stdlist = data;
+      this.stdlist.forEach(element => {
+        this.registerService.getStudentList(element.id).subscribe((data: any) => {
+          element.student = data;
+          element.color = '3px 3px 5px 5px #ebf0ec';
+        });
+      });
+
       this.defaultStandard = this.stdlist[0].id;
       if (this.list1 != undefined) {
         this.selectStdList(this.list1);
@@ -243,9 +248,50 @@ export class RegisterComponent implements OnInit {
         //     this.selStds = element.stdname;
         //   }
         // }
-
+        // element.color = '3px 3px 5px 5px #ebf0ec';
         this.stdData.push(data)
+
       });
+
+    });
+  }
+  selectStdList(id) {
+    this.list = id;
+    this.stdlist.forEach(element => {
+      if (element.id == id) {
+        element.color = '3px 3px 5px 5px #ef8157';
+        this.selectedstd = element.stdname;
+      }
+      else {
+        element.color = '3px 3px 5px 5px #ebf0ec';
+      }
+    })
+    let data = {
+      id: id,
+      stdname: this.selectedstd,
+      subjects: []
+    }
+    this.manageService.getSubjectList(id).subscribe((res: any) => {
+      data.subjects = res;
+      this.subjectObj = res;
+      this.subjectObj.forEach(element => {
+
+        let data = {
+          itemName: element.subject,
+          id: element.id,
+        }
+        this.subjectData.push(data)
+      });
+    })
+    //this.addStdFields.push(data);
+    this.getStudent();
+  }
+  getStudent() {
+    this.registerService.getStudentList(this.list).subscribe((data: any) => {
+      this.students = data;
+      for (let i = 0; i < this.students.length; i++) {
+        this.students[i].index = i + 1;
+      }
     });
   }
   onItemSelect($event) {
@@ -331,33 +377,7 @@ export class RegisterComponent implements OnInit {
       }
     });
   }
-  selectStdList(id) {
-    this.list = id;
-    this.stdlist.forEach(element => {
-      if (element.id == id) {
-        this.selectedstd = element.stdname;
-      }
-    })
-    let data = {
-      id: id,
-      stdname: this.selectedstd,
-      subjects: []
-    }
-    this.manageService.getSubjectList(id).subscribe((res: any) => {
-      data.subjects = res;
-      this.subjectObj = res;
-      this.subjectObj.forEach(element => {
 
-        let data = {
-          itemName: element.subject,
-          id: element.id,
-        }
-        this.subjectData.push(data)
-      });
-    })
-    //this.addStdFields.push(data);
-    this.getStudent();
-  }
 
   saveStudentDetail() {
     if (this.studentregisterModel.transport == undefined) {
@@ -379,14 +399,7 @@ export class RegisterComponent implements OnInit {
       this.openstudent = false;
     })
   }
-  getStudent() {
-    this.registerService.getStudentList(this.list).subscribe((data: any) => {
-      this.students = data;
-      for (let i = 0; i < this.students.length; i++) {
-        this.students[i].index = i + 1;
-      }
-    });
-  }
+
   getSubmittedTest(data) {
     this.router.navigate(['/testlist'], {
       queryParams: {
@@ -432,7 +445,7 @@ export class RegisterComponent implements OnInit {
   }
 
   updateTeacher(data) {
-       
+
     // data.gender = this.gender;
     data.rights = this.selectStdsList;
 
