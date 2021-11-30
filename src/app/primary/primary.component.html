@@ -679,7 +679,7 @@
                         <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
                             <input type="text" class="form-control" id="descripition" name="descripition"
                                 [(ngModel)]="syllabusModel.descripition" placeholder="Enter Video Descripition" required
-                                value="" pattern="^[a-zA-Z0-9 ]+$" (focus)="focus = true" #descripition="ngModel" />
+                                value="" pattern="(.*?)" (focus)="focus = true" #descripition="ngModel" />
                         </div>
                         <div *ngIf="descripition.errors && (descripition.dirty || descripition.touched)"
                             class="alert alert-danger">
@@ -713,7 +713,8 @@
                         <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
                             <input type="text" class="form-control" id="link" name="link"
                                 [(ngModel)]="syllabusModel.link" placeholder="Paste Video Link Here" required value=""
-                                pattern="^[a-zA-Z0-9 ]+$" (focus)="focus = true" #link="ngModel" />
+                                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+                                (focus)="focus = true" #link="ngModel" />
                         </div>
                         <div *ngIf="link.errors && (link.dirty || link.touched)" class="alert alert-danger">
                             <div *ngIf="link.errors.required">
@@ -732,13 +733,58 @@
                 <div class="ml-md-auto">
                     <button type="submit" class="btn btn-info btn-round"
                         [disabled]="!SyllabusForm.form.valid || !selectedStd || !selectedSub || !selectedChap"
-                        (click)="saveChapatersList(add)">
+                        (click)="addSyllabusList()">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="card" *ngIf="openSyllabus">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-9">
+                    <h4 class="card-title">Display</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
 
+                <div class="col-md-3" *ngFor="let sl of syllabusList">
+                    <iframe width="300" height="215" [src]="sl.videolink | safe:'resourceUrl'"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <label class="video-title">{{sl.videotitle}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
     <!------------------------------------------Syllabus End Here-------------------------------------------->
+    <!------------------------------------------Video Player Start Here-------------------------------------->
+
+    <!-- <div class="card" *ngIf="openSyllabus">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-9">
+                    <h4 class="card-title">Display</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-md-3" *ngFor="let sl of syllabusList">
+                    <iframe width="300" height="215" [src]="sl.videolink | safe:'resourceUrl'"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    <label class="video-title">{{sl.videotitle}}</label>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!------------------------------------------Video Player End Here-------------------------------------->
 </div>

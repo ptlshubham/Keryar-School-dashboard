@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { Std } from './standard/standard.model';
 import { Subject } from './subject/subject.model';
 import { Chapater } from './subject/chapater.model';
+import { Syllabus } from 'app/primary/syllabus.model';
 
 @Injectable({
   providedIn: 'root'
@@ -87,5 +88,10 @@ export class ManageService {
   updateStdList(admin): Observable<any> {
     return this.httpClient.post<any>(ApiService.updateStandardURL, admin);
   }
-
+  saveSyllabusList(admin: Syllabus): Observable<any> {
+    return this.httpClient.post<any>(ApiService.saveSyllabusListURL, admin);
+  }
+  getAllSyllabusList(): Observable<Syllabus[]> {
+    return this.httpClient.get<any>(ApiService.getAllSyllabusListURL);
+  }
 }

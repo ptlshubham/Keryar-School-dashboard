@@ -27,6 +27,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
 import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataTablesModule } from 'angular-datatables';
+import { PipesModule } from './pipes/pipes.module';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     dayGridPlugin,
     interactionPlugin
@@ -57,12 +58,14 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
             useFactory: adapterFactory,
         }),
         AngularMultiSelectModule,
+        PipesModule
 
     ],
     declarations: [
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
+
 
     ],
     providers: [
@@ -71,6 +74,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 
 
     ],
+
 
     bootstrap: [AppComponent]
 })

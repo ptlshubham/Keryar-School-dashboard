@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ApiService } from 'app/api.service';
 import { ManageService } from 'app/manage/manage.service';
 import { Std } from 'app/manage/standard/standard.model';
@@ -40,13 +41,17 @@ export class PrimaryComponent implements OnInit {
   public chapater: Chapater[] = [];
   valu = 0;
 
+
   chapId: any;
   selectedChap: any;
-  public syllabusModel: Syllabus[] = [];
+  public syllabusModel: Syllabus = new Syllabus;
+  public syllabusList: Syllabus[] = [];
 
   constructor(
     private manageService: ManageService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private _sanitizer: DomSanitizer,
+
   ) {
     this.getStdList();
     this.openStd = true;
@@ -82,6 +87,7 @@ export class PrimaryComponent implements OnInit {
     this.openSubject = false;
     this.openChapater = false;
     this.openSyllabus = true;
+    this.getSyllabusList();
 
   }
   //--------------------------------------Standard Fuctionallity Start Here-------------------------------------
@@ -341,7 +347,21 @@ export class PrimaryComponent implements OnInit {
       }
     })
   }
-
+  addSyllabusList() {
+    this.syllabusModel.stdid = this.stdId;
+    this.syllabusModel.subid = this.subId;
+    this.syllabusModel.chapid = this.chapId;
+    this.syllabusModel.isactive = true;
+    this.manageService.saveSyllabusList(this.syllabusModel).subscribe((response) => {
+      this.apiService.showNotification('top', 'right', 'Syllabus Added Successfully.', 'success');
+      this.getSyllabusList();
+    })
+  }
+  getSyllabusList() {
+    this.manageService.getAllSyllabusList().subscribe((data: any) => {
+      this.syllabusList = data;
+    });
+  }
 
   //--------------------------------------Syllabus Fuctionallity End Here---------------------------------------
 }

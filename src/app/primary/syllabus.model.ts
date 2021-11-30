@@ -8,6 +8,7 @@ export class Syllabus {
         public chapname?: string,
         public videoTitle?: string,
         public link?: string,
+        public videolink?: string,
         public descripition?: string,
         public videoLength?: string,
         public createddate?: Date,

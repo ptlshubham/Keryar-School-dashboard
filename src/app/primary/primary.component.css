@@ -1,0 +1,14 @@
+.video-title {
+    text-align: left;
+    font-family: "Roboto",
+        "Arial",
+        sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    white-space: normal;
+    overflow: hidden;
+    max-height: 4rem;
+    line-height: 2rem;
+    white-space: normal;
+    color: black !important;
+}
