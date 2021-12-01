@@ -117,6 +117,7 @@ export class ApiService {
   public static updateVisitorRegURL: string = ApiService.HOST_URL + '/admin/UpdateVisitorReg';
   public static saveVisitorLoginURL: string = ApiService.HOST_URL + '/admin/VisitorLogin';
   public static GetTestDetailsURL: string = ApiService.HOST_URL + '/admin/GetVisitorTest';
+  public static uploadSyllabusImageURL: string = ApiService.HOST_URL + '/admin/UploadSyllabusImage'
   //  public static GetViewVisitorTestListURL: string = ApiService.HOST_URL + '/admin/GetViewVisitorTestList';
   showNotification(from, align, msg, color) {
 

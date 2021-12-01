@@ -94,4 +94,9 @@ export class ManageService {
   getAllSyllabusList(): Observable<Syllabus[]> {
     return this.httpClient.get<any>(ApiService.getAllSyllabusListURL);
   }
+  uploadSyllabusImage(img): Observable<any> {
+
+    return this.httpClient.post<any>(ApiService.uploadSyllabusImageURL, img);
+
+  }
 }

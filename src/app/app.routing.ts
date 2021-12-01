@@ -66,6 +66,11 @@ export const AppRoutes: Routes = [
                     canActivate: [AuthGuard]
                 },
                 {
+                    path: '',
+                    loadChildren: './livesession/livesession.module#LivesessionModule',
+                    canActivate: [AuthGuard]
+                },
+                {
                     path: 'manage',
                     loadChildren: './manage/manage.module#ManageModule',
                     canActivate: [AuthGuard]

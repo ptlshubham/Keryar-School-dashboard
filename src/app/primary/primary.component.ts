@@ -18,6 +18,7 @@ export class PrimaryComponent implements OnInit {
   openSubject: boolean = false;
   openChapater: boolean = false;
   openSyllabus: boolean = false;
+  openPlayer: boolean = false;
   //-----------------------------------Stanadard Module---------------------------------------------------------
   public StdModel: Std = new Std;
   public STD: Std[] = [];
@@ -46,6 +47,16 @@ export class PrimaryComponent implements OnInit {
   selectedChap: any;
   public syllabusModel: Syllabus = new Syllabus;
   public syllabusList: Syllabus[] = [];
+  imageError: string;
+  isImageSaved: boolean = true;
+  cardImageBase64: string;
+  syllabusId: any;
+  image: any;
+  safeURL: any;
+  vTitle: any;
+  relatedChapId: any;
+  relatedSyllabusVideo: any = [];
+
 
   constructor(
     private manageService: ManageService,
@@ -68,6 +79,7 @@ export class PrimaryComponent implements OnInit {
     this.openSubject = false;
     this.openChapater = false;
     this.openSyllabus = false;
+    this.openPlayer = false;
     this.getStdList();
   }
   manageSubject() {
@@ -75,18 +87,21 @@ export class PrimaryComponent implements OnInit {
     this.openSubject = true;
     this.openChapater = false;
     this.openSyllabus = false;
+    this.openPlayer = false;
   }
   manageChapater() {
     this.openStd = false;
     this.openSubject = false;
     this.openChapater = true;
     this.openSyllabus = false;
+    this.openPlayer = false;
   }
   manageSyllabus() {
     this.openStd = false;
     this.openSubject = false;
     this.openChapater = false;
     this.openSyllabus = true;
+    this.openPlayer = false;
     this.getSyllabusList();
 
   }
@@ -150,6 +165,14 @@ export class PrimaryComponent implements OnInit {
       this.apiService.showNotification('top', 'right', 'Standard updated Successfully.', 'success');
     })
 
+  }
+  addSubjectFromTable(id) {
+    this.selectSTDList(id);
+    this.openStd = false;
+    this.openSubject = true;
+    this.openChapater = false;
+    this.openSyllabus = false;
+    this.openPlayer = false;
   }
 
   //--------------------------------------Standard Fuctionallity End Here---------------------------------------
@@ -237,6 +260,15 @@ export class PrimaryComponent implements OnInit {
     })
 
 
+  }
+  addChapaterFromTable(id) {
+
+    this.openStd = false;
+    this.openSubject = false;
+    this.openChapater = true;
+    this.openSyllabus = false;
+    this.openPlayer = false;
+    this.selectSubjectList(id);
   }
 
   //--------------------------------------Subject Fuctionallity End Here-----------------------------------------
@@ -335,6 +367,15 @@ export class PrimaryComponent implements OnInit {
     })
 
   }
+  addSyllabusFromTable(id) {
+    this.openStd = false;
+    this.openSubject = false;
+    this.openChapater = false;
+    this.openSyllabus = true;
+    this.openPlayer = false;
+    this.selectChapaterList(id);
+    this.getSyllabusList();
+  }
   //--------------------------------------Chapaters Fuctionallity End Here--------------------------------------
 
   //--------------------------------------Syllabus Fuctionallity Start Here-------------------------------------
@@ -347,11 +388,74 @@ export class PrimaryComponent implements OnInit {
       }
     })
   }
+  selectedSyllabusImage(event) {
+
+    let max_height;
+    let max_width;
+    if (event.target.files && event.target.files[0]) {
+      const file = event.target.files[0];
+      const max_size = 20971520;
+      const allowed_types = ['image/png', 'image/jpeg'];
+
+      max_height = 300;
+      max_width = 300;
+
+      if (event.target.files[0].size > max_size) {
+        this.imageError =
+          'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
+        return false;
+      }
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const image = new Image();
+        image.src = e.target.result;
+        image.onload = rs => {
+          const img_height = rs.currentTarget['height'];
+          const img_width = rs.currentTarget['width'];
+          console.log(img_height, img_width);
+          if (img_height > max_height && img_width > max_width) {
+            alert("image must be " + max_height + "*" + max_width);
+            this.isImageSaved = false;
+            this.imageError =
+              'Maximum dimentions allowed ' +
+              max_height +
+              '*' +
+              max_width +
+              'px';
+
+
+            return false;
+          } else {
+            const imgBase64Path = e.target.result;
+            this.cardImageBase64 = imgBase64Path;
+
+            const formdata = new FormData();
+            formdata.append('file', file);
+
+
+            this.manageService.uploadSyllabusImage(formdata).subscribe((response) => {
+              this.image = response;
+              debugger
+              console.log(response);
+              this.isImageSaved = true;
+
+
+            })
+          }
+        };
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
+
+  }
   addSyllabusList() {
     this.syllabusModel.stdid = this.stdId;
     this.syllabusModel.subid = this.subId;
     this.syllabusModel.chapid = this.chapId;
     this.syllabusModel.isactive = true;
+    this.syllabusModel.image = this.image;
     this.manageService.saveSyllabusList(this.syllabusModel).subscribe((response) => {
       this.apiService.showNotification('top', 'right', 'Syllabus Added Successfully.', 'success');
       this.getSyllabusList();
@@ -364,4 +468,42 @@ export class PrimaryComponent implements OnInit {
   }
 
   //--------------------------------------Syllabus Fuctionallity End Here---------------------------------------
+  //--------------------------------------Video Player Fuctionallity Start Here---------------------------------
+  openVideo(id) {
+    debugger
+    this.openStd = false;
+    this.openSubject = false;
+    this.openChapater = false;
+    this.openSyllabus = false;
+    this.openPlayer = true;
+    this.syllabusList.forEach(element => {
+      if (element.id == id) {
+        this.syllabusId = id;
+        this.relatedChapId = element.chapid;
+        this.safeURL = element.videolink;
+        this.vTitle = element.videotitle;
+        this.relatedVideosList();
+      }
+
+    })
+  }
+  relatedVideosList() {
+    this.relatedSyllabusVideo = [];
+    this.syllabusList.forEach(element => {
+      if (element.chapid = this.relatedChapId) {
+        let data = {
+          rlink: element.videolink,
+          rtitle: element.videotitle,
+          rimage: element.image,
+          rdescripition: element.descripition,
+          rid: element.id,
+        }
+        this.relatedSyllabusVideo.push(data);
+      }
+    })
+  }
+
+
+
+  //--------------------------------------Video Player Fuctionallity End Here-----------------------------------
 }

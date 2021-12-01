@@ -1,8 +1,5 @@
 import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  AfterViewChecked,
+  Component, OnInit, AfterViewInit, AfterViewChecked,
   AfterContentInit,
 } from "@angular/core";
 import { Router } from "@angular/router";
@@ -44,19 +41,19 @@ export const ROUTES: RouteInfo[] = [
     roles: "Admin",
     icontype: "fa fa-tasks",
   },
-  {
-    path: "/manage",
-    title: "Manage",
-    type: "sub",
-    collapse: "orders",
-    roles: "Admin",
-    icontype: "fa fa-tasks",
-    children: [
-      { path: "std", title: "Add Stanadard", ab: "AS" },
-      { path: "subject", title: "Add Subject", ab: "AS" },
-      { path: "syllabus", title: "Add Syllabus", ab: "AS" },
-    ],
-  },
+  // {
+  //   path: "/manage",
+  //   title: "Manage",
+  //   type: "sub",
+  //   collapse: "orders",
+  //   roles: "Admin",
+  //   icontype: "fa fa-tasks",
+  //   children: [
+  //     { path: "std", title: "Add Stanadard", ab: "AS" },
+  //     { path: "subject", title: "Add Subject", ab: "AS" },
+  //     { path: "syllabus", title: "Add Syllabus", ab: "AS" },
+  //   ],
+  // },
   {
     path: "/exam",
     title: "Exam",
@@ -76,6 +73,13 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "/banners",
     title: "Banners",
+    type: "link",
+    roles: "Admin",
+    icontype: "fa fa-picture-o",
+  },
+  {
+    path: "/live",
+    title: "Live Session",
     type: "link",
     roles: "Admin",
     icontype: "fa fa-picture-o",

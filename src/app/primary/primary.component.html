@@ -8,32 +8,33 @@
                         <i class="fa fa-arrow-left"></i> Back
                     </button>
                 </div>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <button type="submit" class="btn btn-info btn-round" (click)="manageStd()">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add Standard
+                        <i class="fa fa-plus" aria-hidden="true"></i> Standard
                     </button>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <button type="submit" class="btn btn-info btn-round" (click)="manageSubject()">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add Subject
+                        <i class="fa fa-plus" aria-hidden="true"></i> Subject
                     </button>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <button type="submit" class="btn btn-info btn-round" (click)="manageChapater()">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add Chapater
+                        <i class="fa fa-plus" aria-hidden="true"></i> Chapater
                     </button>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <button type="submit" class="btn btn-info btn-round" (click)="manageSyllabus()">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add Syllabus
+                        <i class="fa fa-plus" aria-hidden="true"></i> Syllabus
                     </button>
                 </div>
             </div>
         </div>
+        <!-- <div class="card-body">
+            <div class="row">
+
+            </div>
+        </div> -->
     </div>
     <!------------------------------------------Header End Here----------------------------------------------->
     <!------------------------------------------Standard Start Here------------------------------------------->
@@ -89,6 +90,7 @@
                         <tr>
                             <th class="text-center">#</th>
                             <th class="text-center">Standard Name</th>
+                            <th class="text-center">Subject</th>
                             <th class=" text-right">Actions</th>
                         </tr>
                     </thead>
@@ -96,6 +98,11 @@
                         <tr *ngFor="let item of STD | paginate: { itemsPerPage: 10, currentPage: p }">
                             <td class="text-center">{{item.index}}</td>
                             <td class="text-center">{{ item.stdname }}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-round" (click)="addSubjectFromTable(item.id)"><i
+                                        class="fa fa-plus"></i> Subject</button>
+
+                            </td>
                             <td class="text-right">
                                 <a class="btn btn-warning btn-link btn-icon btn-sm edit" data-toggle="modal"
                                     data-target="#standardModal">
@@ -271,6 +278,7 @@
                             <th>#</th>
                             <th>Standard Name</th>
                             <th>Subject Name</th>
+                            <th class="text-center">Chapater</th>
                             <th class="text-right">Actions</th>
                         </tr>
                     </thead>
@@ -279,6 +287,12 @@
                             <td>{{item.index}}</td>
                             <td>{{selectedStd}}</td>
                             <td>{{item.subject}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-round" (click)="addChapaterFromTable(item.id)"><i
+                                        class="fa fa-plus"></i>
+                                    Chapater</button>
+
+                            </td>
 
                             <td class="text-right">
                                 <a href="javascript:void(0)" class="btn btn-warning btn-link btn-icon btn-sm edit"><i
@@ -496,6 +510,7 @@
                             <th>Standard Name</th>
                             <th>Subject Name</th>
                             <th>Chapter Name</th>
+                            <th class="text-center">Syllabus</th>
                             <th class="text-right">Actions</th>
                         </tr>
                     </thead>
@@ -505,7 +520,12 @@
                             <td>{{selectedStd}}</td>
                             <td>{{selectedSub}}</td>
                             <td>{{item.chapname}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-round" (click)="addSyllabusFromTable(item.id)"><i
+                                        class="fa fa-plus"></i>
+                                    Syllabus</button>
 
+                            </td>
                             <td class="text-right">
                                 <a href="javascript:void(0)" class="btn btn-warning btn-link btn-icon btn-sm edit"><i
                                         class="fa fa-edit" data-toggle="modal" data-target="#chapModal"
@@ -654,9 +674,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-
                     <div class="col-md-3">
                         <label class="col-form-label">Enter Title</label>
                         <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
@@ -674,6 +691,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-3">
                         <label class="col-form-label">Enter Video Descripition</label>
                         <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
@@ -725,6 +744,31 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Select Syllabus Image</label>
+                        <div>
+                            <p style="color: red !important; font-weight: 600 !important">
+                                Images Size Mustbe 300*300.
+                            </p>
+                        </div>
+                        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                            <div class="fileinput-new thumbnail">
+                                <img src="./assets/img/image_placeholder.jpg" alt="..." />
+                            </div>
+                            <div class="fileinput-preview fileinput-exists thumbnail"></div>
+                            <div>
+                                <span class="btn btn-rose btn-round btn-file">
+                                    <span class="fileinput-new"><i class="fa fa-picture-o" aria-hidden="true"></i>
+                                        Select Image</span>
+                                    <span class="fileinput-exists">Change</span>
+                                    <input type="file" id="syllabusImage" name="syllabusImage"
+                                        (change)="selectedSyllabusImage($event)" />
+                                </span>
+                                <a href="javascript:void(0)" class="btn btn-danger btn-round fileinput-exists"
+                                    data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -750,41 +794,83 @@
         </div>
         <div class="card-body">
             <div class="row">
-
                 <div class="col-md-3" *ngFor="let sl of syllabusList">
-                    <iframe width="300" height="215" [src]="sl.videolink | safe:'resourceUrl'"
+                    <div (click)="openVideo(sl.id)">
+                        <div class="img-container">
+                            <img src="http://localhost:3500{{ sl.image }}" />
+                        </div>
+                        <!-- <iframe width="300" height="215" [src]="sl.videolink | safe:'resourceUrl'"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <label class="video-title">{{sl.videotitle}}</label>
+                        allowfullscreen></iframe> -->
+                        <label class="video-title">{{sl.videotitle}}</label>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <!------------------------------------------Syllabus End Here-------------------------------------------->
     <!------------------------------------------Video Player Start Here-------------------------------------->
+    <div class="row" *ngIf="openPlayer">
+        <div class="col-lg-8 col-md-12 ">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h4 class="card-title">Display</h4>
 
-    <!-- <div class="card" *ngIf="openSyllabus">
-        <div class="card-header">
-            <div class="row">
-                <div class="col-md-9">
-                    <h4 class="card-title">Display</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <iframe width="888" height="515" [src]="safeURL | safe:'resourceUrl'"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            <label class="video-title">{{vTitle}}</label>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card-body">
-            <div class="row">
+        <div class="col-md-4">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="card-text">
+                        <h4 class="card-title">Related Videos</h4>
+                    </div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let rs of relatedSyllabusVideo">
+                                <td style="padding: 0px 7px !important;" (click)="openVideo(rs.rid)">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="img-container">
+                                                <img src="http://localhost:3500{{ rs.rimage }}" />
+                                            </div>
+                                            <!-- <iframe width="180" height="120" [src]="rs.rlink | safe:'resourceUrl'"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe> -->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="video-related-title">{{rs.rtitle}}</label>
+                                            <label class="col-form-label">{{rs.rdescripition}}</label>
+                                        </div>
+                                    </div>
 
-                <div class="col-md-3" *ngFor="let sl of syllabusList">
-                    <iframe width="300" height="215" [src]="sl.videolink | safe:'resourceUrl'"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                    <label class="video-title">{{sl.videotitle}}</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-    </div> -->
-
+    </div>
     <!------------------------------------------Video Player End Here-------------------------------------->
 </div>
