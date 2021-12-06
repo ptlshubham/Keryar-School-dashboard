@@ -19,4 +19,8 @@ export class ProfileService {
         }
         return this.httpClient.post<any>(ApiService.getProfileDetailsURL, data);
     }
+    updateProfileData(admin: Profile): Observable<any> {
+
+        return this.httpClient.post<any>(ApiService.updateProfileDataURL, admin);
+    }
 }

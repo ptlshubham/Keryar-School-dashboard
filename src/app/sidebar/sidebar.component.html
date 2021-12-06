@@ -12,15 +12,16 @@
 
 <div class="sidebar-wrapper">
   <div class="user">
-    <div class="photo" *ngIf="Rolees == 'Admin'">
+    <div class="photo" *ngIf="Roles == 'Admin'">
       <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
-      <img src="./assets/img/faces/ayo-ogunseinde-2.jpg" />
+      <img src="../../assets/img/avtar.png" />
     </div>
     <div class="photo" *ngFor="let s of students; let i = index"
       style="width: 60px !important; height: 60px !important">
       <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
       <img *ngIf="s.propic != 'null'" src="http://31.220.59.174:3000{{ s.propic }}" />
       <img *ngIf="s.propic == 'null'" src="../../assets/img/avtar.png" />
+      *ngIf="Roles != 'Visitor'"
     </div>
     <div class="info">
       <a data-toggle="collapse" href="#collapseExample" class="collapsed" *ngIf="Roles !='Admin'">

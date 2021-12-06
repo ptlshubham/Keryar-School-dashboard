@@ -44,7 +44,7 @@ export class ApiService {
   public static removeChapaterURL: string = ApiService.HOST_URL + '/admin/RemoveChapaterList/';
   public static saveSyllabusListURL: string = ApiService.HOST_URL + '/admin/SaveSyllabusList';
   public static getAllSyllabusListURL: string = ApiService.HOST_URL + '/admin/GetAllSyllabusList';
-
+  public static updateProfileDataURL: string = ApiService.HOST_URL + '/admin/updateAdminProfile'
   public static removeQueListURL: string = ApiService.HOST_URL + '/admin/removeQueList';
   public static saveTecaherListURL: string = ApiService.HOST_URL + '/authenticate/saveTeacherList';
   public static saveStudentListURL: string = ApiService.HOST_URL + '/authenticate/SaveStudentList';

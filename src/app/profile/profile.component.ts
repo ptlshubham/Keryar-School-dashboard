@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'app/api.service';
 import { Profile } from './profile.model';
 import { ProfileService } from './profile.service';
 
@@ -12,6 +13,7 @@ export class ProfileComponent implements OnInit {
   public profile: Profile[] = [];
   constructor(
     private profileService: ProfileService,
+    private apiService: ApiService
   ) {
     this.getProfileDetails();
   }
@@ -20,9 +22,13 @@ export class ProfileComponent implements OnInit {
   }
   getProfileDetails() {
     this.profileService.getProfileList(localStorage.getItem('AdminId')).subscribe((data: any) => {
-      this.profileModel = data;
-      debugger
+      this.profileModel = data[0];
     });
+  }
+  updateProfile() {
+    this.profileService.updateProfileData(this.profileModel).subscribe((req) => {
+      this.apiService.showNotification('top', 'right', 'Profile updated Successfully.', 'success');
+    })
   }
 
 }
