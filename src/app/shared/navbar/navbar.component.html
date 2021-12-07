@@ -43,14 +43,18 @@
             </p>
           </a>
         </li> -->
-        <li class="nav-item btn-rotate dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            <i class="fa fa-bell"></i>
-            <!-- <p>
-              <span class="d-lg-none d-md-block">Some Actions</span>
-            </p> -->
-          </a>
+        <li class="nav-item btn-rotate dropdown ">
+          <span class="badge badge-pill badge-danger " id="navbarDropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true">
+            <a class="nav-link dropdown-toggle" style="color:white;font-size:20px !important;" aria-expanded="false">
+
+              <i class="fa fa-bell" style="font-size:16px; color: #ffffff;"></i>
+
+              <p style="font-size:16px; color: #ffffff;margin-right: 5px !important;">{{eventList.length}}</p>
+
+
+            </a>
+          </span>
           <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink"
             style="min-width: 600px !important;">
             <div class="row">
@@ -72,13 +76,20 @@
                             <td class="td-actions text-right">
                               <button type="button" rel="tooltip"
                                 class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral"
-                                data-original-title="Remove" (click)="removeNotifications(ev.id)">
+                                data-original-title="Remove" (click)="removeNotifications(ev)">
                                 <i class="nc-icon nc-simple-remove"></i>
                               </button>
                             </td>
                           </tr>
                         </tbody>
                       </table>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="ml-md-auto">
+                        <a (click)="clearAllNotification(eventList)">Clear all Notifications</a>
+                      </div>
                     </div>
                   </div>
 
