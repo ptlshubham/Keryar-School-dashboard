@@ -101,17 +101,17 @@ export class AttendanceComponent implements OnInit {
   isSelected(val) {
     // if (this.attandanceModel.title == undefined) {
     //   this.apiService.showNotification('top', 'center', 'Please Select Title.', 'danger');
-    
+
     // }
     // else{
-      let data = {
-        stuid: val.id,
-        date: this.selected,
-        // title: this.attandanceModel.title
-      };
-      this.atd.push(data);
+    let data = {
+      stuid: val.id,
+      date: this.selected,
+      // title: this.attandanceModel.title
+    };
+    this.atd.push(data);
     // }
-   
+
   }
 
   isAllSelected(val) {
@@ -119,24 +119,24 @@ export class AttendanceComponent implements OnInit {
     //   this.apiService.showNotification('top', 'center', 'Please Select Title.', 'danger');
     // }
     // else {
-      if (val == true) {
-        this.students.forEach(element => {
-          element.checked = true;
-          let data = {
-            stuid: element.id,
-            date: this.selected,
-            // title: this.attandanceModel.title
-          };
-          this.atd.push(data);
-        })
-      }
-      else {
-        this.students.forEach(element => {
-          element.checked = false;
-        })
-        this.atd = [];
-      }
+    if (val == true) {
+      this.students.forEach(element => {
+        element.checked = true;
+        let data = {
+          stuid: element.id,
+          date: this.selected,
+          // title: this.attandanceModel.title
+        };
+        this.atd.push(data);
+      })
     }
+    else {
+      this.students.forEach(element => {
+        element.checked = false;
+      })
+      this.atd = [];
+    }
+  }
 
   // }
 

@@ -17,8 +17,12 @@ export class CalendarService {
     return this.httpClient.post<any>(ApiService.saveCalendarEventsURL, admin);
   }
 
-  getStdList(): Observable<CalendarEvents[]> {
-    return this.httpClient.get<any>(ApiService.getCalendarEventsURL);
+  geteventList(): Observable<CalendarEvents[]> {
+    let data = {
+      role: localStorage.getItem('role'),
+      userid: localStorage.getItem('UserId'),
+    }
+    return this.httpClient.post<any>(ApiService.getCalendarEventsURL, data);
   }
   removeEventData(id) {
     let bnr = {

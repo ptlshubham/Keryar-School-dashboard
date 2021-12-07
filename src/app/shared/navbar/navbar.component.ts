@@ -25,19 +25,19 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     private _router: Subscription;
     public open: boolean = false;
-    eventList:any=[];
+    eventList: any = [];
     @ViewChild("navbar-cmp", { static: false }) button;
 
     constructor(location: Location,
         private renderer: Renderer2,
         private element: ElementRef,
         private router: Router,
-        private calenderService:CalendarService
-        ) {
+        private calenderService: CalendarService
+    ) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
-       
+
 
     }
 
@@ -58,12 +58,7 @@ export class NavbarComponent implements OnInit {
             }
         });
     }
-    getEventDetails() {
-        this.calenderService.getStdList().subscribe((data: any) => {
-          this.eventList = data;
-    
-        })
-      }
+
 
     minimizeSidebar() {
         const body = document.getElementsByTagName('body')[0];
@@ -168,6 +163,16 @@ export class NavbarComponent implements OnInit {
             localStorage.clear();
             this.router.navigate(['pages/login']);
         }
+
+    }
+    getEventDetails() {
+        this.calenderService.geteventList().subscribe((data: any) => {
+            this.eventList = data;
+
+        })
+    }
+    removeNotifications(id) {
+        debugger
 
     }
 }

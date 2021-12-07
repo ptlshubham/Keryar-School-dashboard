@@ -18,7 +18,7 @@ export class NotificationComponent implements OnInit {
     this.getEventDetails();
   }
   getEventDetails() {
-    this.calenderService.getStdList().subscribe((data: any) => {
+    this.calenderService.geteventList().subscribe((data: any) => {
       this.eventList = data;
 
     })
