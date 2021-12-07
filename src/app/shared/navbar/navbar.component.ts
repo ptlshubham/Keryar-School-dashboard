@@ -168,11 +168,13 @@ export class NavbarComponent implements OnInit {
     getEventDetails() {
         this.calenderService.geteventList().subscribe((data: any) => {
             this.eventList = data;
+            debugger
 
         })
     }
     removeNotifications(id) {
-        debugger
-
+        this.calenderService.updateNotificationStatus(id).subscribe((req) => {
+            this.getEventDetails();
+        })
     }
 }

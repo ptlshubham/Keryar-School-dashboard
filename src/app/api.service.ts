@@ -87,6 +87,7 @@ export class ApiService {
   public static uploadOptionsImageURL: string = ApiService.HOST_URL + '/admin/UploadOptionsImage';
   public static saveCalendarEventsURL: string = ApiService.HOST_URL + '/admin/saveCalendarEvents';
   public static getCalendarEventsURL: string = ApiService.HOST_URL + '/admin/getCalendarEvents';
+  public static updateNotificationListURL: string = ApiService.HOST_URL + '/admin/UpdateNotificationList';
   public static removeEventListURL: string = ApiService.HOST_URL + '/admin/RemoveEventList';
   public static saveStudentAttandanceURL: string = ApiService.HOST_URL + '/admin/saveStudentAttandance';
   public static getStudentAttandanceURL: string = ApiService.HOST_URL + '/admin/getStudentAttandance';
