@@ -16,6 +16,34 @@
             </div>
             <div class="card-body">
               <form class="form-horizontal" name="eventRegForm" #eventRegForm="ngForm">
+
+                <div class="row">
+                  <!-- <div class="col-md-6"> -->
+                    <label class="col-md-2 col-form-label" style="color:#312c2c;font-size: 0.8rem;font-weight: bold;">Select Standard List</label>
+                    <div class="col-md-4">
+                      <div style="border: 1px #dddddd solid !important">
+                        <angular2-multiselect style="color:#312c2c" [ngModelOptions]="{standalone: true}" [data]="stdData" [(ngModel)]="selectedStdList"
+                          [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
+                          (onSelectAll)="onSelectAll($event)" name="itemms" (onDeSelectAll)="onDeSelectAll($event)">
+                        </angular2-multiselect>
+                      </div>
+                    <!-- </div> -->
+                    </div>
+
+                    <label class="col-md-2 col-form-label" style="color:#312c2c;font-size: 0.8rem;font-weight: bold;">Select Teacher List</label>
+                    <div class="col-md-4">
+                      <div style="border: 1px #dddddd solid !important">
+                        <angular2-multiselect style="color:#312c2c" [ngModelOptions]="{standalone: true}" [data]="teachData" [(ngModel)]="selectedteahcList"
+                          [settings]="dropdownSettings" (onSelect)="onItemSelectTeach($event)" (onDeSelect)="OnItemDeSelectTeach($event)"
+                          (onSelectAll)="onSelectAll($event)" name="itemms" (onDeSelectAll)="onDeSelectAll($event)">
+                        </angular2-multiselect>
+                      </div>
+                    <!-- </div> -->
+                    </div>
+               
+        
+                  
+                </div>
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">

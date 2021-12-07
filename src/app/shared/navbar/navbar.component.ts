@@ -3,6 +3,7 @@ import { ROUTES } from '../.././sidebar/sidebar.component';
 import { Router, ActivatedRoute, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Subscription } from 'rxjs/Subscription';
+import { CalendarService } from 'app/calendar/calendar.service';
 
 var misc: any = {
     navbar_menu_visible: 0,
@@ -24,20 +25,24 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     private _router: Subscription;
     public open: boolean = false;
-
+    eventList:any=[];
     @ViewChild("navbar-cmp", { static: false }) button;
 
     constructor(location: Location,
         private renderer: Renderer2,
         private element: ElementRef,
-        private router: Router) {
+        private router: Router,
+        private calenderService:CalendarService
+        ) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
+       
 
     }
 
     ngOnInit() {
+        this.getEventDetails();
         this.listTitles = ROUTES.filter(listTitle => listTitle);
 
         const navbar: HTMLElement = this.element.nativeElement;
@@ -53,6 +58,12 @@ export class NavbarComponent implements OnInit {
             }
         });
     }
+    getEventDetails() {
+        this.calenderService.getStdList().subscribe((data: any) => {
+          this.eventList = data;
+    
+        })
+      }
 
     minimizeSidebar() {
         const body = document.getElementsByTagName('body')[0];

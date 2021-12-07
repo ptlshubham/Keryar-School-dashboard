@@ -7,6 +7,8 @@ import { CalendarService } from "./calendar.service";
 import { CalendarEvents } from "./calendar.model";
 import { CalendarOptions } from "@fullcalendar/angular";
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
+import { RegisterService } from "app/register/register.service";
+import { ManageService } from "app/manage/manage.service";
 declare var $: any;
 const colors: any = {
   red: {
@@ -34,6 +36,14 @@ export class CalendarComponent implements OnInit {
   public calendarModel: CalendarEvents = new CalendarEvents;
   public eventList: CalendarEvents[] = [];
   posts = [];
+  reg:any=[];
+  STD:any=[];
+  stdData:any=[];
+  teachData:any=[];
+  selectStdsList:any=[];
+  selectedTeahcList:any=[];
+  stdId:any;
+
   public eventColor: string = '#c00f26';
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -52,8 +62,12 @@ export class CalendarComponent implements OnInit {
     private calenderService: CalendarService,
     private router: Router,
     private apiService: ApiService,
+    private registerService:RegisterService,
+    private manageService:ManageService
   ) {
     this.getEventDetails();
+    this.getStdList();
+    this.getTeacher();
   }
   ngOnInit() {
 
@@ -62,16 +76,86 @@ export class CalendarComponent implements OnInit {
     this.selected = arg.dateStr;
 
   }
+  getTeacher() {
+   
+      this.registerService.getTeacherList().subscribe((data: any) => {
+        this.reg = data;
+        
+        this.reg.forEach(element => {
+          let data = {
+            itemName: element.firstname +' '+element.lastname,
+            id: element.id,
+          }
+    
+          this.teachData.push(data);
+        });
+      });
+  }
+  getStdList() {
+    this.manageService.getStdList().subscribe((data: any) => {
+      this.STD = data;
+      this.STD.forEach(element => {
+        let data = {
+          itemName: element.stdname,
+          id: element.id,
+        }
+        this.stdData.push(data);
+      });
+    });
+  }
+ 
+  onItemSelect($event) {
+    let data = {
+      selStds: $event.itemName,
+      stdid: $event.id, 
+    }
+    this.selectStdsList.push(data);
+
+  }
+  onItemSelectTeach($event){
+    let data = {
+      selteach: $event.itemName,
+      teachid: $event.id, 
+    }
+    this.selectedTeahcList.push(data);
+  }
+  OnItemDeSelect(item: any) {
+
+    for (let i = 0; i < this.selectStdsList.length; i++) {
+      if (this.selectStdsList[i].stdid == item.id) {
+        this.selectStdsList.splice(i, 1);
+      }
+    }
+  }
+  OnItemDeSelectTeach(item){
+    for (let i = 0; i < this.selectedTeahcList.length; i++) {
+      if (this.selectedTeahcList[i].stdid == item.id) {
+        this.selectedTeahcList.splice(i, 1);
+      }
+    }
+  }
   addEventsDetails() {
     this.calendarModel.date = this.selected;
     this.calendarModel.active = true;
+    if(this.selectedTeahcList.length >0 || this.selectStdsList.length >0){
+      debugger
+      this.calendarModel.teachlist= this.selectedTeahcList;
+      this.calendarModel.stdlist=this.selectStdsList;
+      this.calenderService.saveEventsList(this.calendarModel).subscribe((data: any) => {
+        debugger
+        this.apiService.showNotification('top', 'right', 'Event Added Successfully.', 'success');
+        location.reload();
+        // this.getEventDetails();
+  
+      })
+    }
+    else{
+      this.apiService.showNotification('top', 'right', 'Please Select Standard  Or Teachers for add event', 'danger');
+    }
+  
+    
      
-    this.calenderService.saveEventsList(this.calendarModel).subscribe((data: any) => {
-      this.apiService.showNotification('top', 'right', 'Event Added Successfully.', 'success');
-      location.reload();
-      // this.getEventDetails();
-
-    })
+   
   }
   getEventDetails() {
     this.calenderService.getStdList().subscribe((data: any) => {

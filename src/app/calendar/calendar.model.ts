@@ -10,7 +10,9 @@ export class CalendarEvents {
         public updateddate?: Date,
         public color?: string,
         public index?: number,
-        public title?: string
+        public title?: string,
+        public stdlist?:any[],
+        public teachlist?:any[]
 
 
     ) {

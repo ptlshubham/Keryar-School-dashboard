@@ -9,6 +9,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     dayGridPlugin,
     interactionPlugin
@@ -19,6 +20,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         RouterModule.forChild(CalendarRoutes),
         FormsModule,
         FullCalendarModule,
+        AngularMultiSelectModule,
         ColorPickerModule,
         NgxPaginationModule
 
