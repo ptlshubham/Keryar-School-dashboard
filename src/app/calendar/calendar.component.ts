@@ -38,12 +38,14 @@ export class CalendarComponent implements OnInit {
   posts = [];
   reg:any=[];
   STD:any=[];
-  stdData:any=[];
+  stdData: any = [];
   teachData:any=[];
+  selstd:any=[];
+  selteach:any=[]
   selectStdsList:any=[];
   selectedTeahcList:any=[];
   stdId:any;
-
+  dropdownSettings = {};
   public eventColor: string = '#c00f26';
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -57,6 +59,7 @@ export class CalendarComponent implements OnInit {
     events: [],
     eventColor: '#c00f26'
   };
+ 
 
   constructor(
     private calenderService: CalendarService,
@@ -65,12 +68,20 @@ export class CalendarComponent implements OnInit {
     private registerService:RegisterService,
     private manageService:ManageService
   ) {
+    // this.dropdownSettings = { 
+    //   singleSelection: false, 
+    //   text:"Select Countries",
+    //   selectAllText:'Select All',
+    //   unSelectAllText:'UnSelect All',
+    //   enableSearchFilter: false,
+    //   classes:"custom-class",
+     
+    // };   
+  }
+  ngOnInit() {
     this.getEventDetails();
     this.getStdList();
     this.getTeacher();
-  }
-  ngOnInit() {
-
   }
   handleDateClick(arg) {
     this.selected = arg.dateStr;
@@ -110,7 +121,7 @@ export class CalendarComponent implements OnInit {
       stdid: $event.id, 
     }
     this.selectStdsList.push(data);
-
+  
   }
   onItemSelectTeach($event){
     let data = {
@@ -119,8 +130,25 @@ export class CalendarComponent implements OnInit {
     }
     this.selectedTeahcList.push(data);
   }
+  onSelectAll(){
+    this.stdData.forEach(element => {
+      let data = {
+        selteach: element.itemName,
+        teachid: element.id, 
+      }
+      this.selectStdsList.push(data);
+    });
+  }
+  onSelectAllTeach(){
+    this.teachData.forEach(element => {
+      let data = {
+        selteach: element.itemName,
+        teachid: element.id, 
+      }
+      this.selectedTeahcList.push(data);
+    });
+  }
   OnItemDeSelect(item: any) {
-
     for (let i = 0; i < this.selectStdsList.length; i++) {
       if (this.selectStdsList[i].stdid == item.id) {
         this.selectStdsList.splice(i, 1);
@@ -134,6 +162,12 @@ export class CalendarComponent implements OnInit {
       }
     }
   }
+  onDeSelectAll(){
+    this.selectStdsList=[];
+  }
+  onDeSelectAllTeach(){
+    this.selectedTeahcList =[];
+  }
   addEventsDetails() {
     this.calendarModel.date = this.selected;
     this.calendarModel.active = true;
@@ -145,7 +179,7 @@ export class CalendarComponent implements OnInit {
         debugger
         this.apiService.showNotification('top', 'right', 'Event Added Successfully.', 'success');
         location.reload();
-        // this.getEventDetails();
+        //  this.getEventDetails();
   
       })
     }
@@ -158,7 +192,7 @@ export class CalendarComponent implements OnInit {
    
   }
   getEventDetails() {
-    this.calenderService.getStdList().subscribe((data: any) => {
+    this.calenderService.geteventList().subscribe((data: any) => {
 
       this.calendarOptions.events = data;
       this.eventList = data;
