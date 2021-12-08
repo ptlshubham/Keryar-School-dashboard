@@ -168,11 +168,29 @@ export class NavbarComponent implements OnInit {
     getEventDetails() {
         this.calenderService.geteventList().subscribe((data: any) => {
             this.eventList = data;
+            debugger
 
         })
     }
     removeNotifications(id) {
-        debugger
+        let data = [];
+        id.role = localStorage.getItem('role')
+        data.push(id);
+        this.calenderService.updateNotificationStatus(data).subscribe((req) => {
+            if (req == 'success') {
+                this.getEventDetails();
+            }
+        })
+    }
+    clearAllNotification(data) {
+        data.forEach(element => {
+            element.role = localStorage.getItem('role');
+        });
+        this.calenderService.updateNotificationStatus(data).subscribe((req) => {
+            if (req == 'success') {
+                this.getEventDetails();
+            }
 
+        })
     }
 }

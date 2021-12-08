@@ -24,6 +24,10 @@ export class CalendarService {
     }
     return this.httpClient.post<any>(ApiService.getCalendarEventsURL, data);
   }
+  updateNotificationStatus(data): Observable<any> {
+
+    return this.httpClient.post<any>(ApiService.updateNotificationListURL, data);
+  }
   removeEventData(id) {
     let bnr = {
       id: id
