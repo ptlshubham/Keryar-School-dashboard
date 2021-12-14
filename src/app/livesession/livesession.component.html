@@ -17,7 +17,77 @@
     </div>
 </div> -->
 <div class="main-content">
-    <p>Simple yet flexible JavaScript charting for designers & developers. Made by our friends from
+
+
+    <div class="card" >
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-7">
+              <h4 class="card-title">Teacher List</h4>
+            </div>
+            <div class="ml-md-auto">
+              <button type="submit" class="btn btn-info btn-round" *ngIf="Roles == 'Admin'" (click)="openTeacherAdd()">
+                <i class="fa fa-plus"></i> Add Teacher
+              </button>
+              <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                <i class="fa fa-arrow-left"></i> Back
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+    
+          <table class="table table-striped">
+            <thead class="text-primary">
+              <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Contact</th>
+                <th class="text-left">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of reg | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td class="text-center">{{item.index}}</td>
+                <td class="text-center">{{ item.firstname }} {{ item.lastname }}</td>
+                <td class="text-center">{{ item.email }}</td>
+                <td class="text-center">{{ item.contact }}</td>
+                <td class="text-left">
+                  <a class="btn btn-warning btn-link btn-icon btn-lg edit">
+                    <!-- <i class="fa far fa-eye" data-toggle="modal" data-target="#teacherModal"
+                      (click)="editTeacherData(item)"></i> -->
+                      <i class="fa fa-video-camera" aria-hidden="true"></i>
+                  </a>
+                  <!-- <a class="btn btn-danger btn-link btn-icon btn-sm remove"><i class="fa fa-times"
+                      (click)="removeTeacher(item.id)"></i></a> -->
+                </td>
+    
+              </tr>
+            </tbody>
+          </table>
+    
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="ml-md-auto">
+              <pagination-controls (pageChange)="p = $event" autoHide="true" responsive="true"></pagination-controls>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- CODE FOR GRAPHS AND CHARTS -->
+
+    <!-- <p>Simple yet flexible JavaScript charting for designers & developers. Made by our friends from
         <a target="_blank" href="https://github.com/gionkunz/chartist-js">Chartist.js</a>. Please check
         <a target="_blank" href="https://gionkunz.github.io/chartist-js/api-documentation.html">the full
             documentation</a>.
@@ -108,5 +178,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>

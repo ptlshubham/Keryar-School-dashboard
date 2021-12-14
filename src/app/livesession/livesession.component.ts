@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RegisterService } from 'app/register/register.service';
 import Chart from 'chart.js';
 @Component({
   selector: 'app-livesession',
@@ -7,7 +8,7 @@ import Chart from 'chart.js';
 })
 export class LivesessionComponent implements OnInit {
 
-
+  reg : any=[];
   public gradientStroke;
   public chartColor = "#FFFFFF";
   public canvas: any;
@@ -16,7 +17,11 @@ export class LivesessionComponent implements OnInit {
   public gradientChartOptionsConfiguration: any;
   public gradientChartOptionsConfigurationWithNumbersAndGrid: any;
   public myChart: any;
-  constructor() { }
+  constructor(
+    private registerService: RegisterService,
+  ) { 
+    this.getTeacher();
+  }
   ngOnInit() {
     this.canvas = document.getElementById("chartHours");
     this.ctx = this.canvas.getContext("2d");
@@ -587,5 +592,16 @@ export class LivesessionComponent implements OnInit {
     };
 
   }
+
+
+  getTeacher() {
+    this.registerService.getTeacherList().subscribe((data: any) => {
+      this.reg = data;
+      for (let i = 0; i < this.reg.length; i++) {
+        this.reg[i].index = i + 1;
+      }
+    });
+  }
+
 
 }

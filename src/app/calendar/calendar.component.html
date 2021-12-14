@@ -22,9 +22,9 @@
                     <label class="col-md-2 col-form-label" style="color:#312c2c;font-size: 0.8rem;font-weight: bold;">Select Standard List</label>
                     <div class="col-md-4">
                       <div style="border: 1px #dddddd solid !important">
-                        <angular2-multiselect style="color:#312c2c" [ngModelOptions]="{standalone: true}" [data]="stdData" [(ngModel)]="selectedStdList"
+                        <angular2-multiselect [ngModelOptions]="{standalone: true}" [data]="stdData" [(ngModel)]="selstd"
                           [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)"
-                          (onSelectAll)="onSelectAll($event)" name="itemms" (onDeSelectAll)="onDeSelectAll($event)">
+                          (onSelectAll)="onSelectAll()" name="std" (onDeSelectAll)="onDeSelectAll()">
                         </angular2-multiselect>
                       </div>
                     <!-- </div> -->
@@ -33,9 +33,9 @@
                     <label class="col-md-2 col-form-label" style="color:#312c2c;font-size: 0.8rem;font-weight: bold;">Select Teacher List</label>
                     <div class="col-md-4">
                       <div style="border: 1px #dddddd solid !important">
-                        <angular2-multiselect style="color:#312c2c" [ngModelOptions]="{standalone: true}" [data]="teachData" [(ngModel)]="selectedteahcList"
+                        <angular2-multiselect [ngModelOptions]="{standalone: true}" [data]="teachData" [(ngModel)]="selteach"
                           [settings]="dropdownSettings" (onSelect)="onItemSelectTeach($event)" (onDeSelect)="OnItemDeSelectTeach($event)"
-                          (onSelectAll)="onSelectAll($event)" name="itemms" (onDeSelectAll)="onDeSelectAll($event)">
+                          (onSelectAll)="onSelectAllTeach()" name="teach" (onDeSelectAll)="onDeSelectAllTeach()">
                         </angular2-multiselect>
                       </div>
                     <!-- </div> -->

@@ -4,6 +4,8 @@ import { LivesessionComponent } from './livesession.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LiveSessionRoutes } from './livesession.routing';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -12,6 +14,8 @@ import { LiveSessionRoutes } from './livesession.routing';
   imports: [
     CommonModule,
     FormsModule,
+    AngularMultiSelectModule,
+    NgxPaginationModule,
     RouterModule.forChild(LiveSessionRoutes)
   ]
 })
