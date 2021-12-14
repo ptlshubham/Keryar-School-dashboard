@@ -35,7 +35,7 @@
 
 .search {
     border-radius: 15px 0 0 15px !important;
-    background-color: rgb(255, 255, 255) !important;
+    background-color: #f2f3f7 !important;
     border: 0 !important;
     color: white !important;
 }
@@ -48,7 +48,7 @@
 .type_msg {
     background-color: #f2f3f7 !important;
     border: 0 !important;
-    color: #f2f3f7 !important;
+    color: #5f616e !important;
     height: 60px !important;
     overflow-y: auto;
 }
@@ -60,25 +60,27 @@
 
 .attach_btn {
     border-radius: 15px 0 0 15px !important;
-    background-color: #ffff !important;
+    background-color: #1c8d91 !important;
     border: 0 !important;
-    color: white !important;
+    color: #ffff !important;
+    font-size: 20px;
     cursor: pointer;
 }
 
 .send_btn {
     border-radius: 0 15px 15px 0 !important;
-    background-color: rgb(255, 255, 255) !important;
+    background-color: #1c8d91 !important;
     border: 0 !important;
-    color: #1c8d91 !important;
+    font-size: 20px;
+    color: white !important;
     cursor: pointer;
 }
 
 .search_btn {
     border-radius: 0 15px 15px 0 !important;
-    background-color: rgb(255, 255, 255) !important;
+    background-color: #1c8d91 !important;
     border: 0 !important;
-    color: #1c8d91 !important;
+    color: #ffff !important;
     cursor: pointer;
 }
 
@@ -95,6 +97,17 @@
 
 .active {
     background-color: #1c8d91;
+
+}
+
+.active .user_info span {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.active .user_info p {
+    font-size: 10px;
+    color: #ffffff;
 }
 
 .user_img {
@@ -148,7 +161,23 @@
     color: #5f616e;
 }
 
+.user_info_S {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 15px;
+}
+
+.user_info_S span {
+    font-size: 20px;
+    color: #5f616e;
+}
+
 .user_info p {
+    font-size: 10px;
+    color: #5f616e;
+}
+
+.user_info_S p {
     font-size: 10px;
     color: #5f616e;
 }
@@ -211,9 +240,9 @@
 
 #action_menu_btn {
     position: absolute;
-    right: 10px;
-    top: 10px;
-    color: white;
+    right: 15px;
+    top: 20px;
+    color: #1c8d91;
     cursor: pointer;
     font-size: 20px;
 }
@@ -222,8 +251,8 @@
     z-index: 1;
     position: absolute;
     padding: 15px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
+    background-color: #1c8d91;
+    color: #ffffff;
     border-radius: 15px;
     top: 30px;
     right: 15px;
@@ -271,11 +300,11 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #7F7FD5;
+    background: #9da4ac;
     border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #5454b6;
+    background: #9da4ac;
 }
