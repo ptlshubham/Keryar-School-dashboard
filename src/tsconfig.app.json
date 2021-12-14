@@ -5,6 +5,8 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true, 
+    "allowSyntheticDefaultImports": true ,
     "target": "es5",
     "lib": [
       "es2016",
@@ -14,6 +16,12 @@
     "module": "es2015",
     "baseUrl": "",
     "types": []
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "esModuleInterop": true, 
+    "allowSyntheticDefaultImports": true 
   },
   "exclude": [
     "test.ts",

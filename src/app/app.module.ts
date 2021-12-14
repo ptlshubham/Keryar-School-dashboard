@@ -28,12 +28,18 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataTablesModule } from 'angular-datatables';
 import { PipesModule } from './pipes/pipes.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CallInfoDialogComponents } from './callinfo-dialog/callinfo-dialog.component';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     dayGridPlugin,
     interactionPlugin
 ]);
 @NgModule({
-
     imports: [
         BrowserAnimationsModule,
         FormsModule,
@@ -53,6 +59,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         FullCalendarModule,
         ChartsModule,
         NgxPaginationModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ClipboardModule,
+        MatSnackBarModule,
         CalendarModule.forRoot({
             provide: DateAdapter,
             useFactory: adapterFactory,
@@ -65,17 +78,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         AppComponent,
         AdminLayoutComponent,
         AuthLayoutComponent,
-
-
+        CallInfoDialogComponents,
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-
-
     ],
-
-
     bootstrap: [AppComponent]
 })
 

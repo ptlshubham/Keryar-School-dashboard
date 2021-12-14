@@ -17,6 +17,12 @@
       "node"
     ]
   },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "esModuleInterop": true, 
+    "allowSyntheticDefaultImports": true 
+  },
   "files": [
     "test.ts",
     "polyfills.ts"

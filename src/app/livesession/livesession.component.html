@@ -18,6 +18,27 @@
 </div> -->
 <div class="main-content">
 
+    <div class="card">
+        <div class="container-fluid">
+            <div class="row">
+              <button mat-raised-button color="primary" class="m-2" (click)="showModal(false)">Start Call</button>
+              <!-- [disabled]="isCallStarted$ | async"  -->
+              <button mat-raised-button class="m-2" (click)="showModal(true)">Join Call</button>
+              <!-- [disabled]="isCallStarted$ | async"  -->
+              <button mat-raised-button color="warn" class="m-2"  (click)="endCall()">End Call</button>
+              <!-- [disabled]="!(isCallStarted$ | async)" -->
+            </div>
+            <div class="row">
+              <div class="col text-center">
+                <div id="video-wrapper">
+                  <video #remoteVideo id="remote-video" poster="./assets/video-placeholder.jpg" autoplay playsinline></video>
+                  <video #localVideo id="local-video" autoplay playsinline [muted]=true></video>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
 
     <div class="card" >
         <div class="card-header">
@@ -75,6 +96,10 @@
             </div>
           </div>
         </div>
+
+
+
+       
     </div>
 
 
