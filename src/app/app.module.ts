@@ -28,6 +28,7 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataTablesModule } from 'angular-datatables';
 import { PipesModule } from './pipes/pipes.module';
+import { ChatboxModule } from './chatbox/chatbox.module';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     dayGridPlugin,
     interactionPlugin
@@ -50,6 +51,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         HttpClientModule,
         QuestionModule,
         ColorPickerModule,
+        ChatboxModule,
         FullCalendarModule,
         ChartsModule,
         NgxPaginationModule,

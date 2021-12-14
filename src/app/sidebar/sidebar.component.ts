@@ -85,6 +85,13 @@ export const ROUTES: RouteInfo[] = [
     icontype: "fa fa-picture-o",
   },
   {
+    path: "/chatbox",
+    title: "Chat Box",
+    type: "link",
+    roles: "Admin",
+    icontype: "fa fa-picture-o",
+  },
+  {
     path: "/visitor",
     title: "Visitor",
     type: "sub",
