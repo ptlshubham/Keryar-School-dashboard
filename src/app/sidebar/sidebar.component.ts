@@ -222,6 +222,21 @@ export class SidebarComponent implements OnInit {
     private router: Router,
 
   ) {
+    debugger
+    var $sidebar = $('.sidebar');
+    $('.fixed-plugin .background-color span').click(function(){
+      $(this).siblings().removeClass('active');
+      $(this).addClass('active');
+
+      // var new_color = $(this).data('color');
+      var new_color = 'white';
+      
+
+          $sidebar.attr('data-color',new_color);
+      
+
+     
+  });
 
     if (localStorage.getItem("role") == 'Student') {
       this.getProfilePic();

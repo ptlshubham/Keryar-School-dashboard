@@ -23,8 +23,8 @@
   </div>
   <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Teacher'">
-      <div class="card card-stats">
-        <div class="card-body ">
+      <div class="card card-stats" >
+        <div class="card-body " >
           <div class="row">
             <div class="col-5 col-md-4">
               <div class="icon-big text-center icon-danger">
@@ -49,7 +49,7 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Admin'">
-      <div class="card card-stats">
+      <div class="card card-stats" style="background-color: #f6fcfa !important">
         <div class="card-body ">
           <div class="row">
             <div class="col-5 col-md-4">
@@ -74,7 +74,7 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Admin'">
-      <div class="card card-stats">
+      <div class="card card-stats" style="background-color: #fff6f9 !important">
         <div class="card-body ">
           <div class="row">
             <div class="col-5 col-md-4">
@@ -100,7 +100,7 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role != 'Student'">
-      <div class="card card-stats">
+      <div class="card card-stats" style="background-color: #f4f7fe !important">
         <div class="card-body ">
           <div class="row">
             <div class="col-5 col-md-4">
@@ -305,7 +305,7 @@
   <br>
   <div class="row" *ngIf="role != 'Student'">
     <div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let s of stdlist;let i=index">
-      <div class="card card-stats" (click)="openStd(s.id)">
+      <div class="card card-stats" (click)="openStd(s.id)" style="background-color: #f6fcfc !important">
         <div class="card-body ">
           <div class="row">
             <div class="col-5 col-md-4">
@@ -333,7 +333,7 @@
   </div>
   <div class="row" *ngIf="role =='Admin'">
     <div class="col-md-4">
-      <div class="card ">
+      <div class="card " style="background-color: #faecf5;">
         <div class="card-header ">
           <h5 class="card-title">Student,Teacher Graphs</h5>
           <p class="card-category">Portal User Ratio</p>
@@ -400,7 +400,7 @@
     </div> -->
 
     <div class="col-md-4">
-      <div class="card ">
+      <div class="card " style="background-color: #eccab6;">
         <div class="card-header ">
           <h5 class="card-title">Numbers of Visitor</h5>
           <p class="card-category">Total Numbers of Visitor</p>
@@ -422,7 +422,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card card-chart">
+      <div class="card card-chart"  style="background-color: #e9f8f3;">
         <div class="card-header">
           <h5 class="card-title">24 Hours Performance</h5>
           <p class="card-category">Line Chart</p>

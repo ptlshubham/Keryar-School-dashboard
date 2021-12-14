@@ -206,7 +206,7 @@ export class QuestionComponent implements OnInit {
   openQuestionList(sub) {
     this.subjects.forEach(element => {
       if (element.id == sub.id) {
-        element.color = '3px 3px 5px 5px #ef8157';
+        element.color = '3px 3px 5px 5px #1c8d91';
       } else {
         element.color = '3px 3px 5px 5px #ebf0ec';
       }
@@ -236,7 +236,7 @@ export class QuestionComponent implements OnInit {
 
       this.chapater.forEach(element => {
         if (element.id == chap.chapid) {
-          element.color = '3px 3px 5px 5px #ef8157';
+          element.color = '3px 3px 5px 5px #1c8d91';
         } else {
           element.color = '3px 3px 5px 5px #ebf0ec';
         }
@@ -255,7 +255,7 @@ export class QuestionComponent implements OnInit {
 
       this.chapater.forEach(element => {
         if (element.id == chap.id) {
-          element.color = '3px 3px 5px 5px #ef8157';
+          element.color = '3px 3px 5px 5px #1c8d91';
         } else {
           element.color = '3px 3px 5px 5px #ebf0ec';
         }
