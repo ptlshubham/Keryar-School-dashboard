@@ -28,7 +28,6 @@ import { ChartsModule } from 'ng2-charts';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DataTablesModule } from 'angular-datatables';
 import { PipesModule } from './pipes/pipes.module';
-<<<<<<< HEAD
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -36,9 +35,7 @@ import { MatInputModule } from '@angular/material/input';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CallInfoDialogComponents } from './callinfo-dialog/callinfo-dialog.component';
-=======
 import { ChatboxModule } from './chatbox/chatbox.module';
->>>>>>> 69255fd1d991628f1a65685572cc3a152a7b706d
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     dayGridPlugin,
     interactionPlugin
