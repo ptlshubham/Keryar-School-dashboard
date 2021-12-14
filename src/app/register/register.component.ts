@@ -259,7 +259,7 @@ export class RegisterComponent implements OnInit {
     this.list = id;
     this.stdlist.forEach(element => {
       if (element.id == id) {
-        element.color = '3px 3px 5px 5px #ef8157';
+        element.color = '3px 3px 5px 5px #1c8d91';
         this.selectedstd = element.stdname;
       }
       else {

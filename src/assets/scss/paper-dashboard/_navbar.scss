@@ -23,10 +23,10 @@
     &.bg-white{
       .input-group .form-control,
       .input-group.no-border .form-control{
-        color: $default-color;
+        color: $primary-color;
 
         @include placeholder(){
-          color: $default-color;
+          color: $primary-color;
         };
       }
       .input-group-prepend .input-group-text i,
@@ -219,16 +219,16 @@
     }
 
     &.navbar-transparent{
-      background-color: $transparent-bg !important;
+      background-color: #ffffff !important;
       box-shadow: none;
-      border-bottom: 1px solid #ddd;
+      border-bottom: 1px solid #aafcff;
 
       a:not(.dropdown-item):not(.btn){
-        color: $default-color;
+        color: $primary-color;
 
         &.disabled{
           opacity: .5;
-          color: $default-color;
+          color: $primary-color;
          }
        }
 
@@ -250,16 +250,16 @@
 
     &.bg-white {
         a:not(.dropdown-item):not(.btn){
-            color: $default-color;
+            color: $primary-color;
 
             &.disabled{
                 opacity: .5;
-                color: $default-color;
+                color: $primary-color;
             }
         }
 
         .button-bar{
-            background: $default-color;
+            background: $primary-color;
         }
 
         .nav-item.active .nav-link:not(.btn),
@@ -270,7 +270,7 @@
         }
 
         .logo-container{
-            border: 1px solid $default-color;
+            border: 1px solid $primary-color;
         }
     }
 

@@ -10,6 +10,7 @@ declare var $:any;
 
 export class FixedPluginComponent implements OnInit{
     ngOnInit(){
+        
         var $sidebar = $('.sidebar');
         var $off_canvas_sidebar = $('.off-canvas-sidebar');
         var window_width = window.outerWidth;
@@ -20,6 +21,12 @@ export class FixedPluginComponent implements OnInit{
             }
 
         }
+        var new_color = 'white';   
+        $sidebar.attr('data-color',new_color);
+        var new_color = 'primary';
+        $sidebar.attr('data-active-color',new_color);
+        
+            
 
         $('.fixed-plugin a').click(function(event){
           // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
@@ -37,7 +44,9 @@ export class FixedPluginComponent implements OnInit{
             $(this).siblings().removeClass('active');
             $(this).addClass('active');
 
-            var new_color = $(this).data('color');
+            // var new_color = $(this).data('color');
+            var new_color = 'white';
+            debugger
             if($sidebar.length != 0){
                 $sidebar.attr('data-color',new_color);
             }
@@ -51,7 +60,9 @@ export class FixedPluginComponent implements OnInit{
             $(this).siblings().removeClass('active');
             $(this).addClass('active');
 
-            var new_color = $(this).data('color');
+            // var new_color = $(this).data('color');
+            
+            var new_color = 'primary';
 
             if($sidebar.length != 0){
                 $sidebar.attr('data-active-color',new_color);
