@@ -52,16 +52,20 @@
       <div class="card card-stats" style="background-color: #f6fcfa !important">
         <div class="card-body ">
           <div class="row">
-            <div class="col-5 col-md-4">
-              <div class="icon-big text-center icon-warning">
+            <div class="col-3 col-md-2">
+              <!-- <div class="icon-big text-center icon-warning">
                 <i class="fas fa-chalkboard-teacher text-danger"></i>
+              </div> -->
+              <div  style="height:4rem;width:4rem;border-radius: 50%;background-color:#37dd90">
+                <i class="fas fa-chalkboard-teacher " style="color:#ffffff;padding-left: 0.9rem;padding-top: 1.2rem;font-size: 1.6rem;"></i>
               </div>
             </div>
-            <div class="col-7 col-md-8">
-              <div class="numbers">
+            <div class="col-7 col-md-8" >
+              <div class="numbers" style="text-align: start;">
                 <p class="card-category">Teacher</p>
-                <p class="card-title">Total Teachers: {{reg.length}}
-              </div>
+                <p class="card-title" style="font-size: 1.3rem;">Total Teachers </p>
+                  <p class="card-title" style="color:#37dd90;font-weight: bold;margin-top: 5px;font-size: 2rem;">{{reg.length}}</p>
+                </div>
             </div>
           </div>
         </div>
@@ -77,16 +81,17 @@
       <div class="card card-stats" style="background-color: #fff6f9 !important">
         <div class="card-body ">
           <div class="row">
-            <div class="col-5 col-md-4">
-              <div class="icon-big text-center icon-warning">
-                <i class="fa fa-graduation-cap text-warning"></i>
+            <div class="col-3 col-md-2">
+              <!-- <div class="icon-big text-center icon-warning"> -->
+                <div  style="height:4rem;width:4rem;border-radius: 50%;background-color:#f00654">
+                <i class="fa fa-graduation-cap " style="color:#ffffff;padding-left: 0.9rem;padding-top: 1rem;font-size: 1.8rem;"></i>
               </div>
             </div>
-            <div class="col-7 col-md-8">
-              <div class="numbers">
+            <div class="col-7 col-md-8 " >
+              <div class="numbers "  style="text-align: start;">
                 <p class="card-category">Student</p>
-                <p class="card-title">Total Students: {{studentsList.length}}
-                </p>
+                <p class="card-title" style="font-size: 1.3rem;"> Total Students</p>
+                <p class="card-title" style="color:#f00654;font-weight: bold;margin-top: 5px;font-size: 2rem;;">{{studentsList.length}}</p>
               </div>
             </div>
           </div>
@@ -103,16 +108,16 @@
       <div class="card card-stats" style="background-color: #f4f7fe !important">
         <div class="card-body ">
           <div class="row">
-            <div class="col-5 col-md-4">
-              <div class="icon-big text-center icon-warning">
-                <i class="nc-icon nc-globe text-warning"></i>
+            <div class="col-3 col-md-2">
+              <div  style="height:4rem;width:4rem;border-radius: 50%;background-color:#0677f0">
+                <i class="nc-icon nc-globe" style="color:#ffffff;padding-left: 1.1rem;padding-top: 1.1rem;font-size: 1.8rem;"></i>
               </div>
             </div>
-            <div class="col-7 col-md-8">
-              <div class="numbers">
-                <p class="card-category">Test</p>
-                <p class="card-title">Total Test: {{Test.length}}
-                </p>
+            <div class="col-7 col-md-8" >
+              <div class="numbers" style="text-align: start;">
+                <p class="card-category" >Test</p>
+                <p class="card-title" style="font-size: 1.3rem;">Total Test </p>
+                <p class="card-title" style="color:#0677f0;font-weight: bold;margin-top: 5px;font-size: 2rem;;">{{Test.length}}</p>
               </div>
             </div>
           </div>
@@ -308,13 +313,14 @@
       <div class="card card-stats" (click)="openStd(s.id)" style="background-color: #f6fcfc !important">
         <div class="card-body ">
           <div class="row">
-            <div class="col-5 col-md-4">
-              <div class="icon-big text-center icon-warning">
-                <i class="fas fa-school"></i>
+            <div class="col-3 col-md-2">
+              <!-- <div class="icon-big text-center icon-warning"> -->
+                <div  style="height:3rem;width:3rem;border-radius: 50%;background-color:#1c8d91">
+                <i class="fas fa-school" style="color:#ffffff;padding-left: 0.5rem;padding-top: 0.7rem;font-size: 1.5rem;"></i>
               </div>
             </div>
             <div class="col-7 col-md-8">
-              <div class="numbers">
+              <div class="numbers" style="text-align: start;padding-left: 5px;;">
                 <p class="card-title">{{s.stdname}}</p>
                 <p class="card-category">Subject: {{s.subjectList.length}}
                 </p>
