@@ -2,6 +2,11 @@
   <div class="card" *ngIf="!openTeach">
     <div class="card-header">
       <div class="row">
+        <div class="col-auto mr-auto">
+          <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+            <i class="fa fa-arrow-left"></i> Back
+          </button>
+        </div>
         <div class="col-md-7">
           <h4 class="card-title">Teacher List</h4>
         </div>
@@ -9,9 +14,7 @@
           <button type="submit" class="btn btn-primary btn-round" *ngIf="Roles == 'Admin'" (click)="openTeacherAdd()">
             <i class="fa fa-plus"></i> Add Teacher
           </button>
-          <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
-            <i class="fa fa-arrow-left"></i> Back
-          </button>
+        
         </div>
       </div>
     </div>
@@ -60,15 +63,16 @@
   <div class="card" *ngIf="openTeachAdd">
     <div class="card-header">
       <div class="row">
-        <div class="col-md-9">
-          <h4 class="card-title">Add Teachers</h4>
-        </div>
-        <div class="ml-md-auto">
+        <div class="col-auto mr-auto">
 
           <button type="cancel" class="btn btn-danger btn-round" (click)="closeTeacherForm()">
             <i class="fa fa-arrow-left"></i> Back
           </button>
         </div>
+        <div class="col-md-9">
+          <h4 class="card-title">Add Teachers</h4>
+        </div>
+        
       </div>
     </div>
     <div class="card-body">
@@ -441,10 +445,7 @@
   <div class="card" *ngIf="openStuAdd">
     <div class="card-header">
       <div class="row">
-        <div class="col-md-9">
-          <h4 class="card-title">Add Student</h4>
-        </div>
-        <div class="ml-md-auto">
+        <div class="col-auto mr-auto">
           <!-- <button type="submit" class="btn btn-primary btn-round" (click)="addSubject()">Add
                         Subject</button> -->
           <button type="cancel" class="btn btn-danger btn-round" (click)="closeStudentForm()">
@@ -452,6 +453,10 @@
           </button>
           <!-- <button type="submit" class="btn btn-primary btn-round" routerLink="/manage/std">Add Standard</button> -->
         </div>
+        <div class="col-md-9">
+          <h4 class="card-title">Add Student</h4>
+        </div>
+      
       </div>
     </div>
     <div class="card-body">
@@ -875,6 +880,11 @@
   <div class="card" *ngIf="!openstudent">
     <div class="card-header">
       <div class="row">
+        <div class="col-auto mr-auto">
+          <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+            <i class="fa fa-arrow-left"></i> Back
+          </button>
+        </div>
         <div class="col-md-2">
           <h4 class="card-title">Student List</h4>
         </div>
@@ -902,9 +912,7 @@
           <button type="submit" class="btn btn-primary btn-round" *ngIf="Roles == 'Admin'" (click)="openStudentAdd()">
             <i class="fa fa-plus"></i> Add Student
           </button>
-          <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
-            <i class="fa fa-arrow-left"></i> Back
-          </button>
+          
         </div>
       </div>
     </div>
@@ -1202,6 +1210,12 @@
   <div class="card" *ngIf="role == 'Teacher'">
     <div class="card-header">
       <div class="row">
+        <div class="col-auto mr-auto">
+          <!-- <button type="submit" class="btn btn-primary btn-round" (click)="openStudentAdd()">Add Student</button> -->
+          <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+            <i class="fa fa-arrow-left"></i> Back
+          </button>
+        </div>
         <div class="col-md-2">
           <h4 class="card-title">Student List</h4>
         </div>
@@ -1222,12 +1236,7 @@
             </div>
           </div>
         </div>
-        <div class="ml-md-auto">
-          <!-- <button type="submit" class="btn btn-primary btn-round" (click)="openStudentAdd()">Add Student</button> -->
-          <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
-            <i class="fa fa-arrow-left"></i> Back
-          </button>
-        </div>
+   
       </div>
     </div>
     <div class="card-body">

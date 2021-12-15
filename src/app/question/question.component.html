@@ -2,6 +2,11 @@
   <div class="card">
     <div class="card-header">
       <div class="row">
+        <div class="col-auto mr-auto">
+          <button type="cancel" class="btn btn-danger btn-round"  (click)="back()">
+            <i class="fa fa-arrow-left"></i> Back
+          </button>
+        </div>
         <div class="col-md-3">
           <h4 class="card-title">Selected Standard:<b> {{ std[0].stdname }}</b></h4>
         </div>
@@ -19,9 +24,7 @@
           (click)="createChapTest()">
           <i class="fa fa-plus" aria-hidden="true"></i> Create Test
         </button>
-          <button type="cancel" class="btn btn-danger btn-round"  (click)="back()">
-            <i class="fa fa-arrow-left"></i> Back
-          </button>
+      
           <!-- <button type="submit" class="btn btn-primary btn-round" routerLink="/manage/std">Add Standard</button> -->
         </div>
       </div>

@@ -78,7 +78,12 @@
   <div class="card" *ngIf="isAddShow">
     <div class="card-header">
       <div class="row">
-        <div class="col-md-10">
+        <div class="col-auto mr-auto">
+          <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+              <i class="fa fa-arrow-left"></i> Back
+            </button>
+        </div>
+        <div class="col-md-2">
           <h4 class="card-title">Banners List</h4>
         </div>
         <div class="ml-md-auto">
