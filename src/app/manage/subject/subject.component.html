@@ -7,10 +7,10 @@
           <h4 class="card-title">Add Subject</h4>
         </div>
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round" routerLink="/manage/std">
+          <button type="submit" class="btn btn-primary btn-round" routerLink="/manage/std">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Standard
           </button>
-          <button class="btn btn-info btn-round" *ngIf="selectedStd" (click)="addChapaters()">
+          <button class="btn btn-primary btn-round" *ngIf="selectedStd" (click)="addChapaters()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Chapters
           </button>
           <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
@@ -73,7 +73,7 @@
     <div class="card-footer">
       <div class="row">
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round" [disabled]="!SubjectForm.form.valid || !selectedStd"
+          <button type="submit" class="btn btn-primary btn-round" [disabled]="!SubjectForm.form.valid || !selectedStd"
             (click)="saveSubject(add)">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
           </button>
@@ -106,7 +106,7 @@
           </div>
         </div>
         <div class="ml-md-auto">
-          <button class="btn btn-info btn-round" *ngIf="selectedStd" (click)="addChapaters()">
+          <button class="btn btn-primary btn-round" *ngIf="selectedStd" (click)="addChapaters()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Chapters
           </button>
         </div>
@@ -184,7 +184,7 @@
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info btn-round" data-dismiss="modal" (click)="updateSubject(editSub)">
+          <button type="button" class="btn btn-primary btn-round" data-dismiss="modal" (click)="updateSubject(editSub)">
             Update
           </button>
         </div>
@@ -199,7 +199,7 @@
           <h4 class="card-title">Add Chapters</h4>
         </div>
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round" (click)="addSubjectsList()">
+          <button type="submit" class="btn btn-primary btn-round" (click)="addSubjectsList()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Subjects
           </button>
           <button type="cancel" class="btn btn-danger btn-round" (click)="addSubjectsList()">
@@ -270,7 +270,7 @@
     <div class="card-footer">
       <div class="row">
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round" [disabled]="!ChapatersForm.form.valid || !selectedSub"
+          <button type="submit" class="btn btn-primary btn-round" [disabled]="!ChapatersForm.form.valid || !selectedSub"
             (click)="saveChapatersList(add)">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
           </button>
@@ -304,7 +304,7 @@
           </div>
         </div>
         <div class="ml-md-auto">
-          <!-- <button class="btn btn-info btn-round" *ngIf="selectedStd" (click)="addChapaters()">
+          <!-- <button class="btn btn-primary btn-round" *ngIf="selectedStd" (click)="addChapaters()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Chapaters
           </button> -->
         </div>
@@ -389,7 +389,7 @@
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info btn-round" data-dismiss="modal"
+          <button type="button" class="btn btn-primary btn-round" data-dismiss="modal"
             (click)="updateChapaterList(chapModel)">
             Update
           </button>

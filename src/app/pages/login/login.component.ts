@@ -120,9 +120,23 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('authenticationToken', data[0].token);
                 localStorage.setItem('UserId', data[0].id);
                 localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
-                localStorage.setItem('role', this.selectedRole);
                 localStorage.setItem('standardid', data[0].standard);
-                this.router.navigate(['dashboard']);
+                if(data[0].role == 'Visitor'){
+                    localStorage.setItem('role', data[0].role);
+                    if(data[0].detailsupdated){
+                        this.router.navigate(['visitor/visitorreg']);
+                    }
+                    else{
+                        this.router.navigate(['visitor/visitortest']);
+                    }
+                }
+                else{
+                    localStorage.setItem('role', this.selectedRole);
+                    this.router.navigate(['dashboard']);
+                }
+                
+               
+               
             }
 
         });

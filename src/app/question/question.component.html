@@ -9,20 +9,20 @@
           <h4 class="card-title">Selected Subject:<b> {{subjectName}}</b></h4>
         </div>
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round" *ngIf="(Roles == 'Admin' || Roles == 'Teacher') && !showChapter" (click)="addSubject()">
+          <button type="submit" class="btn btn-primary btn-round" *ngIf="(Roles == 'Admin' || Roles == 'Teacher') && !showChapter" (click)="addSubject()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Subject
           </button>
-          <button type="submit" class="btn btn-info btn-round" *ngIf="(Roles == 'Admin' || Roles == 'Teacher') &&showChapter" (click)="addSubject()">
+          <button type="submit" class="btn btn-primary btn-round" *ngIf="(Roles == 'Admin' || Roles == 'Teacher') &&showChapter" (click)="addSubject()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Chapters
           </button>
-          <button type="submit" class="btn btn-info btn-round" *ngIf="Roles != 'Student' && showChapter"
+          <button type="submit" class="btn btn-primary btn-round" *ngIf="Roles != 'Student' && showChapter"
           (click)="createChapTest()">
           <i class="fa fa-plus" aria-hidden="true"></i> Create Test
         </button>
           <button type="cancel" class="btn btn-danger btn-round"  (click)="back()">
             <i class="fa fa-arrow-left"></i> Back
           </button>
-          <!-- <button type="submit" class="btn btn-info btn-round" routerLink="/manage/std">Add Standard</button> -->
+          <!-- <button type="submit" class="btn btn-primary btn-round" routerLink="/manage/std">Add Standard</button> -->
         </div>
       </div>
     </div>
@@ -91,7 +91,7 @@
             *ngIf="isMasterSel" (click)="viewtestlist()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Test
           </button> -->
-          <button type="submit" class="btn btn-info btn-round" (click)="openQuestionBox()">
+          <button type="submit" class="btn btn-primary btn-round" (click)="openQuestionBox()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Question
           </button>
         </div>
@@ -331,11 +331,11 @@
             Cancel
           </button>
           &nbsp;
-          <button type="submit" class="btn btn-info btn-round" *ngIf="submitButton"
+          <button type="submit" class="btn btn-primary btn-round" *ngIf="submitButton"
             [disabled]="!questionRegForm.form.valid || !selectedQue" (click)="saveNewQuestion(questionModel)">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
           </button>
-          <button type="submit" class="btn btn-info btn-round" *ngIf="updateButton"
+          <button type="submit" class="btn btn-primary btn-round" *ngIf="updateButton"
             (click)="updateQuestion(questionModel)">
             Update
           </button>
@@ -502,7 +502,7 @@
             *ngIf="checkedQuestionList.length >0" (click)="viewtestlist()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Test
           </button>
-          <!-- <button type="submit" class="btn btn-info btn-round" (click)="openQuestionBox()">
+          <!-- <button type="submit" class="btn btn-primary btn-round" (click)="openQuestionBox()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Question
           </button> -->
         </div>

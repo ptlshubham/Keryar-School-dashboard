@@ -6,7 +6,7 @@
           <h4 class="card-title">Teacher List</h4>
         </div>
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round" *ngIf="Roles == 'Admin'" (click)="openTeacherAdd()">
+          <button type="submit" class="btn btn-primary btn-round" *ngIf="Roles == 'Admin'" (click)="openTeacherAdd()">
             <i class="fa fa-plus"></i> Add Teacher
           </button>
           <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
@@ -221,7 +221,7 @@
                     <label class="col-sm-2 col-form-label">Select Subjects</label>
                     <div class="col-sm-3">
                         <div class="btn-group bootstrap-select w-100">
-                            <select class="selectpicker w-100" data-style="btn btn-info btn-round" multiple title="Choose Subjects" data-size="7">
+                            <select class="selectpicker w-100" data-style="btn btn-primary btn-round" multiple title="Choose Subjects" data-size="7">
                                 <option disabled> Multiple Options</option>
                                 <option *ngFor="let s of add.subjects">{{s.subject}} </option>
 
@@ -240,7 +240,7 @@
     <div class="card-footer">
       <div class="row">
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round" (click)="saveTeacherDetail(registerModel)">
+          <button type="submit" class="btn btn-primary btn-round" (click)="saveTeacherDetail(registerModel)">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
           </button>
           <button type="submit" class="btn btn-danger btn-round" (click)="closeTeacherForm()">
@@ -426,7 +426,7 @@
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info btn-round" data-dismiss="modal"
+          <button type="button" class="btn btn-primary btn-round" data-dismiss="modal"
             [disabled]="!UpdateTeacherForm.form.valid" (click)="updateTeacher(editTeacher)">
             Update
           </button>
@@ -445,12 +445,12 @@
           <h4 class="card-title">Add Student</h4>
         </div>
         <div class="ml-md-auto">
-          <!-- <button type="submit" class="btn btn-info btn-round" (click)="addSubject()">Add
+          <!-- <button type="submit" class="btn btn-primary btn-round" (click)="addSubject()">Add
                         Subject</button> -->
           <button type="cancel" class="btn btn-danger btn-round" (click)="closeStudentForm()">
             <i class="fa fa-arrow-left"></i> Back
           </button>
-          <!-- <button type="submit" class="btn btn-info btn-round" routerLink="/manage/std">Add Standard</button> -->
+          <!-- <button type="submit" class="btn btn-primary btn-round" routerLink="/manage/std">Add Standard</button> -->
         </div>
       </div>
     </div>
@@ -834,7 +834,7 @@
     <div class="card-footer">
       <div class="row">
         <div class="ml-md-auto">
-          <button type="submit" class="btn btn-info btn-round"
+          <button type="submit" class="btn btn-primary btn-round"
             [disabled]="!studentRegForm.form.valid || !selectedTime ||!selectedstd || !studentregisterModel.gender"
             (click)="saveStudentDetail(studentregisterModel)">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
@@ -899,7 +899,7 @@
           <button type="button" class="btn btn-round btn-primary" *ngIf="selectedstd && Roles != 'Student'"
             (click)="openAttendance()"><i class="fa fa-calendar"></i>
             Attandance</button>
-          <button type="submit" class="btn btn-info btn-round" *ngIf="Roles == 'Admin'" (click)="openStudentAdd()">
+          <button type="submit" class="btn btn-primary btn-round" *ngIf="Roles == 'Admin'" (click)="openStudentAdd()">
             <i class="fa fa-plus"></i> Add Student
           </button>
           <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
@@ -1187,7 +1187,7 @@
           </div>
         </div>
         <div class="modal-footer justify-content-center">
-          <button type="button" class="btn btn-info btn-round" data-dismiss="modal"
+          <button type="button" class="btn btn-primary btn-round" data-dismiss="modal"
             (click)="updateStudent(studentregisterModel)">
             <i class="fa fa-paper-plane" aria-hidden="true"></i> Update
           </button>
@@ -1223,7 +1223,7 @@
           </div>
         </div>
         <div class="ml-md-auto">
-          <!-- <button type="submit" class="btn btn-info btn-round" (click)="openStudentAdd()">Add Student</button> -->
+          <!-- <button type="submit" class="btn btn-primary btn-round" (click)="openStudentAdd()">Add Student</button> -->
           <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
             <i class="fa fa-arrow-left"></i> Back
           </button>

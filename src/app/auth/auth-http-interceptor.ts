@@ -22,7 +22,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
         // this.router.navigate(['home']);
         const token: string = localStorage.getItem('authenticationToken');
-        const visitorToken: string = localStorage.getItem('authToken');
+        const visitorToken: string = localStorage.getItem('authenticationToken');
         const adminToken: string = localStorage.getItem('authenticationAdminToken');
         request.clone({
             headers: request.headers.set('rejectUnauthorized', 'false').set('requestCert', 'false')

@@ -9,22 +9,22 @@
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-info btn-round" (click)="manageStd()">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="manageStd()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Standard
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-info btn-round" (click)="manageSubject()">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="manageSubject()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Subject
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-info btn-round" (click)="manageChapater()">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="manageChapater()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Chapater
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-info btn-round" (click)="manageSyllabus()">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="manageSyllabus()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Syllabus
                     </button>
                 </div>
@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="ml-md-auto">
                     <button type="submit" [disabled]="!stdRegForm.form.valid" (click)="addStdList()"
-                        class="btn btn-info btn-round">
+                        class="btn btn-primary btn-round">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                     </button>
                 </div>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-info btn-round" data-dismiss="modal"
+                    <button type="button" class="btn btn-primary btn-round" data-dismiss="modal"
                         (click)="updateStandardList(editStd)">
                         Update
                     </button>
@@ -230,7 +230,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="ml-md-auto">
-                    <button type="submit" class="btn btn-info btn-round"
+                    <button type="submit" class="btn btn-primary btn-round"
                         [disabled]="!SubjectForm.form.valid || !selectedStd" (click)="saveSubject(add)">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                     </button>
@@ -263,7 +263,7 @@
                     </div>
                 </div>
                 <div class="ml-md-auto">
-                    <button class="btn btn-info btn-round" *ngIf="selectedStd" (click)="addChapaters()">
+                    <button class="btn btn-primary btn-round" *ngIf="selectedStd" (click)="addChapaters()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Chapters
                     </button>
                 </div>
@@ -349,7 +349,7 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-info btn-round" data-dismiss="modal"
+                    <button type="button" class="btn btn-primary btn-round" data-dismiss="modal"
                         (click)="updateSubject(editSub)">
                         Update
                     </button>
@@ -368,7 +368,7 @@
                     <h4 class="card-title">Add Chapters</h4>
                 </div>
                 <!-- <div class="ml-md-auto">
-                    <button type="submit" class="btn btn-info btn-round" (click)="addSubjectsList()">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="addSubjectsList()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Subjects
                     </button>
                     <button type="cancel" class="btn btn-danger btn-round" (click)="addSubjectsList()">
@@ -458,7 +458,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="ml-md-auto">
-                    <button type="submit" class="btn btn-info btn-round"
+                    <button type="submit" class="btn btn-primary btn-round"
                         [disabled]="!ChapatersForm.form.valid || !selectedSub" (click)="saveChapatersList(add)">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                     </button>
@@ -494,7 +494,7 @@
                     </div>
                 </div>
                 <div class="ml-md-auto">
-                    <!-- <button class="btn btn-info btn-round" *ngIf="selectedStd" (click)="addChapaters()">
+                    <!-- <button class="btn btn-primary btn-round" *ngIf="selectedStd" (click)="addChapaters()">
             <i class="fa fa-plus" aria-hidden="true"></i> Add Chapaters
           </button> -->
                 </div>
@@ -588,7 +588,7 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-info btn-round" data-dismiss="modal"
+                    <button type="button" class="btn btn-primary btn-round" data-dismiss="modal"
                         (click)="updateChapaterList(chapModel)">
                         Update
                     </button>
@@ -607,7 +607,7 @@
                     <h4 class="card-title">Add Syllabus</h4>
                 </div>
                 <!-- <div class="ml-md-auto">
-                    <button type="submit" class="btn btn-info btn-round" (click)="addSubjectsList()">
+                    <button type="submit" class="btn btn-primary btn-round" (click)="addSubjectsList()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Subjects
                     </button>
                     <button type="cancel" class="btn btn-danger btn-round" (click)="addSubjectsList()">
@@ -775,7 +775,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="ml-md-auto">
-                    <button type="submit" class="btn btn-info btn-round"
+                    <button type="submit" class="btn btn-primary btn-round"
                         [disabled]="!SyllabusForm.form.valid || !selectedStd || !selectedSub || !selectedChap"
                         (click)="addSyllabusList()">
                         <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit

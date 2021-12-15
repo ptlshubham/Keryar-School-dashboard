@@ -92,10 +92,10 @@
                                 <!-- <a class="btn btn-default btn-round">Cancel</a> -->
                                 &nbsp;
                                 <button type="submit" [disabled]="!forgotForm.form.valid || !selectedRole"
-                                    (click)="forgotPassword(forgotPwdModel)" class="btn btn-info btn-round">
+                                    (click)="forgotPassword(forgotPwdModel)" class="btn btn-primary btn-round">
                                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                                 </button>
-                                <!-- <a class="btn btn-info btn-round" [disbled]="!forgotForm.form.valid || !selectedRole">Submit</a> -->
+                                <!-- <a class="btn btn-primary btn-round" [disbled]="!forgotForm.form.valid || !selectedRole">Submit</a> -->
                             </div>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                                 &nbsp;
                                 <button type="submit" (click)="saveOTP(forgotPwdModel)" [disabled]="!otpForm.form.valid"
                                     class=" btn
-                  btn-info btn-round">
+                  btn-primary btn-round">
                                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                                 </button>
                             </div>
@@ -199,7 +199,7 @@
                                 </button>
                                 &nbsp;
                                 <button type="submit" [disabled]="!forgotChangePwdForm.form.valid || !selectedRole"
-                                    (click)="changeForgotPwd(forgotPwdModel)" class="btn btn-info btn-round">
+                                    (click)="changeForgotPwd(forgotPwdModel)" class="btn btn-primary btn-round">
                                     <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                                 </button>
                             </div>

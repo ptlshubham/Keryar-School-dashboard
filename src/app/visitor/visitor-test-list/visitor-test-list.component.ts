@@ -27,21 +27,20 @@ export class VisitorTestListComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((res: any) => {
       this.subjectId = res.subid;
       this.stdid = res.stdid;
-      debugger
 
       // this.getStandardList();
     })
-    if (localStorage.getItem('stdid') == undefined) {
+    if (localStorage.getItem('standardid') == undefined) {
       this.getSubject(this.subjectId);
       this.getVisitorTest();
     }
     else {
-      this.getSubject(localStorage.getItem('stdid'));
+      this.getSubject(localStorage.getItem('standardid'));
     }
   }
 
   ngOnInit(): void {
-    this.stdshow = this.getSubject(localStorage.getItem('stdid'));
+    this.stdshow = this.getSubject(localStorage.getItem('standardid'));
   }
   getSubject(id) {
     this.manageService.getSubjectList(id).subscribe((data: any) => {
@@ -61,16 +60,14 @@ export class VisitorTestListComponent implements OnInit {
   }
   getVisitorTest() {
     let data = {
-      stdid: localStorage.getItem('stdid'),
+      stdid: localStorage.getItem('standardid'),
       subid: this.subjectId
     }
     this.VisitorService.getVisitorTestList(data).subscribe((data: any) => {
       this.visitorTestList = data;
-      debugger
     });
   }
   studentTest(data) {
-    debugger
     this.router.navigate(['visitor/visitorexam'],{
       queryParams:{
         id:data.id

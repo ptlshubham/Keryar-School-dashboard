@@ -262,7 +262,7 @@ export class SidebarComponent implements OnInit {
   logout() {
     if (localStorage.getItem("role") == 'Visitor') {
       localStorage.clear();
-      this.router.navigate(['pages/visitorlogin']);
+      this.router.navigate(['pages/login']);
     }
     else {
       localStorage.clear();
