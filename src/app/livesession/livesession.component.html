@@ -43,15 +43,17 @@
     <div class="card" >
         <div class="card-header">
           <div class="row">
+              <div class="col-auto mr-auto">
+                <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                    <i class="fa fa-arrow-left"></i> Back
+                  </button>
+              </div>
             <div class="col-md-7">
               <h4 class="card-title">Teacher List</h4>
             </div>
             <div class="ml-md-auto">
               <button type="submit" class="btn btn-primary btn-round" *ngIf="Roles == 'Admin'" (click)="openTeacherAdd()">
                 <i class="fa fa-plus"></i> Add Teacher
-              </button>
-              <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
-                <i class="fa fa-arrow-left"></i> Back
               </button>
             </div>
           </div>

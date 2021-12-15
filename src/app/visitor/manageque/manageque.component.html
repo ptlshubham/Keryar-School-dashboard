@@ -54,6 +54,11 @@
     <div class="card" *ngIf="openQuestionnaire">
         <div class="card-header">
             <div class="row">
+                <div class="col-auto mr-auto">
+                    <button type="cancel" class="btn btn-danger btn-round" (click)="closeQuestion()">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
                 <div class="col-md-9">
                     <h4 class="card-title">Manage Question For Visitor</h4>
                 </div>
@@ -62,9 +67,7 @@
                         (click)="createChapTest()">
                         <i class="fa fa-plus" aria-hidden="true"></i> Create Test
                     </button>
-                    <button type="cancel" class="btn btn-danger btn-round" (click)="closeQuestion()">
-                        <i class="fa fa-arrow-left"></i> Back
-                    </button>
+                    
                     <!-- <button type="submit" class="btn btn-primary btn-round" routerLink="/manage/std">Add Standard</button> -->
                 </div>
             </div>
@@ -582,6 +585,11 @@
     <div class="card" *ngIf="viewTestFlag">
         <div class="card-header">
             <div class="row">
+                <div class="col-auto mr-auto">
+                    <button type="cancel" class="btn btn-danger btn-round" (click)="backToHome()">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
                 <div class="col-md-2">
                     <h4 class="card-title">Test List</h4>
                 </div>
@@ -627,11 +635,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="ml-md-auto">
-                    <button type="cancel" class="btn btn-danger btn-round" (click)="backToHome()">
-                        <i class="fa fa-arrow-left"></i> Back
-                    </button>
-                </div>
+               
             </div>
         </div>
         <div class="card-body">
