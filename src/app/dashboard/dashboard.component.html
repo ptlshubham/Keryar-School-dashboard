@@ -8,7 +8,7 @@
               <div class=" page-carousel">
                 <ngb-carousel>
                   <ng-template ngbSlide *ngFor="let b of topban">
-                    <img src="http://31.220.59.174:3000{{b.bannersimage}}" style="height:40%;width:100%;"
+                    <img src="http://localhost:3500{{b.bannersimage}}" style="height:40%;width:100%;"
                       alt="Random first slide">
                     <div class="carousel-caption">
                     </div>
@@ -23,7 +23,34 @@
   </div>
   <div class="row">
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Teacher'">
-      <div class="card card-stats" >
+      <div class="card card-stats" style="background-color: #fff6f9 !important">
+        <div class="card-body ">
+          <div class="row">
+            <div class="col-3 col-md-2">
+              <!-- <div class="icon-big text-center icon-warning"> -->
+              <div style="height:4rem;width:4rem;border-radius: 50%;background-color:#f00654">
+                <i class="fa fa-graduation-cap "
+                  style="color:#ffffff;padding-left: 0.9rem;padding-top: 1rem;font-size: 1.8rem;"></i>
+              </div>
+            </div>
+            <div class="col-7 col-md-8 ">
+              <div class="numbers " style="text-align: start;">
+                <!-- <p class="card-category">Student</p> -->
+                <p class="card-title" style="font-size: 1.3rem;">Total Students</p>
+                <p class="card-title" style="color:#f00654;font-weight: bold;margin-top: 5px;font-size: 2rem;;">
+                  {{studentsList.length}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer " (click)="openStudent()">
+          <hr>
+          <div class="stats">
+            <i class="fa fa-arrow-right"></i> View
+          </div>
+        </div>
+      </div>
+      <!-- <div class="card card-stats" >
         <div class="card-body " >
           <div class="row">
             <div class="col-5 col-md-4">
@@ -46,7 +73,7 @@
             <i class="fa fa-arrow-right"></i> View
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Admin'">
       <div class="card card-stats" style="background-color: #f6fcfa !important">
@@ -56,16 +83,18 @@
               <!-- <div class="icon-big text-center icon-warning">
                 <i class="fas fa-chalkboard-teacher text-danger"></i>
               </div> -->
-              <div  style="height:4rem;width:4rem;border-radius: 50%;background-color:#37dd90">
-                <i class="fas fa-chalkboard-teacher " style="color:#ffffff;padding-left: 0.9rem;padding-top: 1.2rem;font-size: 1.6rem;"></i>
+              <div style="height:4rem;width:4rem;border-radius: 50%;background-color:#37dd90">
+                <i class="fas fa-chalkboard-teacher "
+                  style="color:#ffffff;padding-left: 0.9rem;padding-top: 1.2rem;font-size: 1.6rem;"></i>
               </div>
             </div>
-            <div class="col-7 col-md-8" >
+            <div class="col-7 col-md-8">
               <div class="numbers" style="text-align: start;">
-                <p class="card-title">Teacher</p>
-                <p class="card-category" style="font-size: 1.3rem;">Total Teachers </p>
-                  <p class="card-title" style="color:#37dd90;font-weight: bold;margin-top: 5px;font-size: 2rem;">{{reg.length}}</p>
-                </div>
+                <!-- <p class="card-category">Teacher</p> -->
+                <p class="card-title" style="font-size: 1.3rem;">Total Teachers </p>
+                <p class="card-title" style="color:#37dd90;font-weight: bold;margin-top: 5px;font-size: 2rem;">
+                  {{reg.length}}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -83,15 +112,17 @@
           <div class="row">
             <div class="col-3 col-md-2">
               <!-- <div class="icon-big text-center icon-warning"> -->
-                <div  style="height:4rem;width:4rem;border-radius: 50%;background-color:#f00654">
-                <i class="fa fa-graduation-cap " style="color:#ffffff;padding-left: 0.9rem;padding-top: 1rem;font-size: 1.8rem;"></i>
+              <div style="height:4rem;width:4rem;border-radius: 50%;background-color:#f00654">
+                <i class="fa fa-graduation-cap "
+                  style="color:#ffffff;padding-left: 0.9rem;padding-top: 1rem;font-size: 1.8rem;"></i>
               </div>
             </div>
-            <div class="col-7 col-md-8 " >
-              <div class="numbers "  style="text-align: start;">
-                <p class="card-title">Student</p>
-                <p class="card-category" style="font-size: 1.3rem;"> Total Students</p>
-                <p class="card-title" style="color:#f00654;font-weight: bold;margin-top: 5px;font-size: 2rem;;">{{studentsList.length}}</p>
+            <div class="col-7 col-md-8 ">
+              <div class="numbers " style="text-align: start;">
+                <!-- <p class="card-category">Student</p> -->
+                <p class="card-title" style="font-size: 1.3rem;">Total Students</p>
+                <p class="card-title" style="color:#f00654;font-weight: bold;margin-top: 5px;font-size: 2rem;;">
+                  {{studentsList.length}}</p>
               </div>
             </div>
           </div>
@@ -109,15 +140,17 @@
         <div class="card-body ">
           <div class="row">
             <div class="col-3 col-md-2">
-              <div  style="height:4rem;width:4rem;border-radius: 50%;background-color:#0677f0">
-                <i class="nc-icon nc-globe" style="color:#ffffff;padding-left: 1.1rem;padding-top: 1.1rem;font-size: 1.8rem;"></i>
+              <div style="height:4rem;width:4rem;border-radius: 50%;background-color:#0677f0">
+                <i class="nc-icon nc-globe"
+                  style="color:#ffffff;padding-left: 1.1rem;padding-top: 1.1rem;font-size: 1.8rem;"></i>
               </div>
             </div>
-            <div class="col-7 col-md-8" >
+            <div class="col-7 col-md-8">
               <div class="numbers" style="text-align: start;">
-                <p class="card-title" >Test</p>
-                <p class="card-category" style="font-size: 1.3rem;">Total Test </p>
-                <p class="card-title" style="color:#0677f0;font-weight: bold;margin-top: 5px;font-size: 2rem;;">{{Test.length}}</p>
+                <!-- <p class="card-category">Test</p> -->
+                <p class="card-title" style="font-size: 1.3rem;">Total Test </p>
+                <p class="card-title" style="color:#0677f0;font-weight: bold;margin-top: 5px;font-size: 2rem;;">
+                  {{Test.length}}</p>
               </div>
             </div>
           </div>
@@ -132,20 +165,20 @@
     </div>
 
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Student' && ActiveTest.length>=1">
-      <div class="card card-stats" style="background-color: #eb8642 !important;" (click)="openPendingTest()">
+      <div class="card card-stats" style="background-color: #fffbe3 !important;" (click)="openPendingTest()">
         <div class="card-body ">
           <div class="row">
-            <div class="col-5 col-md-4">
-              <div class="icon-big text-center icon-warning">
-                <i class="fa fa-clock-o" style="color: white!important;"></i>
+            <div class="col-3 col-md-2">
+
+              <div style="height:3.9rem;width:3.5rem;border-radius: 50%;background-color:#f5d108">
+                <i class="fa fa-clock-o "
+                  style="color:#ffffff;padding-left: 0.9rem;padding-top: 1.2rem;font-size: 1.6rem;"></i>
               </div>
             </div>
-            <div class="col-7 col-md-8">
-              <div class="numbers" style="color: white!important;">
-                <p class="card-title">Pending Test: {{pendingtestlist.length}}
-                <p class="card-category" style="color: white!important;">Pending Test</p>
-
-              </div>
+            <div class="numbers" style="text-align: start;">
+              <p class="card-title" style="font-size: 1.3rem;">Pending Test </p>
+              <p class="card-title" style="color:#f5d108;font-weight: bold;margin-top: 5px;font-size: 2rem;">
+                {{pendingtestlist.length}}</p>
             </div>
           </div>
         </div>
@@ -158,18 +191,21 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Student'">
-      <div class="card card-stats" (click)="openntattemptTest()">
+      <div class="card card-stats" style="background-color: #ffecd9 !important;" (click)="openntattemptTest()">
         <div class="card-body ">
           <div class="row">
-            <div class="col-5 col-md-4">
-              <div class="icon-big text-center icon-warning">
-                <i class="fa fa-exclamation-triangle text-danger"></i>
+            <div class="col-3 col-md-2">
+
+              <div style="height:3.9rem;width:3.5rem;border-radius: 50%;background-color:#ff0000">
+                <i class="fa fa-exclamation-triangle"
+                  style="color:#ffffff;padding-left: 0.9rem;padding-top: 1.2rem;font-size: 1.6rem;"></i>
               </div>
             </div>
             <div class="col-7 col-md-8">
-              <div class="numbers">
-                <p class="card-title">Not Attempted: {{notattemptedtestlist.length}}
-                <p class="card-category">Not Attempted</p>
+              <div class="numbers" style="text-align: start;">
+                <p class="card-title" style="font-size: 1.3rem;">Not Attempted</p>
+                <p class="card-title" style="color:#ff0000;font-weight: bold;margin-top: 5px;font-size: 2rem;">
+                  {{notattemptedtestlist.length}}</p>
               </div>
             </div>
           </div>
@@ -183,18 +219,21 @@
       </div>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-6" *ngIf="role == 'Student'">
-      <div class="card card-stats" (click)="openSubmittedTest()">
+      <div class="card card-stats" style="background-color: #e8f2de;" (click)="openSubmittedTest()">
         <div class="card-body ">
           <div class="row">
-            <div class="col-5 col-md-4">
-              <div class="icon-big text-center icon-warning">
-                <i class="fa fa-check text-success"></i>
+            <div class="col-3 col-md-2">
+
+              <div style="height:3.9rem;width:3.5rem;border-radius: 50%;background-color:#2abe04">
+                <i class="fa fa-check text-success"
+                  style="color:#ffffff !important;padding-left: 0.9rem;padding-top: 1.2rem;font-size: 1.6rem;"></i>
               </div>
             </div>
             <div class="col-7 col-md-8">
-              <div class="numbers">
-                <p class="card-title">Completed Test : {{completedtestlist.length}}</p>
-                <p class="card-category">Total Completed Test
+              <div class="numbers" style="text-align: start;">
+                <p class="card-title" style="font-size: 1.3rem;">Total Completed Test</p>
+                <p class="card-title" style="color:#2abe04;font-weight: bold;margin-top: 5px;font-size: 2rem;">
+                  {{completedtestlist.length}}</p>
               </div>
             </div>
           </div>
@@ -239,11 +278,6 @@
     <div class="card">
       <div class="card-header">
         <div class="row">
-          <div class="col-auto mr-auto">
-            <button type="cancel" class="btn btn-danger btn-round" (click)="closeTest()">
-              <i class="fa fa-arrow-left"></i> Back
-            </button>
-          </div>
           <div class="col-md-3">
             <h4 class="card-title">Completed Test List</h4>
           </div>
@@ -269,7 +303,11 @@
               </div>
             </div>
           </div>
-         
+          <div class="ml-md-auto">
+            <button type="cancel" class="btn btn-danger btn-round" (click)="closeTest()">
+              <i class="fa fa-arrow-left"></i> Back
+            </button>
+          </div>
         </div>
       </div>
       <div class="card-body">
@@ -316,8 +354,9 @@
           <div class="row">
             <div class="col-3 col-md-2">
               <!-- <div class="icon-big text-center icon-warning"> -->
-                <div  style="height:3rem;width:3rem;border-radius: 50%;background-color:#1c8d91">
-                <i class="fas fa-school" style="color:#ffffff;padding-left: 0.5rem;padding-top: 0.7rem;font-size: 1.5rem;"></i>
+              <div style="height:3rem;width:3rem;border-radius: 50%;background-color:#1c8d91">
+                <i class="fas fa-school"
+                  style="color:#ffffff;padding-left: 0.5rem;padding-top: 0.7rem;font-size: 1.5rem;"></i>
               </div>
             </div>
             <div class="col-7 col-md-8">
@@ -429,7 +468,7 @@
       </div>
     </div>
     <div class="col-md-4">
-      <div class="card card-chart"  style="background-color: #e9f8f3;">
+      <div class="card card-chart" style="background-color: #e9f8f3;">
         <div class="card-header">
           <h5 class="card-title">24 Hours Performance</h5>
           <p class="card-category">Line Chart</p>
