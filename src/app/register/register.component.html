@@ -854,7 +854,7 @@
   </div>
   <div class="row" *ngIf="!openstudent">
     <div class="col-lg-2 col-md-6 col-sm-6" *ngFor="let std of stdlist; let i = index">
-      <div class="card card-stats" (click)="selectStdList(std.id)" [style.box-shadow]="std.color">
+      <div class="card card-stats" style="background-color:#f6fcfc ;" (click)="selectStdList(std.id)" [style.box-shadow]="std.color">
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
