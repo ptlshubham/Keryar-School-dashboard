@@ -71,6 +71,11 @@ export const AppRoutes: Routes = [
                     canActivate: [AuthGuard]
                 },
                 {
+                    path: '',
+                    loadChildren: './livechat/livechat.module#LivechatModule',
+                    canActivate: [AuthGuard]
+                },
+                {
                     path: 'chatbox',
                     loadChildren: './chatbox/chatbox.module#ChatboxModule',
                     canActivate: [AuthGuard]

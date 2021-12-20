@@ -82,14 +82,14 @@ export const ROUTES: RouteInfo[] = [
     title: "Live Session",
     type: "link",
     roles: "Admin",
-    icontype: "fa fa-picture-o",
+    icontype: "fa fa-television",
   },
   {
-    path: "/chatbox",
+    path: "/livechat",
     title: "Chat Box",
     type: "link",
     roles: "Admin",
-    icontype: "fa fa-picture-o",
+    icontype:"fas fa-comment",
   },
   {
     path: "/visitor",
