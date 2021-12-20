@@ -76,11 +76,6 @@ export const AppRoutes: Routes = [
                     canActivate: [AuthGuard]
                 },
                 {
-                    path: 'chatbox',
-                    loadChildren: './chatbox/chatbox.module#ChatboxModule',
-                    canActivate: [AuthGuard]
-                },
-                {
                     path: 'manage',
                     loadChildren: './manage/manage.module#ManageModule',
                     canActivate: [AuthGuard]
