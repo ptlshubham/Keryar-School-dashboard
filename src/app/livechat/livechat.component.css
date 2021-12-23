@@ -7,6 +7,7 @@
     height: 550px;
     border-radius: 15px !important;
     background-color: #ffff !important;
+    overflow: auto;
 }
 
 .contacts_body {
@@ -16,7 +17,8 @@
 }
 
 .msg_card_body {
-    overflow-y: auto;
+    overflow-y: hidden;
+    min-height: 60px !important;
 }
 
 .card-header {
@@ -27,6 +29,8 @@
 .card-footer {
     border-radius: 0 0 15px 15px !important;
     border-top: 0 !important;
+    /* position: fixed;
+    bottom:32% !important; */
 }
 
 .container {
@@ -37,7 +41,7 @@
     border-radius: 15px 0 0 15px !important;
     background-color: #f2f3f7 !important;
     border: 0 !important;
-    color: white !important;
+    color: black !important;
 }
 
 .search:focus {
@@ -48,9 +52,9 @@
 .type_msg {
     background-color: #f2f3f7 !important;
     border: 0 !important;
-    color: #5f616e !important;
+    color: #434550 !important;
     height: 60px !important;
-    overflow-y: auto;
+    overflow-y: hidden;
 }
 
 .type_msg:focus {

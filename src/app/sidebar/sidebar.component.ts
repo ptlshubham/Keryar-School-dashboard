@@ -131,6 +131,13 @@ export const Student: RouteInfo[] = [
     roles: "Student",
     icontype: "fa fa-bell",
   },
+  {
+    path: "/livechat",
+    title: "Chat Box",
+    type: "link",
+    roles: "Admin",
+    icontype:"fas fa-comment",
+  },
 ];
 
 export const Teacher: RouteInfo[] = [
@@ -173,6 +180,13 @@ export const Teacher: RouteInfo[] = [
     type: "link",
     roles: "Teacher",
     icontype: "fa fa-bell",
+  },
+  {
+    path: "/livechat",
+    title: "Chat Box",
+    type: "link",
+    roles: "Admin",
+    icontype:"fas fa-comment",
   },
 ];
 export const Visitor: RouteInfo[] = [
@@ -222,7 +236,6 @@ export class SidebarComponent implements OnInit {
     private router: Router,
 
   ) {
-    debugger
     var $sidebar = $('.sidebar');
     $('.fixed-plugin .background-color span').click(function(){
       $(this).siblings().removeClass('active');

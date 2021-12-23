@@ -61,7 +61,9 @@
               "node_modules/@adactive/bootstrap-tagsinput/dist/bootstrap-tagsinput.js",
               "node_modules/jasny-bootstrap/dist/js/jasny-bootstrap.min.js",
               "node_modules/sweetalert2/dist/sweetalert2.js",
-              "src/assets/js/jquery.validate.min.js"
+              "src/assets/js/jquery.validate.min.js",
+              "node_modules/pusher-js/dist/web/pusher.min.js"
+              
             ]
           },
           "configurations": {

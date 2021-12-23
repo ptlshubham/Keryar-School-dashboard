@@ -1,3 +1,4 @@
+import { getLocaleDateTimeFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BannersService } from 'app/banners/banners.service';
@@ -11,8 +12,9 @@ import { QuestionService } from 'app/question/question.service';
 import { Register } from 'app/register/register.model';
 import { RegisterService } from 'app/register/register.service';
 import { Studentregister } from 'app/register/student.model';
-import { ChartOptions, ChartType } from 'chart.js';
+import { ChartOptions, ChartType ,ChartDataSets} from 'chart.js';
 import { Label, MultiDataSet, SingleDataSet } from 'ng2-charts';
+
 // import Chart from 'chart.js';
 declare const $: any;
 declare var require: any;
@@ -59,6 +61,7 @@ export class DashboardComponent implements OnInit {
   notattemptedtestlist: any = [];
   completedtestlist: any = [];
   uname = localStorage.getItem('UserName');
+  attendancecount:any=[];
   public chartClicked(e: any): void {
     console.log(e);
   }
@@ -79,7 +82,7 @@ export class DashboardComponent implements OnInit {
   }
   data: MultiDataSet;
   public role = localStorage.getItem('role');
-  doughnutChartData: MultiDataSet;
+  doughnutChartData: SingleDataSet;
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -92,14 +95,46 @@ export class DashboardComponent implements OnInit {
     render: 'label'
   }
   public doughnutChartOption: any = [];
-  public doughnutChartLabels: Label[] = [['student'], ['Teacher']];
+
+  public doughnutChartLabels: Label[] = [['Student'], ['Teacher']];
   // public doughnutChartData: SingleDataSet = [
   //   [500, 150, 100],
   // ];
 
+
+  // bar chart
+  barChartOptions: ChartOptions = {
+    responsive: true,
+    scales: { xAxes: [{}], yAxes: [{ display: true,
+      ticks: {
+          beginAtZero: true,
+          stepValue: 10,
+          max: 100
+      },
+      scaleLabel: {
+        display: true,
+        labelString: 'in Percentage (%)'
+    }}] },
+ 
+       
+  };
+  barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
+  barChartType: ChartType = 'bar';
+  barChartLegend = true;
+  barChartPlugins = [];
+
+  barChartData: ChartDataSets[] = [
+    { data: [45, 37, 60, 70, 46, 33], label: 'Present' },
+  
+  ];
+  
+
+  // bar chart over
+
   public doughnutChartType: ChartType = 'doughnut';
   public doughnutChartOptions: any = {
     cutoutPercentage: 50,
+    responsive:true,
     elements: {
       center: {
         text: '90%',
@@ -137,6 +172,8 @@ export class DashboardComponent implements OnInit {
   //     }
   //   },
   // }
+  viewDate = Date.now();
+  dateList: Date[]=[];
   constructor(
     private manageService: ManageService,
     private registerService: RegisterService,
@@ -153,10 +190,39 @@ export class DashboardComponent implements OnInit {
     this.getStudentTest();
     // this.getSubmittedTest();
     this.getSubjectList();
+   
   }
   ngOnInit() {
 
+      for (let i = 5; i >= 0; i--) {
+        const newDate = new Date(this.viewDate);
+        newDate.setDate(newDate.getDate() - i);
+        this.dateList.push(newDate);
+      }
+       this.dateList;
+       this.getAttendanceCount();
+       this.barChartLabels= [""+this.dateList[0].toLocaleDateString()+"", ""+this.dateList[1].toLocaleDateString()+"",""+this.dateList[2].toLocaleDateString()+"" , ""+this.dateList[3].toLocaleDateString()+"", ""+this.dateList[4].toLocaleDateString()+"", ""+this.dateList[5].toLocaleDateString()+""];
+      
+    
+
   }
+  getAttendanceCount(){
+    this.manageService.getAttendaceCount(this.dateList).subscribe((data: any) => {
+      this.attendancecount = data;
+      this.attendancecount.forEach(element => {
+        element.count = (this.studentsList.length * element.count)/100;
+      });
+      
+      this.barChartData = [
+        {label: 'Present in Percentage (%)', data: [this.attendancecount[0].count,this.attendancecount[1].count,this.attendancecount[2].count,this.attendancecount[3].count,this.attendancecount[4].count,this.attendancecount[5].count]},
+      
+      ];
+     
+      // this.stdlist = data;
+  });
+}
+
+
   // public ngOnInit() {
   //   this.chartColor = "#FFFFFF";
 
@@ -822,6 +888,7 @@ export class DashboardComponent implements OnInit {
     if (this.role != 'Student') {
       this.doughnutChartData = [
         [this.studentsList.length, this.reg.length],
+        
       ];
     }
 
@@ -831,7 +898,6 @@ export class DashboardComponent implements OnInit {
     if (this.role != 'Student') {
       this.manageService.getStdList().subscribe((data: any) => {
         this.stdlist = data;
-
         this.stdlist.forEach(element => {
           this.manageService.getSubjectList(element.id).subscribe((res: any) => {
             element.subjectList = res;

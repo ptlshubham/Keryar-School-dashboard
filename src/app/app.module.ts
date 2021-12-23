@@ -35,7 +35,9 @@ import { MatInputModule } from '@angular/material/input';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CallInfoDialogComponents } from './callinfo-dialog/callinfo-dialog.component';
-import { ChatboxModule } from './chatbox/chatbox.module';
+import { PusherService } from './pusher.service';
+import { MessageService } from './message.service';
+
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     dayGridPlugin,
     interactionPlugin
@@ -57,7 +59,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         HttpClientModule,
         QuestionModule,
         ColorPickerModule,
-        ChatboxModule,
         FullCalendarModule,
         ChartsModule,
         NgxPaginationModule,
@@ -85,6 +86,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
         { provide: LocationStrategy, useClass: HashLocationStrategy },
+        PusherService,
+        MessageService
     ],
     bootstrap: [AppComponent]
 })

@@ -121,6 +121,7 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('UserId', data[0].id);
                 localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
                 localStorage.setItem('standardid', data[0].standard);
+                localStorage.setItem('gender',data[0].gender);
                 if(data[0].role == 'Visitor'){
                     localStorage.setItem('role', data[0].role);
                     if(data[0].detailsupdated){

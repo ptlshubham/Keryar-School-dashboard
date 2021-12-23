@@ -64,6 +64,12 @@ export class RegisterService {
         }
         return this.httpClient.post<any>(ApiService.GetAllStudentlistURL, data);
     }
+    GetTeacherForChat(id){
+        let data={
+            id:id
+        };
+        return this.httpClient.post(ApiService.GetTeacherForChatURL,data);
+    }
     getTestforChecking(testid,stuid){
         let data={
             testid:testid,

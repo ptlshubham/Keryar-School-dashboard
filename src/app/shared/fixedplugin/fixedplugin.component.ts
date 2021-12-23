@@ -46,7 +46,6 @@ export class FixedPluginComponent implements OnInit{
 
             // var new_color = $(this).data('color');
             var new_color = 'white';
-            debugger
             if($sidebar.length != 0){
                 $sidebar.attr('data-color',new_color);
             }

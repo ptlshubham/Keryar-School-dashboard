@@ -28,7 +28,9 @@ export class ManageService {
       role: localStorage.getItem('role'),
 
     }
-
+    return this.httpClient.post<any>(ApiService.getStdListURL, data);  
+  }
+  getStdListNew(data){
     return this.httpClient.post<any>(ApiService.getStdListURL, data);
   }
   addChapaters(admin: Chapater) {
@@ -98,5 +100,8 @@ export class ManageService {
 
     return this.httpClient.post<any>(ApiService.uploadSyllabusImageURL, img);
 
+  }
+  getAttendaceCount(data){
+    return this.httpClient.post(ApiService.GetAttendanceCountURL,data);
   }
 }

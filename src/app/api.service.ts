@@ -23,7 +23,10 @@ export class ApiService {
       'Content-Type': 'application/x-www-form-urlencoded',
     })
   };
-
+  
+  public static SendMessageURL: string = ApiService.HOST_URL + '/pusher/SendMessage';
+  public static GetMessageURL: string = ApiService.HOST_URL + '/pusher/GetMessage';
+  
   public static saveStdListURL: string = ApiService.HOST_URL + '/admin/SaveStdList';
   public static getStdListURL: string = ApiService.HOST_URL + '/admin/GetStdList';
   public static updateStandardURL: string = ApiService.HOST_URL + '/admin/UpdateStandardList'
@@ -53,7 +56,8 @@ export class ApiService {
   public static GetTeacherlistURL: string = ApiService.HOST_URL + '/admin/GetTeacherList';
   public static GetAllStudentlistURL: string = ApiService.HOST_URL + '/admin/GetAllStudentList';
   public static GetAllStudentlistForTeacherURL: string = ApiService.HOST_URL + '/admin/GetAllStudentlistForTeacher';
-
+  public static GetTeacherForChatURL: string = ApiService.HOST_URL + '/admin/GetTeacherForChat';
+  
   public static saveLoginUserURL: string = ApiService.HOST_URL + '/authenticate/UserLogin';
   public static getTestforCheckingURL: string = ApiService.HOST_URL + '/admin/getTestforChecking';
   public static saveAdminLoginURL: string = ApiService.HOST_URL + '/admin/login';
@@ -120,6 +124,8 @@ export class ApiService {
   public static saveVisitorLoginURL: string = ApiService.HOST_URL + '/admin/VisitorLogin';
   public static GetTestDetailsURL: string = ApiService.HOST_URL + '/admin/GetVisitorTest';
   public static uploadSyllabusImageURL: string = ApiService.HOST_URL + '/admin/UploadSyllabusImage'
+  public static GetAttendanceCountURL: string = ApiService.HOST_URL + '/admin/GetAttendanceCount'
+  
   //  public static GetViewVisitorTestListURL: string = ApiService.HOST_URL + '/admin/GetViewVisitorTestList';
   showNotification(from, align, msg, color) {
 

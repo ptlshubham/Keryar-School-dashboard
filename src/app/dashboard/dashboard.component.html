@@ -681,3 +681,44 @@
       </div>
     </div> -->
   </div>
+
+
+<div class="row" *ngIf="role =='Admin'">
+  <div class="col-md-4">
+    <div class="card " style="background-color: #faecf5;">
+      <div class="card-header ">
+        <h5 class="card-title">Attendance Chart</h5>
+        <p class="card-category">Portal User Ratio</p>
+      </div>
+      <div class="card-body ">
+        <div class="chart-wrapper">
+          <canvas baseChart 
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType">
+        </canvas>
+      </div>
+      </div>
+      <div class="card-footer ">
+        <div class="legend">
+          <i class="fa fa-circle text-info"></i> Open
+        </div>
+        <hr>
+        <div class="stats">
+          <i class="fa fa-calendar"></i> Total User Ratio
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div class="col-md-4">
+    
+  </div>
+
+ 
+</div>
