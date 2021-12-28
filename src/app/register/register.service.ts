@@ -3,11 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { ApiService } from 'app/api.service';
+import { Subject } from 'app/primary/subject.model';
 import { Observable } from 'rxjs';
 import { Register } from './register.model';
 import { Studentregister } from './student.model';
-import { Subject } from 'app/manage/subject/subject.model';
-import { id } from 'date-fns/locale';
 
 @Injectable({
     providedIn: 'root'

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ApiService } from 'app/api.service';
-import { ManageService } from 'app/manage/manage.service';
-import { Std } from 'app/manage/standard/standard.model';
-import { Chapater } from 'app/manage/subject/chapater.model';
-import { Subject } from 'app/manage/subject/subject.model';
+import { ManageService } from 'app/primary/manage.service';
+
 import Swal from 'sweetalert2';
+import { Chapater } from './chapater.model';
+import { Std } from './standard.model';
+import { Subject } from './subject.model';
 import { Syllabus } from './syllabus.model';
 
 @Component({

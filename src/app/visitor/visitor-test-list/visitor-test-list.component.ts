@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ManageService } from 'app/manage/manage.service';
-import { Std } from 'app/manage/standard/standard.model';
-import { Subject } from 'app/manage/subject/subject.model';
+import { ManageService } from 'app/primary/manage.service';
+import { Std } from 'app/primary/standard.model';
+import { Subject } from 'app/primary/subject.model';
 import { VisitorService } from '../visitor.service';
 
 @Component({

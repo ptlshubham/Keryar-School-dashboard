@@ -8,8 +8,8 @@ import { Attandance } from './attendance.model';
 import { ApiService } from 'app/api.service';
 import { RegisterService } from 'app/register/register.service';
 import { Studentregister } from 'app/register/student.model';
-import { ManageService } from 'app/manage/manage.service';
-import { Std } from 'app/manage/standard/standard.model';
+import { ManageService } from 'app/primary/manage.service';
+import { Std } from 'app/primary/standard.model';
 declare var $: any;
 @Component({
   selector: 'app-attendance',

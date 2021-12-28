@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
-import { ManageService } from 'app/manage/manage.service';
+import { ManageService } from 'app/primary/manage.service';
 import { ForgotPwd } from 'app/pages/forgotpwd/forgotpwd.model';
 import { LoginService } from 'app/pages/login/login.service';
 

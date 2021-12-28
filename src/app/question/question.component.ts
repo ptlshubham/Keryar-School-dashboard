@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
-import { ManageService } from 'app/manage/manage.service';
-import { Std } from 'app/manage/standard/standard.model';
-import { Chapater } from 'app/manage/subject/chapater.model';
-import { Subject } from 'app/manage/subject/subject.model';
+import { Chapater } from 'app/primary/chapater.model';
+import { ManageService } from 'app/primary/manage.service';
+import { Std } from 'app/primary/standard.model';
+import { Subject } from 'app/primary/subject.model';
 import Swal from 'sweetalert2';
 import { Optionvalue } from './options.model';
 import { Question } from './question.model';
@@ -274,7 +274,7 @@ export class QuestionComponent implements OnInit {
 
   }
   addSubject() {
-    this.router.navigate(['/manage/subject'], {
+    this.router.navigate(['/primary'], {
       queryParams: {
         val: this.Ref_id
       }

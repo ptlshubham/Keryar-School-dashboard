@@ -4,10 +4,8 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { ApiService } from 'app/api.service';
 import { Observable } from 'rxjs';
-import { Subject } from 'app/manage/subject/subject.model';
-import { id } from 'date-fns/locale';
 import { RegisterVisitor } from './visitorreg/visitorreg.model';
-import { Std } from 'app/manage/standard/standard.model';
+import { Subject } from 'app/primary/subject.model';
 
 @Injectable({
     providedIn: 'root'

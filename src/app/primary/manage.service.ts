@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { ApiService } from 'app/api.service';
 import { Observable } from 'rxjs';
-import { Std } from './standard/standard.model';
-import { Subject } from './subject/subject.model';
-import { Chapater } from './subject/chapater.model';
+import { Std } from './standard.model';
+import { Subject } from './subject.model';
 import { Syllabus } from 'app/primary/syllabus.model';
+import { Chapater } from './chapater.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,13 +1,12 @@
-import { ManageModule } from './../manage/manage.module';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ManageService } from '../manage/manage.service';
-import { Std } from '../manage/standard/standard.model';
-import { Subject } from '../manage/subject/subject.model';
+import { ManageService } from '../primary/manage.service';
 import { ExamService } from './exam.service';
 import { Question } from 'app/question/question.model';
 import { ApiService } from 'app/api.service';
 import Swal from 'sweetalert2';
+import { Subject } from 'app/primary/subject.model';
+import { Std } from 'app/primary/standard.model';
 declare var $: any;
 declare interface DataTable {
   headerRow: string[];

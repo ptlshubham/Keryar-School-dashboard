@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { ApiService } from 'app/api.service';
-import { Std } from 'app/manage/standard/standard.model';
+import { Std } from 'app/primary/standard.model';
 import { Question } from 'app/question/question.model';
 import { Observable } from 'rxjs';
 

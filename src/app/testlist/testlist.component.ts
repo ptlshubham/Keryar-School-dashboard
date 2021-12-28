@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
 import { ExamService } from 'app/exam/exam.service';
-import { Subject } from 'app/manage/subject/subject.model';
+import { Subject } from 'app/primary/subject.model';
 import { RegisterService } from 'app/register/register.service';
 
 @Component({

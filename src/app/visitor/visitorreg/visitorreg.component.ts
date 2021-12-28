@@ -1,9 +1,9 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
-import { ManageService } from 'app/manage/manage.service';
-import { Std } from 'app/manage/standard/standard.model';
-import { Subject } from 'app/manage/subject/subject.model';
+import { ManageService } from 'app/primary/manage.service';
+import { Std } from 'app/primary/standard.model';
+import { Subject } from 'app/primary/subject.model';
 import { RegisterService } from 'app/register/register.service';
 import { VisitorService } from '../visitor.service';
 import { RegisterVisitor } from './visitorreg.model';

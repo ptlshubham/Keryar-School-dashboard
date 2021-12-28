@@ -8,7 +8,7 @@ import { CalendarEvents } from "./calendar.model";
 import { CalendarOptions } from "@fullcalendar/angular";
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { RegisterService } from "app/register/register.service";
-import { ManageService } from "app/manage/manage.service";
+import { ManageService } from "app/primary/manage.service";
 declare var $: any;
 const colors: any = {
   red: {

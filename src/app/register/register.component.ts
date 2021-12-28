@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
-import { ManageService } from 'app/manage/manage.service';
-import { Std } from 'app/manage/standard/standard.model';
-import { Subject } from 'app/manage/subject/subject.model';
+import { ManageService } from 'app/primary/manage.service';
+import { Std } from 'app/primary/standard.model';
+import { Subject } from 'app/primary/subject.model';
 import Swal from 'sweetalert2';
 import { Register } from './register.model';
 import { RegisterService } from './register.service';

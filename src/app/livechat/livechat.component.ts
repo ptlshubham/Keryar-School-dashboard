@@ -1,6 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { ManageService } from 'app/manage/manage.service';
+import { ManageService } from 'app/primary/manage.service';
 import { MessageService } from 'app/message.service';
 import { PusherService } from 'app/pusher.service';
 import { RegisterService } from 'app/register/register.service';

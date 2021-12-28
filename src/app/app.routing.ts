@@ -76,11 +76,6 @@ export const AppRoutes: Routes = [
                     canActivate: [AuthGuard]
                 },
                 {
-                    path: 'manage',
-                    loadChildren: './manage/manage.module#ManageModule',
-                    canActivate: [AuthGuard]
-                },
-                {
                     path: 'visitor',
                     loadChildren: './visitor/visitor.module#VisitorModule',
                     canActivate: [AuthGuard]

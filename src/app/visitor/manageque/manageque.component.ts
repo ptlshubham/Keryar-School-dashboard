@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'app/api.service';
-import { ManageService } from 'app/manage/manage.service';
-import { Std } from 'app/manage/standard/standard.model';
-import { Chapater } from 'app/manage/subject/chapater.model';
-import { Subject } from 'app/manage/subject/subject.model';
+import { Chapater } from 'app/primary/chapater.model';
+import { ManageService } from 'app/primary/manage.service';
+import { Std } from 'app/primary/standard.model';
+import { Subject } from 'app/primary/subject.model';
 import { Question } from 'app/question/question.model';
 import { QuestionService } from 'app/question/question.service';
 import Swal from 'sweetalert2';
