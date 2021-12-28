@@ -102,6 +102,7 @@ export class LivechatComponent implements OnInit {
        this.getMessages().subscribe((message:any) => {
          debugger
       this.messages.push(message.data);
+      this.msgs.msg='';
     });
       this.studentsList.forEach(element => {
         if(element.id != val.id){
@@ -111,6 +112,7 @@ export class LivechatComponent implements OnInit {
     }else{
       this.getMessages().subscribe((message:any) => {
         this.messages.push(message.data);
+        this.msgs.msg='';
       });
       this.TeacherList.forEach(element => {
         if(element.id != val.id){
