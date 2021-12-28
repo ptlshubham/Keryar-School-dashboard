@@ -885,7 +885,7 @@ export class DashboardComponent implements OnInit {
   // }
   ngDoCheck() {
     // debugger
-    if (this.role != 'Student') {
+    if (this.role != 'Student' && this.role != 'Parents') {
       this.doughnutChartData = [
         [this.studentsList.length, this.reg.length],
         
