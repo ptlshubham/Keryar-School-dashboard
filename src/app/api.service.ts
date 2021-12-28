@@ -69,7 +69,7 @@ export class ApiService {
   public static saveTestURL: string = ApiService.HOST_URL + '/admin/SaveTest';
   public static GetAllTestURL: string = ApiService.HOST_URL + '/admin/GetAllTestList';
   public static getTestListURL: string = ApiService.HOST_URL + '/admin/GetTestList';
-  public static forgetPasswordURL: string = ApiService.HOST_URL + '/admin/ForgetPassword';
+  public static forgetPasswordURL: string = ApiService.HOST_URL + '/admin/ForgotPassword';
   public static GetAllSubjectURL: string = ApiService.HOST_URL + '/admin/GetAllSubjects';
   public static getViewTestURL: string = ApiService.HOST_URL + '/admin/GetViewTestList';
   public static GetViewVisitorTestListURL: string = ApiService.HOST_URL + '/admin/GetViewVisitorTestList';

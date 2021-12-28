@@ -62,7 +62,7 @@
               </div>
               <div class="card-body ">
 
-                <label class="col-form-label">Select User</label>
+                <!-- <label class="col-form-label">Select User</label>
                 <div class="dropdown form-group">
                   <button class="dropdown-toggle btn btn-round btn-block"
                     style="background-color: #ef8157;color: #FFFFFF;" type="button" name="dropdownMenuButton"
@@ -75,7 +75,7 @@
                       <a class="dropdown-item" (click)="selectRole(ro.name)">{{ro.name}}</a>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <label class="col-form-label">Enter Email</label>
                 <div class="input-group" [ngClass]="{ 'input-group-focus': focus === true }">
                   <input type="text" class="form-control" id="email" name="email" [(ngModel)]="forgotPwdModel.email"
@@ -103,7 +103,7 @@
                 </button>
                 <!-- <a class="btn btn-default btn-round">Cancel</a> -->
                 &nbsp;
-                <button type="submit" [disabled]="!forgotForm.form.valid || !selectedRole"
+                <button type="submit" [disabled]="!forgotForm.form.valid"
                   (click)="forgotPassword(forgotPwdModel)" class="btn btn-primary btn-round">
                   <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                 </button>
@@ -201,7 +201,7 @@
                   <i class="fa fa-times" aria-hidden="true"></i> Cancel
                 </button>
                 &nbsp;
-                <button type="submit" [disabled]="!forgotChangePwdForm.form.valid || !selectedRole"
+                <button type="submit" [disabled]="!forgotChangePwdForm.form.valid"
                   (click)="changeForgotPwd(forgotPwdModel)" class="btn btn-primary btn-round">
                   <i class="fa fa-paper-plane" aria-hidden="true"></i> Submit
                 </button>

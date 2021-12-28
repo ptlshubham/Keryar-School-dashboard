@@ -97,10 +97,12 @@ export class ForgotpwdComponent implements OnInit {
 
     }
     forgotPassword() {
-        this.forgotPwdModel.role = this.selectedRole;
+        // this.forgotPwdModel.role = this.selectedRole;
+        debugger
         this.loginService.forgotPwd(this.forgotPwdModel).subscribe((data) => {
+            debugger
             this.apiService.showNotification('top', 'right', 'Email Sent Successfully on your Email Address.', 'success');
-            this.emailResp = data[0].id;
+            this.emailResp = data[0].userid;
 
             this.forgotBox = true;
             this.changePwd = false;
@@ -111,7 +113,7 @@ export class ForgotpwdComponent implements OnInit {
         this.forgotPwdModel.id = this.emailResp;
 
         this.loginService.getOneTimePwd(this.forgotPwdModel).subscribe((data) => {
-
+            debugger
             this.otpResp = data[0].userid;
             this.changePwd = true;
             this.otpBox = false;
