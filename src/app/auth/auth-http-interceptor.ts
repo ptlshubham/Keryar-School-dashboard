@@ -58,7 +58,14 @@ export class AuthInterceptor implements HttpInterceptor {
                     request = request.clone({ headers: request.headers.set('x-access-token', token) });
                 }
                 else {
-                    return next.handle(request);
+                    return next.handle(request).pipe(catchError(err => {
+                        if (err.status == 'Token is not valid') {
+                            // auto logout if 401 response returned from api
+                           this.router.navigate(['pages/login']);
+                        }
+                        const error = err.error.message || err.statusText;
+                        return throwError(error);
+                    }))
                 }
             }
         }
