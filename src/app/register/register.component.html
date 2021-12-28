@@ -167,11 +167,11 @@
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$" (focus)="focus = true"
                 #password="ngModel" />
             </div>
-            <div *ngIf="password.dirty || password.touched" class="alert alert-danger">
+            <div *ngIf="password.errors && (password.dirty || password.touched)" class="alert alert-danger">
               <div *ngIf="password.errors.required">
-                password is required
+                password  is required
               </div>
-              <div *ngIf="password.errors.pattern">
+              <div [hidden]="!password.errors('pattern')">
                 Enter at least one Uppercase and Lowercase Characters,Numbers and Special Characters.
               </div>
             </div>
@@ -757,7 +757,25 @@
               </label>
             </div>
           </div>
-          <label class="col-md-2 col-form-label">Email Id</label>
+         
+          <label class="col-md-2 col-form-label">Commited Fee</label>
+          <div class="col-md-4">
+            <div class="form-group">
+              <input type="text" class="form-control" id="cmmitfee" [(ngModel)]="studentregisterModel.cmmitfee"
+                name="cmmitfee" placeholder="Enter Commited Fee" />
+            </div>
+          </div>
+          <label class="col-md-2 col-form-label">Transportation Required!</label>
+          <div class="col-md-4">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" [(ngModel)]="studentregisterModel.transport" name="cactive"
+                  type="checkbox" />
+                <span class="form-check-sign"></span>
+              </label>
+            </div>
+          </div>
+          <label class="col-md-2 col-form-label">Student Email Id</label>
           <div class="col-md-4">
             <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
               <input type="text" class="form-control" id="email" [(ngModel)]="studentregisterModel.email" name="email"
@@ -791,21 +809,38 @@
               </div>
             </div>
           </div>
-          <label class="col-md-2 col-form-label">Commited Fee</label>
+          <label class="col-md-2 col-form-label">Student Email Id</label>
           <div class="col-md-4">
-            <div class="form-group">
-              <input type="text" class="form-control" id="cmmitfee" [(ngModel)]="studentregisterModel.cmmitfee"
-                name="cmmitfee" placeholder="Enter Commited Fee" />
+            <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
+              <input type="text" class="form-control" id="parentsEmail" [(ngModel)]="studentregisterModel.parentsEmail" name="parentsEmail"
+                placeholder="Enter Parents Email Id" required value=""
+                pattern="^[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/]+$" (focus)="focus = true"
+                #parentsEmail="ngModel" />
+            </div>
+            <div *ngIf="parentsEmail.errors && (parentsEmail.dirty || parentsEmail.touched)" class="alert alert-danger">
+              <div *ngIf="parentsEmail.errors.required">
+                Parents Email Address is required
+              </div>
+              <div [hidden]="!parentsEmail.errors('pattern')">
+                Enter Only Characters and Numbers.
+              </div>
             </div>
           </div>
-          <label class="col-md-2 col-form-label">Transportation Required!</label>
+          <label class="col-md-2 col-form-label">Password</label>
           <div class="col-md-4">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" [(ngModel)]="studentregisterModel.transport" name="cactive"
-                  type="checkbox" />
-                <span class="form-check-sign"></span>
-              </label>
+            <div class="form-group" [ngClass]="{ 'form-group-focus': focus === true }">
+              <input type="password" class="form-control" id="parentsPwd" [(ngModel)]="studentregisterModel.parentsPwd"
+                name="parentsPwd" placeholder="Enter Password" required value=""
+                pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$" (focus)="focus = true"
+                #password="ngModel" />
+            </div>
+            <div *ngIf="parentsPwd.errors && (parentsPwd.dirty || parentsPwd.touched)" class="alert alert-danger">
+              <div *ngIf="parentsPwd.errors.required">
+                password is required
+              </div>
+              <div [hidden]="!parentsPwd.errors('pattern')">
+                Enter at least one Uppercase and Lowercase Characters,Numbers and Special Characters.
+              </div>
             </div>
           </div>
           <label class="col-md-2 col-form-label"></label>

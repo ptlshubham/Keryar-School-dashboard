@@ -30,6 +30,8 @@ export class Studentregister {
         public propic?: string,
         public otp?: number,
         public checked?: boolean,
+        public parentsEmail?:string,
+        public parentsPwd?:string,
         public index?: number
     ) {
     }

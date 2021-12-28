@@ -358,14 +358,15 @@ export class VisitorregComponent implements OnInit {
 
     this.visitorModel.stdid = this.stdId;
     this.visitorModel.subid = this.selectedSubId;
-    this.visitorModel.visitorId = localStorage.getItem('vid');
+    this.visitorModel.visitorId = localStorage.getItem('UserId');
+    debugger
     this.VisitorService.updateVisitorReg(this.visitorModel).subscribe((req) => {
       this.apiService.showNotification('top', 'right', 'Profile Successfully Completed.', 'success');
       this.router.navigate(['/visitor/visitortest'], {
         queryParams: {
           subid: this.selectedSubId,
           stdid: this.stdId,
-          uid: localStorage.getItem('vid')
+          // uid: localStorage.getItem('UserId')
         }
       })
     })

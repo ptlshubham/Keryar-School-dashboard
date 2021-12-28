@@ -392,6 +392,7 @@ export class RegisterComponent implements OnInit {
     this.studentregisterModel.batchtime = this.selectedTime;
     // this.studentregisterModel.gender = this.gender;
     this.studentregisterModel.standard = this.list;
+    debugger
     this.registerService.saveStudentList(this.studentregisterModel).subscribe((data: any) => {
       this.getStudent();
       this.apiservice.showNotification('top', 'right', 'Student Added Successfully.', 'success');

@@ -45,6 +45,15 @@ export class LoginService {
 
 
     }
+    userLogin(credentials: Loginuser): Observable<any> {
+        const data = {
+            email: credentials.email,
+            password: credentials.password,
+        };
+
+        return this.httpClient.post<any>(ApiService.getUserLoginURL, data);
+    }
+
     forgotPwd(admin: ForgotPwd): Observable<any> {
 
         return this.httpClient.post<any>(ApiService.forgetPasswordURL, admin);

@@ -104,8 +104,9 @@ export class LoginComponent implements OnInit {
     login(credentials) {
         credentials.role = this.selectedRole;
         console.log("......data...." + credentials.email);
-         
-        this.loginService.login(credentials).subscribe(data => {
+
+        this.loginService.userLogin(credentials).subscribe(data => {
+            debugger
             if (data == 1) {
                 this.apiService.showNotification('top', 'right', 'Wrong Email!', 'danger');
             }
@@ -115,31 +116,72 @@ export class LoginComponent implements OnInit {
 
             }
             else {
-                this.apiService.showNotification('top', 'right', ' successfully Login.', 'success');
-
-                localStorage.setItem('authenticationToken', data[0].token);
-                localStorage.setItem('UserId', data[0].id);
-                localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
-                localStorage.setItem('standardid', data[0].standard);
-                localStorage.setItem('gender',data[0].gender);
-                if(data[0].role == 'Visitor'){
+                if (data[0].role == 'Admin') {
+                    debugger
+                    this.apiService.showNotification('top', 'right', 'Admin successfully Login.', 'success');
+                    localStorage.setItem('authenticationToken', data[0].token);
+                    localStorage.setItem('UserId', data[0].id);
+                    localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
                     localStorage.setItem('role', data[0].role);
-                    if(data[0].detailsupdated){
+                    this.router.navigate(['dashboard']);
+                }
+                else if (data[0].role == 'Teacher') {
+                    debugger
+                    this.apiService.showNotification('top', 'right', 'Teacher successfully Login.', 'success');
+                    localStorage.setItem('authenticationToken', data[0].token);
+                    localStorage.setItem('UserId', data[0].id);
+                    localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
+                    localStorage.setItem('standardid', data[0].standard);
+                    localStorage.setItem('gender', data[0].gender);
+                    localStorage.setItem('role', data[0].role);
+                    this.router.navigate(['dashboard']);
+                }
+                else if (data[0].role == 'Student') {
+                    debugger
+                    this.apiService.showNotification('top', 'right', 'Student successfully Login.', 'success');
+                    localStorage.setItem('authenticationToken', data[0].token);
+                    localStorage.setItem('UserId', data[0].id);
+                    localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
+                    localStorage.setItem('standardid', data[0].standard);
+                    localStorage.setItem('gender', data[0].gender);
+                    localStorage.setItem('role', data[0].role);
+                    this.router.navigate(['dashboard']);
+                }
+                else if (data[0].role == 'Visitor') {
+                    debugger
+                    if (data[0].detailsupdated == false) {
+                        localStorage.setItem('authenticationToken', data[0].token);
+                        localStorage.setItem('UserId', data[0].id);
+                        localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
+                        localStorage.setItem('role', data[0].role);
+                        localStorage.setItem('standardid', data[0].standard);
                         this.router.navigate(['visitor/visitorreg']);
                     }
-                    else{
+                    else {
+                        debugger
+                        localStorage.setItem('authenticationToken', data[0].token);
+                        localStorage.setItem('UserId', data[0].id);
+                        localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
+                        localStorage.setItem('role', data[0].role);
+                        localStorage.setItem('standardid', data[0].standard);
+                        localStorage.setItem('gender', data[0].gender);
                         this.router.navigate(['visitor/visitortest']);
                     }
                 }
-                else{
-                    localStorage.setItem('role', this.selectedRole);
+                else if (data[0].role == 'Parents') {
+                    debugger
+                    this.apiService.showNotification('top', 'right', 'Parent successfully Login.', 'success');
+                    localStorage.setItem('authenticationToken', data[0].token);
+                    localStorage.setItem('UserId', data[0].id);
+                    localStorage.setItem('UserName', data[0].fname );
+                    localStorage.setItem('stuid', data[0].stuid);
+                    localStorage.setItem('role', data[0].role);
                     this.router.navigate(['dashboard']);
                 }
-                
-               
-               
+                // else {
+                //     this.router.navigate(['dashboard']);
+                // }
             }
-
         });
     }
 }

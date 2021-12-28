@@ -89,7 +89,7 @@ export const ROUTES: RouteInfo[] = [
     title: "Chat Box",
     type: "link",
     roles: "Admin",
-    icontype:"fas fa-comment",
+    icontype: "fas fa-comment",
   },
   {
     path: "/visitor",
@@ -135,8 +135,8 @@ export const Student: RouteInfo[] = [
     path: "/livechat",
     title: "Chat Box",
     type: "link",
-    roles: "Admin",
-    icontype:"fas fa-comment",
+    roles: "Student",
+    icontype: "fas fa-comment",
   },
 ];
 
@@ -186,7 +186,7 @@ export const Teacher: RouteInfo[] = [
     title: "Chat Box",
     type: "link",
     roles: "Admin",
-    icontype:"fas fa-comment",
+    icontype: "fas fa-comment",
   },
 ];
 export const Visitor: RouteInfo[] = [
@@ -206,6 +206,29 @@ export const Visitor: RouteInfo[] = [
     ],
   },
 ];
+export const Parents: RouteInfo[] = [
+  {
+    path: "/dashboard",
+    title: "Dashboard",
+    type: "link",
+    icontype: "nc-icon nc-bank",
+    roles: "Parents",
+  },
+   {
+    path: "/notification",
+    title: "Notifications",
+    type: "link",
+    roles: "Parents",
+    icontype: "fa fa-bell",
+  },
+  {
+    path: "/livechat",
+    title: "Chat Box",
+    type: "link",
+    roles: "Parents",
+    icontype: "fas fa-comment",
+  },
+];
 
 @Component({
   moduleId: module.id,
@@ -215,11 +238,13 @@ export const Visitor: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   public menuItems: any;
   public studentMenuItems: any;
+  public parentsMenuItems: any;
   public teacherMenuItems: any;
   public visitorMenuItems: any;
   public students: any[];
-  public Rolees = localStorage.getItem("Role");
+  public Rolees = localStorage.getItem("role");
   public userName = localStorage.getItem("UserName");
+  
   public userId = localStorage.getItem("UserId");
 
   Roles: any;
@@ -237,30 +262,33 @@ export class SidebarComponent implements OnInit {
 
   ) {
     var $sidebar = $('.sidebar');
-    $('.fixed-plugin .background-color span').click(function(){
+    $('.fixed-plugin .background-color span').click(function () {
       $(this).siblings().removeClass('active');
       $(this).addClass('active');
 
       // var new_color = $(this).data('color');
       var new_color = 'white';
-      
 
-          $sidebar.attr('data-color',new_color);
-      
 
-     
-  });
+      $sidebar.attr('data-color', new_color);
+
+
+
+    });
 
     if (localStorage.getItem("role") == 'Student') {
       this.getProfilePic();
     }
   }
   ngOnInit() {
+    this.userName
+    debugger
     this.Roles = localStorage.getItem("role");
     this.menuItems = ROUTES.filter((menuItem) => menuItem);
     this.studentMenuItems = Student.filter((menuItem) => menuItem);
     this.teacherMenuItems = Teacher.filter((menuItem) => menuItem);
     this.visitorMenuItems = Visitor.filter((menuItem) => menuItem);
+    this.parentsMenuItems = Parents.filter((menuItem) => menuItem)
 
 
   }
@@ -273,14 +301,7 @@ export class SidebarComponent implements OnInit {
     });
   }
   logout() {
-    if (localStorage.getItem("role") == 'Visitor') {
-      localStorage.clear();
-      this.router.navigate(['pages/login']);
-    }
-    else {
-      localStorage.clear();
-      this.router.navigate(['pages/login']);
-    }
-
+    localStorage.clear();
+    this.router.navigate(['pages/login']);
   }
 }
