@@ -174,6 +174,7 @@ export class DashboardComponent implements OnInit {
   // }
   viewDate = Date.now();
   dateList: Date[]=[];
+  public students: any[];
   constructor(
     private manageService: ManageService,
     private registerService: RegisterService,
@@ -190,6 +191,9 @@ export class DashboardComponent implements OnInit {
     this.getStudentTest();
     // this.getSubmittedTest();
     this.getSubjectList();
+    if(localStorage.getItem("role")=='Parents'){
+      this.getStudentById();
+    }
    
   }
   ngOnInit() {
@@ -221,7 +225,13 @@ export class DashboardComponent implements OnInit {
       // this.stdlist = data;
   });
 }
-
+  getStudentById() {
+    this.registerService.getStudentPicture(localStorage.getItem("stuid")).subscribe((data: any) => {
+      this.students = data;
+      localStorage.setItem('stdId', data[0].standard);
+      debugger
+    });
+  }
 
   // public ngOnInit() {
   //   this.chartColor = "#FFFFFF";

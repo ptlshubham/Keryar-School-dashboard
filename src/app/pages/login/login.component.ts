@@ -123,6 +123,7 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('UserId', data[0].id);
                     localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
                     localStorage.setItem('role', data[0].role);
+                    localStorage.setItem('lastLogin',data[0].last_login);
                     this.router.navigate(['dashboard']);
                 }
                 else if (data[0].role == 'Teacher') {
@@ -134,6 +135,7 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('standardid', data[0].standard);
                     localStorage.setItem('gender', data[0].gender);
                     localStorage.setItem('role', data[0].role);
+                    localStorage.setItem('lastLogin',data[0].out_time);
                     this.router.navigate(['dashboard']);
                 }
                 else if (data[0].role == 'Student') {
@@ -145,6 +147,7 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('standardid', data[0].standard);
                     localStorage.setItem('gender', data[0].gender);
                     localStorage.setItem('role', data[0].role);
+                    localStorage.setItem('lastLogin',data[0].out_time);
                     this.router.navigate(['dashboard']);
                 }
                 else if (data[0].role == 'Visitor') {
@@ -155,7 +158,9 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
                         localStorage.setItem('role', data[0].role);
                         localStorage.setItem('standardid', data[0].standard);
+                        localStorage.setItem('lastLogin',data[0].out_time);
                         this.router.navigate(['visitor/visitorreg']);
+                        
                     }
                     else {
                         debugger
@@ -165,6 +170,7 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('role', data[0].role);
                         localStorage.setItem('standardid', data[0].standard);
                         localStorage.setItem('gender', data[0].gender);
+                        localStorage.setItem('lastLogin',data[0].out_time);
                         this.router.navigate(['visitor/visitortest']);
                     }
                 }
@@ -176,6 +182,17 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('UserName', data[0].fname );
                     localStorage.setItem('stuid', data[0].stuid);
                     localStorage.setItem('role', data[0].role);
+                    localStorage.setItem('lastLogin',data[0].out_time);
+                    this.router.navigate(['dashboard']);
+                }
+               else if (data[0].role == 'Sub-Admin') {
+                    debugger
+                    this.apiService.showNotification('top', 'right', 'Admin successfully Login.', 'success');
+                    localStorage.setItem('authenticationToken', data[0].token);
+                    localStorage.setItem('UserId', data[0].id);
+                    localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
+                    localStorage.setItem('role', data[0].role);
+                    localStorage.setItem('lastLogin',data[0].out_time);
                     this.router.navigate(['dashboard']);
                 }
                 // else {

@@ -50,7 +50,7 @@
               <span class="sidebar-normal" routerLink="password">Change Password</span>
             </a>
           </li>
-          <li>
+          <li *ngIf="Roles =='Admin'">
             <a href="javascript:void(0)">
               <span class="sidebar-mini-icon">EP</span>
               <span class="sidebar-normal" routerLink="profile">Edit Profile</span>

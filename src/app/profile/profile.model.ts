@@ -4,7 +4,9 @@ export class Profile {
         public firstname?: string,
         public lastname?: string,
         public email?: string,
-        public isactive?: boolean
+        public password?:string,
+        public isactive?: boolean,
+        public role?:string
     ) {
     }
 }

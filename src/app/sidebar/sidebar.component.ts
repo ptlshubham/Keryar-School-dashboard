@@ -3,6 +3,8 @@ import {
   AfterContentInit,
 } from "@angular/core";
 import { Router } from "@angular/router";
+import { ApiService } from "app/api.service";
+import { LoginService } from "app/pages/login/login.service";
 import { RegisterService } from "app/register/register.service";
 import { VisitorRoutes } from "app/visitor/visitor.routing";
 
@@ -214,7 +216,7 @@ export const Parents: RouteInfo[] = [
     icontype: "nc-icon nc-bank",
     roles: "Parents",
   },
-   {
+  {
     path: "/notification",
     title: "Notifications",
     type: "link",
@@ -227,6 +229,21 @@ export const Parents: RouteInfo[] = [
     type: "link",
     roles: "Parents",
     icontype: "fas fa-comment",
+  },
+  {
+    path: "/parents",
+    title: "Parents",
+    type: "sub",
+    collapse: "parent",
+    roles: "Parents",
+    icontype: "fa fa-user",
+    children: [
+      { path: "reports", title: "Student Reports", ab: "SR" },
+      // { path: "visitorlist", title: "Vistor List", ab: "VL" },
+      // { path: "visitortest", title: "Test List", ab: "TL" },
+      // { path: "visitorexam", title: "Vistor Test", ab: "VE" },
+
+    ],
   },
 ];
 
@@ -244,9 +261,9 @@ export class SidebarComponent implements OnInit {
   public students: any[];
   public Rolees = localStorage.getItem("role");
   public userName = localStorage.getItem("UserName");
-  
-  public userId = localStorage.getItem("UserId");
 
+  public userId = localStorage.getItem("UserId");
+  datetime: any;
   Roles: any;
   visit: '';
 
@@ -259,6 +276,8 @@ export class SidebarComponent implements OnInit {
   constructor(
     private registerService: RegisterService,
     private router: Router,
+    private apiService: ApiService,
+    private loginService: LoginService
 
   ) {
     var $sidebar = $('.sidebar');
@@ -289,7 +308,7 @@ export class SidebarComponent implements OnInit {
     this.teacherMenuItems = Teacher.filter((menuItem) => menuItem);
     this.visitorMenuItems = Visitor.filter((menuItem) => menuItem);
     this.parentsMenuItems = Parents.filter((menuItem) => menuItem)
-
+    // this.loginTimeCalculation();
 
   }
   ngAfterViewInit() { }
@@ -301,7 +320,37 @@ export class SidebarComponent implements OnInit {
     });
   }
   logout() {
-    localStorage.clear();
-    this.router.navigate(['pages/login']);
+    this.loginService.UpdateLogout().subscribe((res) => {
+      this.apiService.showNotification('top', 'right', 'Logout Successfully.', 'success');
+      localStorage.clear();
+      this.router.navigate(['pages/login']);
+    });
+
   }
+  // loginTimeCalculation() {
+  //   function get_time_diff(datetime) {
+  //     var datetime = typeof datetime !== 'undefined' ? datetime : "2014-01-01 01:02:03.123456";
+
+  //     var datetime = new Date(datetime).getTime();
+  //     var now = new Date().getTime();
+
+  //     if (isNaN(datetime)) {
+  //       return "";
+  //     }
+
+  //     console.log(datetime + " " + now);
+
+  //     if (datetime < now) {
+  //       var milisec_diff = now - datetime;
+  //     } else {
+  //       var milisec_diff = datetime - now;
+  //     }
+
+  //     var days = Math.floor(milisec_diff / 1000 / 60 / (60 * 24));
+
+  //     var date_diff = new Date(milisec_diff);
+
+  //     return days + " Days " + date_diff.getHours() + " Hours " + date_diff.getMinutes() + " Minutes " + date_diff.getSeconds() + " Seconds";
+  //   }
+  // }
 }

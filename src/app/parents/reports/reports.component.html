@@ -1,0 +1,114 @@
+<div class="main-content">
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-auto mr-auto">
+                    <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+                <div class="col-md-10">
+                    <h4 class="card-title">Reports</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-md-6 col-sm-6" *ngFor="let s of subject; let i = index">
+            <div class="card card-stats" (click)="openTestReport(s)" [style.box-shadow]="s.color"
+                style="background-color: #f6fcfc;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="numbers">
+                                <p class="card-title" style="
+                        font-size: 22px !important;
+                        text-align: justify;
+                        font-weight: 600;
+                      ">
+                                    {{ s.subject }}
+                                </p>
+                                <!-- <p class="card-category">Subject: {{s.subjectList.length}} -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <hr />
+                    <div class="stats">Total Obtained Marks: </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card" *ngIf="TestReport">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-md-9">
+                    <h4 class="card-title">Test List</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="text-primary">
+                        <th class="text-center">#</th>
+                        <th class="text-center">Test Name</th>
+                        <th class="text-center">Chapter No</th>
+                        <th class="text-center">Total Marks</th>
+                        <th class="text-center">Obtain Marks</th>
+                        <th class="text-center">Test Date</th>
+                        <th class="text-right">Actions</th>
+                    </thead>
+                    <!-- <tbody>
+                        <tr *ngFor=" let item of que | paginate: { itemsPerPage: 5, currentPage: p };">
+                            <td>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" [(ngModel)]="item.isactive" name="list_name"
+                                            value="{{ item.id }}" (change)="isAllSelected(item)" type="checkbox" />
+                                        <span class="form-check-sign"></span>
+                                    </label>
+                                </div>
+                            </td>
+                            <td class="text-center">{{ item.index}}</td>
+                            <td class="text-center">{{ item.quetype }}</td>
+                            <td class="text-center" *ngIf="item.question == 'undefined'"></td>
+                            <td class="text-center" *ngIf="item.question != 'undefined'">
+                                <label style="color:#292525;font-size: medium;">{{ item.question }}</label>
+                            </td>
+                            <td class="text-center">
+                                <div class="img-container" *ngIf="item.imageque != 'null'">
+                                    <img *ngIf="item.imageque  != 'null'" src="http://localhost:8090{{ item.imageque }}"
+                                        style="height: 40% !important;width: 40% !important;" />
+                                </div>
+                                <label *ngIf="item.imageque == 'null'"
+                                    style="font-size: larger;font-weight: bold;">-</label>
+                            </td>
+                            <td class="text-center">{{ item.marks }} Marks</td>
+                            <td class="text-center">{{ item.time }} Minute</td>
+                            <td class="text-left">
+                                <button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm">
+                                    <i class="fa far fa-edit" (click)="editQuestion(item)"></i>
+                                </button>
+                                &nbsp;
+                                <button type="button" rel="tooltip" (click)="removeQuestion(item.id)"
+                                    class="btn btn-danger btn-icon btn-sm">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody> -->
+                </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row">
+                <div class="ml-md-auto">
+                    <pagination-controls (pageChange)="p = $event" maxSize="5" autoHide="true" responsive="true">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

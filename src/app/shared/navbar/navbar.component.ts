@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     private _router: Subscription;
     public open: boolean = false;
+    lastLogin: any = Date;
     eventList: any = [];
     @ViewChild("navbar-cmp", { static: false }) button;
 
@@ -37,7 +38,7 @@ export class NavbarComponent implements OnInit {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
-
+        this.lastLogin = localStorage.getItem('lastLogin');
 
     }
 

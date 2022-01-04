@@ -123,9 +123,11 @@ export class ApiService {
   public static updateVisitorRegURL: string = ApiService.HOST_URL + '/admin/UpdateVisitorReg';
   public static saveVisitorLoginURL: string = ApiService.HOST_URL + '/admin/VisitorLogin';
   public static GetTestDetailsURL: string = ApiService.HOST_URL + '/admin/GetVisitorTest';
-  public static uploadSyllabusImageURL: string = ApiService.HOST_URL + '/admin/UploadSyllabusImage'
-  public static GetAttendanceCountURL: string = ApiService.HOST_URL + '/admin/GetAttendanceCount'
-
+  public static uploadSyllabusImageURL: string = ApiService.HOST_URL + '/admin/UploadSyllabusImage';
+  public static GetAttendanceCountURL: string = ApiService.HOST_URL + '/admin/GetAttendanceCount';
+  public static saveNewTeamMembersURL: string = ApiService.HOST_URL + '/admin/SaveNewTeamMembers';
+  public static getAllSubAdminList: string = ApiService.HOST_URL + '/admin/GetAllSubAdminList';
+  public static updateLogoutDetailsURL: string=ApiService.HOST_URL+'/admin/UpdateLogoutDetails'
   //  public static GetViewVisitorTestListURL: string = ApiService.HOST_URL + '/admin/GetViewVisitorTestList';
   showNotification(from, align, msg, color) {
 

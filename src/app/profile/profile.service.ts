@@ -23,4 +23,11 @@ export class ProfileService {
 
         return this.httpClient.post<any>(ApiService.updateProfileDataURL, admin);
     }
+    saveNewTeamMembers(admin: Profile): Observable<any> {
+
+        return this.httpClient.post<any>(ApiService.saveNewTeamMembersURL, admin);
+    }
+    getAllSubAdminList(): Observable<Profile[]> {
+        return this.httpClient.get<any>(ApiService.getAllSubAdminList);
+    }
 }
