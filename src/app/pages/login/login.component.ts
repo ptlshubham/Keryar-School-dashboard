@@ -123,7 +123,8 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('UserId', data[0].id);
                     localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
                     localStorage.setItem('role', data[0].role);
-                    localStorage.setItem('lastLogin',data[0].last_login);
+                    localStorage.setItem('lastOutTime',data[0].last_login);
+                    localStorage.setItem('lastInTime',data[0].last_login);
                     this.router.navigate(['dashboard']);
                 }
                 else if (data[0].role == 'Teacher') {
@@ -135,7 +136,8 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('standardid', data[0].standard);
                     localStorage.setItem('gender', data[0].gender);
                     localStorage.setItem('role', data[0].role);
-                    localStorage.setItem('lastLogin',data[0].out_time);
+                    localStorage.setItem('lastOutTime',data[0].out_time);
+                    localStorage.setItem('lastInTime',data[0].last_login);
                     this.router.navigate(['dashboard']);
                 }
                 else if (data[0].role == 'Student') {
@@ -147,7 +149,8 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('standardid', data[0].standard);
                     localStorage.setItem('gender', data[0].gender);
                     localStorage.setItem('role', data[0].role);
-                    localStorage.setItem('lastLogin',data[0].out_time);
+                    localStorage.setItem('lastOutTime',data[0].out_time);
+                    localStorage.setItem('lastInTime',data[0].last_login);
                     this.router.navigate(['dashboard']);
                 }
                 else if (data[0].role == 'Visitor') {
@@ -158,7 +161,8 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
                         localStorage.setItem('role', data[0].role);
                         localStorage.setItem('standardid', data[0].standard);
-                        localStorage.setItem('lastLogin',data[0].out_time);
+                        localStorage.setItem('lastOutTime',data[0].out_time);
+                        localStorage.setItem('lastInTime',data[0].last_login);
                         this.router.navigate(['visitor/visitorreg']);
                         
                     }
@@ -170,7 +174,8 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('role', data[0].role);
                         localStorage.setItem('standardid', data[0].standard);
                         localStorage.setItem('gender', data[0].gender);
-                        localStorage.setItem('lastLogin',data[0].out_time);
+                        localStorage.setItem('lastOutTime',data[0].out_time);
+                        localStorage.setItem('lastInTime',data[0].last_login);
                         this.router.navigate(['visitor/visitortest']);
                     }
                 }
@@ -182,7 +187,8 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('UserName', data[0].fname );
                     localStorage.setItem('stuid', data[0].stuid);
                     localStorage.setItem('role', data[0].role);
-                    localStorage.setItem('lastLogin',data[0].out_time);
+                    localStorage.setItem('lastOutTime',data[0].out_time);
+                    localStorage.setItem('lastInTime',data[0].last_login);
                     this.router.navigate(['dashboard']);
                 }
                else if (data[0].role == 'Sub-Admin') {
@@ -192,7 +198,8 @@ export class LoginComponent implements OnInit {
                     localStorage.setItem('UserId', data[0].id);
                     localStorage.setItem('UserName', data[0].firstname + ' ' + data[0].lastname);
                     localStorage.setItem('role', data[0].role);
-                    localStorage.setItem('lastLogin',data[0].out_time);
+                    localStorage.setItem('lastOutTime',data[0].out_time);
+                    localStorage.setItem('lastInTime',data[0].last_login);
                     this.router.navigate(['dashboard']);
                 }
                 // else {

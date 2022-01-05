@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
-        this.lastLogin = localStorage.getItem('lastLogin');
+        this.lastLogin = localStorage.getItem('lastOutTime');
 
     }
 

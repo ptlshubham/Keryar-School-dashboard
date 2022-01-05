@@ -71,10 +71,8 @@ export class LoginService {
     changePassword(admin) {
         return this.httpClient.post<any>(ApiService.updatePasswordURL, admin);
     }
-    UpdateLogout() {
-        let data = {
-            userid: localStorage.getItem("UserId"),
-          };
+    UpdateLogout(data) {
+       
         return this.httpClient.post(ApiService.updateLogoutDetailsURL, data);
       }
 
