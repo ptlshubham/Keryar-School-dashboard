@@ -36,6 +36,15 @@ export class AuthInterceptor implements HttpInterceptor {
                     this.router.navigate(['pages/login']);
                 }
                 request = request.clone({ headers: request.headers.set('x-access-token', token) });
+                return next.handle(request).pipe(catchError(err => {
+                    if (err.statusText == 'Unknown Error' ) {
+                        // auto logout if 401 response returned from api
+                       this.router.navigate(['pages/login']);
+                    }
+                    const error = err.error.statusText || err.statusText;
+                    return throwError(error);
+                }))
+                
             }
         }
         else if (localStorage.getItem('role') == 'Visitor') {
@@ -47,23 +56,53 @@ export class AuthInterceptor implements HttpInterceptor {
                     // this.router.navigate(['pages/login']);
                 }
                 request = request.clone({ headers: request.headers.set('x-access-token', token) });
+                return next.handle(request).pipe(catchError(err => {
+                    if (err.statusText == 'Unknown Error' ) {
+                        // auto logout if 401 response returned from api
+                       this.router.navigate(['pages/login']);
+                    }
+                    const error = err.error.statusText || err.statusText;
+                    return throwError(error);
+                }))
             }
         }
         else {
             if (token == null || token == undefined) {
-                return next.handle(request);
+                 
+                // return next.handle(request);
+                return next.handle(request).pipe(catchError(err => {
+                    if (err.statusText == 'Unknown Error' ) {
+                        // auto logout if 401 response returned from api
+                       this.router.navigate(['pages/login']);
+                    }
+                    const error = err.error.statusText || err.statusText;
+                    debugger
+                    return throwError(error);
+                }))
             }
             else {
+                 
                 if (request.url != ApiService.getUserLoginURL) {
+                     debugger
                     request = request.clone({ headers: request.headers.set('x-access-token', token) });
-                }
-                else {
                     return next.handle(request).pipe(catchError(err => {
-                        if (err.status == 'Token is not valid') {
+                        debugger
+                        if (err.statusText == 'Unknown Error') {
                             // auto logout if 401 response returned from api
                            this.router.navigate(['pages/login']);
                         }
-                        const error = err.error.message || err.statusText;
+                        const error = err.error.statusText || err.statusText;
+                        return throwError(error);
+                    }))
+                }
+                else {
+                     
+                    return next.handle(request).pipe(catchError(err => {
+                        if (err.statusText == 'Unknown Error') {
+                            // auto logout if 401 response returned from api
+                           this.router.navigate(['pages/login']);
+                        }
+                        const error = err.error.statusText || err.statusText;
                         return throwError(error);
                     }))
                 }
@@ -73,6 +112,14 @@ export class AuthInterceptor implements HttpInterceptor {
 
 
 
-        return next.handle(request);
+        // return next.handle(request);
+        return next.handle(request).pipe(catchError(err => {
+            if (err.statusText == 'Unknown Error' ) {
+                // auto logout if 401 response returned from api
+               this.router.navigate(['pages/login']);
+            }
+            const error = err.error.statusText || err.statusText;
+            return throwError(error);
+        }))
     }
 }
