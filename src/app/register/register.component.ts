@@ -81,6 +81,23 @@ export class RegisterComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private apiservice: ApiService,
   ) {
+    
+    this.studentregisterModel.cactive = false;
+    this.studentregisterModel.mactive = false;
+    this.studentregisterModel.pactive = false;
+    this.activatedRoute.queryParams.subscribe((res: any) => {
+      this.teacher = res.val;
+      this.list1 = res.id;
+      this.querystd = res.qstd;
+      this.getStandardList();
+
+    })
+    this.getStandardList();
+    this.getTeacher();
+    this.getAllSubject();
+  }
+
+  ngOnInit(): void {
     this.prferTime = [
       {
         name: '9 AM to 11 AM'
@@ -98,23 +115,7 @@ export class RegisterComponent implements OnInit {
         name: '6 PM to 8 PM'
       },
 
-    ]
-    this.studentregisterModel.cactive = false;
-    this.studentregisterModel.mactive = false;
-    this.studentregisterModel.pactive = false;
-    this.activatedRoute.queryParams.subscribe((res: any) => {
-      this.teacher = res.val;
-      this.list1 = res.id;
-      this.querystd = res.qstd;
-      this.getStandardList();
-
-    })
-    this.getStandardList();
-    this.getTeacher();
-    this.getAllSubject();
-  }
-
-  ngOnInit(): void {
+    ];
     this.addStdFields = [{ name: this.val }];
     this.val++;
     if (this.teacher == 'Teacher') {
