@@ -648,7 +648,7 @@
                   Select Preferable Bacth Timing
                 </div>
                 <div *ngFor="let pos of prferTime">
-                  <a class="dropdown-item" (click)="selectBacthTime(pos.name)">{{ pos.name }}</a>
+                  <a class="dropdown-item" (click)="selectBacthTime(pos.name)" value="pos.name">{{pos.name}}</a>
                 </div>
               </div>
             </div>
@@ -832,7 +832,7 @@
               <input type="password" class="form-control" id="parentsPwd" [(ngModel)]="studentregisterModel.parentsPwd"
                 name="parentsPwd" placeholder="Enter Password" required value=""
                 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{6,15}$" (focus)="focus = true"
-                #password="ngModel" />
+                #parentsPwd="ngModel" />
             </div>
             <div *ngIf="parentsPwd.errors && (parentsPwd.dirty || parentsPwd.touched)" class="alert alert-danger">
               <div *ngIf="parentsPwd.errors.required">
