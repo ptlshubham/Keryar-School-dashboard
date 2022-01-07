@@ -77,6 +77,14 @@ export class ManageService {
     }
     return this.httpClient.post<any>(ApiService.getSubjectListURL, data);
   }
+  getSubjectForVideo(id): Observable<Subject[]> {
+    let data = {
+      id: id,
+      role: localStorage.getItem('role'),
+    }
+    return this.httpClient.post<any>(ApiService.getSubjectForVideoURL, data);
+  }
+  
 
   updateSubjectList(admin: Subject): Observable<any> {
 
@@ -95,6 +103,12 @@ export class ManageService {
   }
   getAllSyllabusList(): Observable<Syllabus[]> {
     return this.httpClient.get<any>(ApiService.getAllSyllabusListURL);
+  }
+  getSyllabusById(id) {
+    let data = {
+      id: id
+    }
+    return this.httpClient.post<any>(ApiService.getSyllabusByIdURL, data);
   }
   uploadSyllabusImage(img): Observable<any> {
 

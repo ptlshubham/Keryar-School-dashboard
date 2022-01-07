@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'app/api.service';
 import { ManageService } from 'app/primary/manage.service';
@@ -200,6 +200,7 @@ export class RegisterComponent implements OnInit {
   }
 
   selectBacthTime(name) {
+    debugger
     this.prferTime.forEach(element => {
       if (element.name == name) {
         this.selectedTime = element.name;
@@ -223,6 +224,7 @@ export class RegisterComponent implements OnInit {
   getStandardList() {
     this.manageService.getStdList().subscribe((data: any) => {
       this.stdlist = data;
+      debugger
       this.stdlist.forEach(element => {
         this.registerService.getStudentList(element.id).subscribe((data: any) => {
           element.student = data;
@@ -256,6 +258,7 @@ export class RegisterComponent implements OnInit {
     });
   }
   selectStdList(id) {
+    debugger
     this.list = id;
     this.stdlist.forEach(element => {
       if (element.id == id) {

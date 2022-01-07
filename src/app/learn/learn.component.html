@@ -1,0 +1,167 @@
+<div class="main-content">
+    <!------------------------------------Subject With Chapater Start Here----------------------------------->
+    <div class="card" *ngIf="!showChapter">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-auto mr-auto">
+                    <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="!showChapter">
+        <div class="col-lg-2 col-md-6 col-sm-6" *ngFor="let s of subjects; let i = index">
+            <div class="card card-stats" (click)="openQuestionList(s)" [style.box-shadow]="s.color"
+                style="background-color: #f6fcfc;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="numbers">
+                                <p class="card-title" style="
+                        font-size: 22px !important;
+                        text-align: justify;
+                        font-weight: 600;
+                      ">
+                                    {{ s.subject }}
+                                </p>
+                                <!-- <p class="card-category">Subject: {{s.subjectList.length}} -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <hr />
+                    <div class="stats">Total Chapters: {{ s.chapter.length }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="showChapter">
+        <div class="col-lg-2 col-md-6 col-sm-6" *ngFor="let c of chapater; let i = index">
+            <div class="card card-stats" style="background-color: #f6fcfc;" (click)="openChapterBox(c)"
+                [style.box-shadow]="c.color">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="numbers">
+                                <p class="card-title" style="
+                          font-size: 22px !important;
+                          text-align: justify;
+                          font-weight: 600;
+                        ">
+                                    {{ c.chapname }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <hr />
+                    <div class="stats">Total Questions: {{ c.question.length }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------Subject With Chapater End Here----------------------------------->
+    <div class="card" *ngIf="openSyllabus">
+        <div class="card-header">
+
+            <div class="row">
+                <div class="col-auto mr-auto">
+                    <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                        <i class="fa fa-arrow-left"></i> Back
+                    </button>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="card-title">Display</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-3" *ngFor="let sl of syllabusList">
+                    <div (click)="openVideo(sl.id)">
+                        <div class="img-container">
+                            <img src="http://localhost:3500{{ sl.image }}" />
+                        </div>
+                        <!-- <iframe width="300" height="215" [src]="sl.videolink | safe:'resourceUrl'"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe> -->
+                        <label class="video-title">{{sl.videotitle}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------Video Player Start Here-------------------------------------->
+    <div class="row" *ngIf="openPlayer">
+        <div class="col-lg-8 col-md-12 ">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-auto mr-auto">
+                            <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                                <i class="fa fa-arrow-left"></i> Back
+                            </button>
+                        </div>
+                        <div class="col-md-8">
+                            <h4 class="card-title">Display</h4>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <iframe width="888" height="515" [src]="safeURL | safe:'resourceUrl'"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            <label class="video-title">{{vTitle}}</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="card-text">
+                        <h4 class="card-title">Related Videos</h4>
+                    </div>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let rs of relatedSyllabusVideo">
+                                <td style="padding: 0px 7px !important;" (click)="openVideo(rs.rid)">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="img-container">
+                                                <img src="http://localhost:3500{{ rs.rimage }}" />
+                                            </div>
+                                            <!-- <iframe width="180" height="120" [src]="rs.rlink | safe:'resourceUrl'"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe> -->
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label class="video-related-title">{{rs.rtitle}}</label>
+                                            <label class="col-form-label">{{rs.rdescripition}}</label>
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!------------------------------------------Video Player End Here---------------------------------------->
+</div>

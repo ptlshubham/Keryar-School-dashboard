@@ -69,6 +69,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         MatInputModule,
         ClipboardModule,
         MatSnackBarModule,
+        
         CalendarModule.forRoot({
             provide: DateAdapter,
             useFactory: adapterFactory,

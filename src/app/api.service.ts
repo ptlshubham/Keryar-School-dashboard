@@ -32,6 +32,7 @@ export class ApiService {
   public static updateStandardURL: string = ApiService.HOST_URL + '/admin/UpdateStandardList'
   public static saveSubjectURL: string = ApiService.HOST_URL + '/admin/saveSubject';
   public static getSubjectListURL: string = ApiService.HOST_URL + '/admin/GetSubjectList';
+  public static getSubjectForVideoURL: string = ApiService.HOST_URL + '/admin/GetSubjectForVideo';
   public static updateSubjectURL: string = ApiService.HOST_URL + '/admin/UpdateSujectList/';
   public static removeSubjectURL: string = ApiService.HOST_URL + '/admin/RemoveSubjectList/';
   public static removeStdURL: string = ApiService.HOST_URL + '/admin/RemoveStandardList/';
@@ -48,6 +49,7 @@ export class ApiService {
   public static removeChapaterURL: string = ApiService.HOST_URL + '/admin/RemoveChapaterList/';
   public static saveSyllabusListURL: string = ApiService.HOST_URL + '/admin/SaveSyllabusList';
   public static getAllSyllabusListURL: string = ApiService.HOST_URL + '/admin/GetAllSyllabusList';
+  public static getSyllabusByIdURL: string = ApiService.HOST_URL + '/admin/GetSyllabusById';
   public static updateProfileDataURL: string = ApiService.HOST_URL + '/admin/updateAdminProfile'
   public static removeQueListURL: string = ApiService.HOST_URL + '/admin/removeQueList';
   public static saveTecaherListURL: string = ApiService.HOST_URL + '/authenticate/saveTeacherList';
@@ -127,7 +129,7 @@ export class ApiService {
   public static GetAttendanceCountURL: string = ApiService.HOST_URL + '/admin/GetAttendanceCount';
   public static saveNewTeamMembersURL: string = ApiService.HOST_URL + '/admin/SaveNewTeamMembers';
   public static getAllSubAdminList: string = ApiService.HOST_URL + '/admin/GetAllSubAdminList';
-  public static updateLogoutDetailsURL: string=ApiService.HOST_URL+'/admin/UpdateLogoutDetails'
+  public static updateLogoutDetailsURL: string = ApiService.HOST_URL + '/admin/UpdateLogoutDetails'
   //  public static GetViewVisitorTestListURL: string = ApiService.HOST_URL + '/admin/GetViewVisitorTestList';
   showNotification(from, align, msg, color) {
 

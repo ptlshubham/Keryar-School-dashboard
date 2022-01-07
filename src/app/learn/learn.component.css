@@ -1,0 +1,36 @@
+.video-title {
+    text-align: left;
+    font-family: "Roboto",
+        "Arial",
+        sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    white-space: normal;
+    overflow: hidden;
+    max-height: 4rem;
+    line-height: 2rem;
+    white-space: normal;
+    color: black !important;
+}
+
+.video-related-title {
+    color: black !important;
+    margin: 0 0 4px 0;
+    display: block;
+    margin: 0 0 4px 0;
+    font-family: "Roboto",
+        "Arial",
+        sans-serif;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    font-weight: 500;
+    max-height: 4rem;
+    overflow: hidden;
+    display: block;
+    -webkit-line-clamp: 2;
+    display: box;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+}

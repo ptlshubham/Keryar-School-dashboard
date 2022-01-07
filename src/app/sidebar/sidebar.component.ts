@@ -64,7 +64,6 @@ export const ROUTES: RouteInfo[] = [
     roles: "Admin",
     icontype: "fa fa-laptop",
   },
-
   {
     path: "/calendar",
     title: "Event Calendar",
@@ -72,7 +71,13 @@ export const ROUTES: RouteInfo[] = [
     roles: "Admin",
     icontype: "fa fa-calendar",
   },
-
+  {
+    path: "/learn",
+    title: "Learn",
+    type: "link",
+    roles: "Admin",
+    icontype: "fas fa-book-reader",
+  },
   {
     path: "/banners",
     title: "Banners",
@@ -140,6 +145,13 @@ export const Student: RouteInfo[] = [
     type: "link",
     roles: "Student",
     icontype: "fas fa-comment",
+  },
+  {
+    path: "/learn",
+    title: "Learn",
+    type: "link",
+    roles: "Student",
+    icontype: "fas fa-book-reader",
   },
 ];
 
@@ -304,7 +316,6 @@ export class SidebarComponent implements OnInit {
   }
   ngOnInit() {
     this.userName
-    debugger
     this.in_time = localStorage.getItem("lastInTime");
     this.out_time = localStorage.getItem("lastInTime");
     this.Roles = localStorage.getItem("role");
@@ -325,12 +336,15 @@ export class SidebarComponent implements OnInit {
     });
   }
   logout() {
+    debugger
+    
     this.loginTimeCalculation();
     let data = {
       userid: localStorage.getItem("UserId"),
       loginMinute: this.loginTotalTime
     };
     this.loginService.UpdateLogout(data).subscribe((res) => {
+      debugger
       this.apiService.showNotification('top', 'right', 'Logout Successfully.', 'success');
       localStorage.clear();
       this.router.navigate(['pages/login']);
@@ -353,10 +367,8 @@ export class SidebarComponent implements OnInit {
     }
     var minutes: number = 0;
     minutes = (milisec_diff / 60000);
-    alert('minutes======='+minutes);
     var minutesRound = Math.round(minutes);
     this.loginTotalTime = minutesRound;
-    console.log('Miutes====' + minutesRound);
 
   }
 }
