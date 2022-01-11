@@ -72,13 +72,6 @@ export const ROUTES: RouteInfo[] = [
     icontype: "fa fa-calendar",
   },
   {
-    path: "/learn",
-    title: "Learn",
-    type: "link",
-    roles: "Admin",
-    icontype: "fas fa-book-reader",
-  },
-  {
     path: "/banners",
     title: "Banners",
     type: "link",
@@ -107,11 +100,11 @@ export const ROUTES: RouteInfo[] = [
     roles: "Admin",
     icontype: "fa fa-user",
     children: [
-      { path: "visitorreg", title: "Registration", ab: "VR" },
+      // { path: "visitorreg", title: "Registration", ab: "VR" },
       { path: "visitorlist", title: "Vistor List", ab: "VL" },
       { path: "manageque", title: "Manage Question", ab: "MQ" },
-      { path: "visitortest", title: "Test List", ab: "TL" },
-      { path: "visitorexam", title: "Vistor Test", ab: "VE" },
+      // { path: "visitortest", title: "Test List", ab: "TL" },
+      // { path: "visitorexam", title: "Vistor Test", ab: "VE" },
 
     ],
   },
@@ -337,7 +330,7 @@ export class SidebarComponent implements OnInit {
   }
   logout() {
     debugger
-    
+
     this.loginTimeCalculation();
     let data = {
       userid: localStorage.getItem("UserId"),

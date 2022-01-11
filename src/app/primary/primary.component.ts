@@ -48,6 +48,7 @@ export class PrimaryComponent implements OnInit {
   selectedChap: any;
   public syllabusModel: Syllabus = new Syllabus;
   public syllabusList: Syllabus[] = [];
+  editSyll: Syllabus[] = [];
   imageError: string;
   isImageSaved: boolean = true;
   cardImageBase64: string;
@@ -465,9 +466,52 @@ export class PrimaryComponent implements OnInit {
   getSyllabusList() {
     this.manageService.getAllSyllabusList().subscribe((data: any) => {
       this.syllabusList = data;
+      for (let i = 0; i < this.syllabusList.length; i++) {
+        this.syllabusList[i].index = i + 1;
+      }
     });
   }
+  editSyllabus(data) {
+    debugger
+    this.editSyll = data;
+    this.safeURL = data.videolink;
+    this.vTitle=data.videotitle;
 
+  }
+  removeSyllabusList(id){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You want to delete!",
+      icon: 'warning',
+      showCancelButton: true,
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger',
+      },
+      confirmButtonText: 'Yes',
+      buttonsStyling: false
+    }).then((result) => {
+      if (result.value == true) {
+        this.manageService.removeSyllabusList(id).subscribe((req) => {
+          this.apiService.showNotification('top', 'right', 'Syllabus removed Successfully.', 'success');
+
+        })
+        Swal.fire(
+          {
+            title: 'Deleted!',
+            text: 'Your standard has been deleted.',
+            icon: 'success',
+            customClass: {
+              confirmButton: "btn btn-success",
+            },
+            buttonsStyling: false
+          }
+        )
+        this.getSyllabusList();
+      }
+    })
+
+  }
   //--------------------------------------Syllabus Fuctionallity End Here---------------------------------------
   //--------------------------------------Video Player Fuctionallity Start Here---------------------------------
   openVideo(id) {

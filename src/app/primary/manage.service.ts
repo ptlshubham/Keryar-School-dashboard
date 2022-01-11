@@ -118,4 +118,8 @@ export class ManageService {
   getAttendaceCount(data){
     return this.httpClient.post(ApiService.GetAttendanceCountURL,data);
   }
+  removeSyllabusList(id) {
+    return this.httpClient.get<any>(ApiService.removeSyllabusURL + id);
+
+  }
 }

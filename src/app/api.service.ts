@@ -50,6 +50,7 @@ export class ApiService {
   public static saveSyllabusListURL: string = ApiService.HOST_URL + '/admin/SaveSyllabusList';
   public static getAllSyllabusListURL: string = ApiService.HOST_URL + '/admin/GetAllSyllabusList';
   public static getSyllabusByIdURL: string = ApiService.HOST_URL + '/admin/GetSyllabusById';
+  public static removeSyllabusURL: string = ApiService.HOST_URL + '/admin/RemoveSyllabusList/';
   public static updateProfileDataURL: string = ApiService.HOST_URL + '/admin/updateAdminProfile'
   public static removeQueListURL: string = ApiService.HOST_URL + '/admin/removeQueList';
   public static saveTecaherListURL: string = ApiService.HOST_URL + '/authenticate/saveTeacherList';
