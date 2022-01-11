@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="showChapter">
+    <div class="row" *ngIf="showSyllabus">
         <div class="col-lg-2 col-md-6 col-sm-6" *ngFor="let c of chapater; let i = index">
             <div class="card card-stats" style="background-color: #f6fcfc;" (click)="openChapterBox(c)"
                 [style.box-shadow]="c.color">
@@ -70,7 +70,7 @@
 
             <div class="row">
                 <div class="col-auto mr-auto">
-                    <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                    <button type="cancel" class="btn btn-danger btn-round" (click)="backToChapaterList()">
                         <i class="fa fa-arrow-left"></i> Back
                     </button>
                 </div>
@@ -103,7 +103,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-auto mr-auto">
-                            <button type="cancel" class="btn btn-danger btn-round" routerLink="/dashboard">
+                            <button type="cancel" class="btn btn-danger btn-round" (click)="backToVideoList()">
                                 <i class="fa fa-arrow-left"></i> Back
                             </button>
                         </div>

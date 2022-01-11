@@ -8,7 +8,8 @@ import { RegisterService } from 'app/register/register.service';
 import { Message } from './message.modal';
 import  {io} from 'socket.io-client';
 import { Observable } from 'rxjs';
-const SOCKET_ENDPOINT = 'localhost:3000';
+// const SOCKET_ENDPOINT = 'localhost:3000';
+const SOCKET_ENDPOINT = 'http://31.220.59.174:7500';
 
 @Component({
   selector: 'app-livechat',

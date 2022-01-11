@@ -14,6 +14,7 @@ export class LearnComponent implements OnInit {
   showChapter: boolean = false;
   openSyllabus: boolean = false;
   openPlayer: boolean = false;
+  showSyllabus: boolean = false;
 
   syllabusId: any;
   image: any;
@@ -55,7 +56,10 @@ export class LearnComponent implements OnInit {
         element.color = '3px 3px 5px 5px #ebf0ec';
       }
     })
+    this.showSyllabus = true;
     this.showChapter = true;
+    this.openSyllabus = false;
+    this.openPlayer = false;
     this.subjectId = sub.id;
     // this.subID = sub.id;
     this.getChapaters();
@@ -84,6 +88,9 @@ export class LearnComponent implements OnInit {
       }
     })
     this.openSyllabus = true;
+    this.showChapter = true;
+    this.showSyllabus = true;
+    this.openPlayer = false;
     this.getSyllabusList();
   }
   //--------------------------------------Video Player Fuctionallity Start Here---------------------------------
@@ -93,10 +100,26 @@ export class LearnComponent implements OnInit {
       debugger
     });
   }
+
+  backToVideoList() {
+    this.openPlayer = false;
+    this.openSyllabus = true;
+    this.showSyllabus = true;
+    this.showChapter = true;
+  }
+  backToChapaterList() {
+    this.openSyllabus = false;
+    this.showSyllabus = false;
+    this.openPlayer = false;
+    this.showChapter = false;
+  }
+
   openVideo(id) {
     debugger
     this.openSyllabus = false;
     this.openPlayer = true;
+    this.showChapter = true;
+    this.showSyllabus = false;
 
     this.syllabusList.forEach(element => {
       if (element.id == id) {

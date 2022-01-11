@@ -108,7 +108,7 @@ export class DashboardComponent implements OnInit {
     scales: { xAxes: [{}], yAxes: [{ display: true,
       ticks: {
           beginAtZero: true,
-          stepValue: 10,
+          // stepValue: 10,
           max: 100
       },
       scaleLabel: {
@@ -213,8 +213,11 @@ export class DashboardComponent implements OnInit {
   getAttendanceCount(){
     this.manageService.getAttendaceCount(this.dateList).subscribe((data: any) => {
       this.attendancecount = data;
+      debugger
       this.attendancecount.forEach(element => {
-        element.count = (this.studentsList.length * element.count)/100;
+        element.count = (  element.count * 100)/this.studentsList.length;
+        element.count = Math.floor(element.count);
+        debugger
       });
       
       this.barChartData = [
