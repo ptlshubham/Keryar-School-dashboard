@@ -47,8 +47,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         BrowserAnimationsModule,
         FormsModule,
         RouterModule.forRoot(AppRoutes, {
-            useHash: true
-        }),
+    useHash: true,
+    relativeLinkResolution: 'legacy'
+}),
         NgbModule,
         HttpModule,
         SidebarModule,
